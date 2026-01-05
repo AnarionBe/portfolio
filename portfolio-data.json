@@ -60,36 +60,42 @@
   "projects": [
     {
       "title": "E-Commerce Platform",
-      "description": "A full-stack e-commerce application with user authentication, product management, shopping cart, and payment integration using Stripe.",
-      "technologies": [
-        "React",
-        "Node.js",
-        "PostgreSQL",
-        "Stripe API"
+      "shortDescription": "A full-stack e-commerce application with user authentication, product management, and payment integration.",
+      "longDescription": "A comprehensive e-commerce platform built with modern web technologies. Features include user authentication with JWT, product catalog with advanced filtering, shopping cart functionality, checkout process with Stripe payment integration, order history tracking, and admin dashboard for product management. The application handles 10K+ daily transactions and serves a growing user base.",
+      "skills": ["React", "Node.js", "PostgreSQL"],
+      "image": "https://images.unsplash.com/photo-1557821552-17105176677c?w=800&h=400&fit=crop",
+      "images": [
+        "https://images.unsplash.com/photo-1557821552-17105176677c?w=1200&h=800&fit=crop",
+        "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=1200&h=800&fit=crop",
+        "https://images.unsplash.com/photo-1563013544-824ae1b704d3?w=1200&h=800&fit=crop"
       ],
       "githubUrl": "#",
       "liveUrl": "#"
     },
     {
       "title": "Task Management Dashboard",
-      "description": "Real-time collaborative task management tool with drag-and-drop functionality, team collaboration features, and analytics dashboard.",
-      "technologies": [
-        "Next.js",
-        "TypeScript",
-        "MongoDB",
-        "Socket.io"
+      "shortDescription": "Real-time collaborative task management tool with drag-and-drop functionality and team collaboration.",
+      "longDescription": "An enterprise-grade task management application featuring real-time collaboration through WebSockets, drag-and-drop task organization using React DnD, team workspace management, role-based access control, analytics dashboard with charts and metrics, notification system, and file attachments. Built with a focus on performance and user experience, supporting teams of up to 100 members.",
+      "skills": ["Next.js", "TypeScript", "MongoDB"],
+      "image": "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=800&h=400&fit=crop",
+      "images": [
+        "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=1200&h=800&fit=crop",
+        "https://images.unsplash.com/photo-1507925921958-8a62f3d1a50d?w=1200&h=800&fit=crop",
+        "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=1200&h=800&fit=crop"
       ],
       "githubUrl": "#",
       "liveUrl": "#"
     },
     {
       "title": "Weather Forecast App",
-      "description": "Modern weather application that provides accurate forecasts, interactive maps, and weather alerts using external weather APIs.",
-      "technologies": [
-        "Vue.js",
-        "Tailwind CSS",
-        "Weather API",
-        "Vercel"
+      "shortDescription": "Modern weather application with accurate forecasts, interactive maps, and weather alerts.",
+      "longDescription": "A beautiful and responsive weather forecasting application that leverages multiple weather APIs to provide accurate and detailed weather information. Features include 7-day forecasts, hourly predictions, interactive weather maps with radar, severe weather alerts, location-based weather tracking, historical weather data, and customizable widgets. The app uses advanced caching strategies to minimize API calls and provide offline functionality.",
+      "skills": ["Tailwind CSS", "Node.js"],
+      "image": "https://images.unsplash.com/photo-1592210454359-9043f067919b?w=800&h=400&fit=crop",
+      "images": [
+        "https://images.unsplash.com/photo-1592210454359-9043f067919b?w=1200&h=800&fit=crop",
+        "https://images.unsplash.com/photo-1561553590-267fc716698a?w=1200&h=800&fit=crop",
+        "https://images.unsplash.com/photo-1504608524841-42fe6f032b4b?w=1200&h=800&fit=crop"
       ],
       "githubUrl": "#",
       "liveUrl": "#"
