@@ -26,28 +26,44 @@ interface ProjectsProps {
   onProjectSelect?: (project: Project | null) => void;
 }
 
-export function Projects({ data, allSkills, selectedProject: externalSelectedProject, onProjectSelect }: ProjectsProps) {
+export function Projects({
+  data,
+  allSkills,
+  selectedProject: externalSelectedProject,
+  onProjectSelect,
+}: ProjectsProps) {
   const { ref, isInView } = useInView({ threshold: 0.2 });
-  const [internalSelectedProject, setInternalSelectedProject] = useState<Project | null>(null);
+  const [internalSelectedProject, setInternalSelectedProject] =
+    useState<Project | null>(null);
   const [fullscreenImage, setFullscreenImage] = useState<string | null>(null);
 
   // Use external state if provided, otherwise use internal state
-  const selectedProject = externalSelectedProject !== undefined ? externalSelectedProject : internalSelectedProject;
+  const selectedProject =
+    externalSelectedProject !== undefined
+      ? externalSelectedProject
+      : internalSelectedProject;
   const setSelectedProject = onProjectSelect || setInternalSelectedProject;
 
   const getSkillDetails = (skillSlug: string) => {
-    return allSkills.find(skill => skill.slug === skillSlug);
+    return allSkills.find((skill) => skill.slug === skillSlug);
   };
 
   return (
     <>
-      <section id="projects" className="h-screen snap-start overflow-y-auto px-6 py-24">
+      <section
+        id="projects"
+        className="h-screen snap-start overflow-y-auto px-6 py-24"
+      >
         <div className="max-w-7xl mx-auto w-full">
           <div className="space-y-12">
             <div ref={ref} className="space-y-2">
               <h2 className="text-4xl md:text-5xl font-bold text-foreground">
                 <span className="text-primary">03.</span>{" "}
-                <TypingAnimation text="<Projects />" startTyping={isInView} speed={80} />
+                <TypingAnimation
+                  text="<Projects />"
+                  startTyping={isInView}
+                  speed={80}
+                />
               </h2>
               <div className="h-1 w-96 bg-neutral"></div>
             </div>
@@ -136,7 +152,10 @@ export function Projects({ data, allSkills, selectedProject: externalSelectedPro
               ✕
             </button>
 
-            <Card image={selectedProject.image} imageAlt={selectedProject.title}>
+            <Card
+              image={selectedProject.image}
+              imageAlt={selectedProject.title}
+            >
               <div className="space-y-6">
                 <h2 className="text-3xl font-bold text-foreground">
                   {selectedProject.title}
@@ -147,43 +166,46 @@ export function Projects({ data, allSkills, selectedProject: externalSelectedPro
                 </p>
 
                 {/* Image Gallery */}
-                {selectedProject.images && selectedProject.images.length > 0 && (
-                  <div className="space-y-3">
-                    <h3 className="text-lg font-semibold text-foreground">
-                      Project Screenshots
-                    </h3>
-                    <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
-                      {selectedProject.images.map((img, index) => (
-                        <div
-                          key={index}
-                          className="relative aspect-video rounded-lg overflow-hidden cursor-pointer group border border-neutral/30 hover:border-primary/50 transition-all duration-300"
-                          onClick={() => setFullscreenImage(img)}
-                        >
-                          <img
-                            src={img}
-                            alt={`${selectedProject.title} screenshot ${index + 1}`}
-                            className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
-                          />
-                          <div className="absolute inset-0 bg-background/0 group-hover:bg-background/20 transition-colors duration-300 flex items-center justify-center">
-                            <svg
-                              className="w-8 h-8 text-foreground opacity-0 group-hover:opacity-100 transition-opacity duration-300"
-                              fill="none"
-                              stroke="currentColor"
-                              viewBox="0 0 24 24"
-                            >
-                              <path
-                                strokeLinecap="round"
-                                strokeLinejoin="round"
-                                strokeWidth={2}
-                                d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7"
-                              />
-                            </svg>
+                {selectedProject.images &&
+                  selectedProject.images.length > 0 && (
+                    <div className="space-y-3">
+                      <h3 className="text-lg font-semibold text-foreground">
+                        Project Screenshots
+                      </h3>
+                      <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
+                        {selectedProject.images.map((img, index) => (
+                          <div
+                            key={index}
+                            className="relative aspect-video rounded-lg overflow-hidden cursor-pointer group border border-neutral/30 hover:border-primary/50 transition-all duration-300"
+                            onClick={() => setFullscreenImage(img)}
+                          >
+                            <img
+                              src={img}
+                              alt={`${selectedProject.title} screenshot ${
+                                index + 1
+                              }`}
+                              className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                            />
+                            <div className="absolute inset-0 bg-background/0 group-hover:bg-background/20 transition-colors duration-300 flex items-center justify-center">
+                              <svg
+                                className="w-8 h-8 text-foreground opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+                                fill="none"
+                                stroke="currentColor"
+                                viewBox="0 0 24 24"
+                              >
+                                <path
+                                  strokeLinecap="round"
+                                  strokeLinejoin="round"
+                                  strokeWidth={2}
+                                  d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7"
+                                />
+                              </svg>
+                            </div>
                           </div>
-                        </div>
-                      ))}
+                        ))}
+                      </div>
                     </div>
-                  </div>
-                )}
+                  )}
 
                 <div className="space-y-3">
                   <h3 className="text-lg font-semibold text-foreground">
@@ -197,12 +219,9 @@ export function Projects({ data, allSkills, selectedProject: externalSelectedPro
                           key={skillSlug}
                           className="px-3 py-2 rounded-lg bg-primary/10 text-primary border border-primary/30 flex items-center gap-2"
                         >
-                          <span className="font-medium">{skill?.name || skillSlug}</span>
-                          {skill && (
-                            <span className="text-xs text-foreground/60">
-                              {skill.level}
-                            </span>
-                          )}
+                          <span className="font-medium">
+                            {skill?.name || skillSlug}
+                          </span>
                         </div>
                       );
                     })}
