@@ -1,11 +1,35 @@
+import { Card } from "./card";
+import * as SimpleIcons from "react-icons/si";
+
+interface Skill {
+  name: string;
+  level: string;
+  icon: string;
+}
+
 interface SkillsProps {
-  data: Array<{
-    title: string;
-    skills: string[];
-  }>;
+  data: Skill[];
 }
 
 export function Skills({ data }: SkillsProps) {
+  const getLevelColor = (level: string) => {
+    switch (level.toLowerCase()) {
+      case "advanced":
+        return "text-success";
+      case "intermediate":
+        return "text-info";
+      case "beginner":
+        return "text-warning";
+      default:
+        return "text-foreground/70";
+    }
+  };
+
+  const getIcon = (iconName: string) => {
+    const Icon = SimpleIcons[iconName as keyof typeof SimpleIcons];
+    return Icon ? <Icon className="w-12 h-12 text-primary" /> : null;
+  };
+
   return (
     <section id="skills" className="h-screen snap-start overflow-y-auto px-6 py-24">
       <div className="max-w-7xl mx-auto w-full">
@@ -17,27 +41,19 @@ export function Skills({ data }: SkillsProps) {
             <div className="h-1 w-96 bg-neutral"></div>
           </div>
 
-          <div className="grid md:grid-cols-3 gap-8">
-            {data.map((category) => (
-              <div
-                key={category.title}
-                className="bg-secondary border border-neutral rounded-lg p-6 space-y-4"
-              >
-                <h3 className="text-xl font-bold text-primary">
-                  {category.title}
-                </h3>
-                <ul className="space-y-2">
-                  {category.skills.map((skill) => (
-                    <li
-                      key={skill}
-                      className="text-foreground/70 flex items-center gap-2"
-                    >
-                      <span className="text-primary">▹</span>
-                      {skill}
-                    </li>
-                  ))}
-                </ul>
-              </div>
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6">
+            {data.map((skill) => (
+              <Card key={skill.name} hover className="flex flex-col items-center text-center space-y-3">
+                <div className="flex items-center justify-center h-16">
+                  {getIcon(skill.icon)}
+                </div>
+                <div className="space-y-1">
+                  <h3 className="font-semibold text-foreground">{skill.name}</h3>
+                  <p className={`text-sm ${getLevelColor(skill.level)}`}>
+                    {skill.level}
+                  </p>
+                </div>
+              </Card>
             ))}
           </div>
         </div>
