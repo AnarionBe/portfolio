@@ -24,9 +24,10 @@ interface Project {
 interface SkillsProps {
   data: Skill[];
   projects: Project[];
+  onProjectClick?: (project: Project) => void;
 }
 
-export function Skills({ data, projects }: SkillsProps) {
+export function Skills({ data, projects, onProjectClick }: SkillsProps) {
   const { ref, isInView } = useInView({ threshold: 0.2 });
   const [selectedSkill, setSelectedSkill] = useState<Skill | null>(null);
 
@@ -134,7 +135,13 @@ export function Skills({ data, projects }: SkillsProps) {
                       {getProjectsForSkill(selectedSkill.name).map((project) => (
                         <div
                           key={project.title}
-                          className="relative bg-secondary/40 backdrop-blur-md border border-neutral/30 rounded-lg p-4 overflow-hidden hover:border-primary/50 transition-all duration-300"
+                          onClick={() => {
+                            if (onProjectClick) {
+                              setSelectedSkill(null);
+                              onProjectClick(project);
+                            }
+                          }}
+                          className="relative bg-secondary/40 backdrop-blur-md border border-neutral/30 rounded-lg p-4 overflow-hidden hover:border-primary/50 transition-all duration-300 cursor-pointer"
                         >
                           <div className="space-y-2">
                             <div className="flex items-start justify-between gap-4">
