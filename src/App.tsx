@@ -11,7 +11,7 @@ function App() {
       <NavBar />
       <Hero data={portfolioData.hero} />
       <Skills data={portfolioData.skills} />
-      <Projects data={portfolioData.projects} />
+      <Projects data={portfolioData.projects} allSkills={portfolioData.skills} />
       <Experience data={portfolioData.experience} />
     </div>
   );
