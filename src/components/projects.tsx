@@ -21,12 +21,18 @@ interface ProjectsProps {
     level: string;
     icon: string;
   }>;
+  selectedProject?: Project | null;
+  onProjectSelect?: (project: Project | null) => void;
 }
 
-export function Projects({ data, allSkills }: ProjectsProps) {
+export function Projects({ data, allSkills, selectedProject: externalSelectedProject, onProjectSelect }: ProjectsProps) {
   const { ref, isInView } = useInView({ threshold: 0.2 });
-  const [selectedProject, setSelectedProject] = useState<Project | null>(null);
+  const [internalSelectedProject, setInternalSelectedProject] = useState<Project | null>(null);
   const [fullscreenImage, setFullscreenImage] = useState<string | null>(null);
+
+  // Use external state if provided, otherwise use internal state
+  const selectedProject = externalSelectedProject !== undefined ? externalSelectedProject : internalSelectedProject;
+  const setSelectedProject = onProjectSelect || setInternalSelectedProject;
 
   const getSkillDetails = (skillName: string) => {
     return allSkills.find(skill => skill.name === skillName);
