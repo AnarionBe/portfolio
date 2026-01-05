@@ -9,10 +9,20 @@ interface ExperienceProps {
     description: string[];
     technologies: string[];
   }>;
+  allSkills: Array<{
+    slug: string;
+    name: string;
+    level: string;
+    icon: string;
+  }>;
 }
 
-export function Experience({ data }: ExperienceProps) {
+export function Experience({ data, allSkills }: ExperienceProps) {
   const { ref, isInView } = useInView({ threshold: 0.2 });
+
+  const getSkillName = (skillSlug: string) => {
+    return allSkills.find(skill => skill.slug === skillSlug)?.name || skillSlug;
+  };
 
   return (
     <section id="experience" className="h-screen snap-start overflow-y-auto px-6 py-24">
@@ -55,12 +65,12 @@ export function Experience({ data }: ExperienceProps) {
                 </ul>
 
                 <div className="flex flex-wrap gap-2 pt-2">
-                  {exp.technologies.map((tech) => (
+                  {exp.technologies.map((techSlug) => (
                     <span
-                      key={tech}
+                      key={techSlug}
                       className="text-xs bg-neutral text-primary px-3 py-1 rounded-full"
                     >
-                      {tech}
+                      {getSkillName(techSlug)}
                     </span>
                   ))}
                 </div>

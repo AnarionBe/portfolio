@@ -35,7 +35,7 @@ function App() {
         selectedProject={selectedProject}
         onProjectSelect={setSelectedProject}
       />
-      <Experience data={portfolioData.experience} />
+      <Experience data={portfolioData.experience} allSkills={portfolioData.skills} />
     </div>
   );
 }
