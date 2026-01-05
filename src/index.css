@@ -57,3 +57,33 @@ html {
     scroll-behavior: smooth;
   }
 }
+
+/* Custom Scrollbar */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: oklch(72% 0.15 180) oklch(17% 0.018 255);
+}
+
+*::-webkit-scrollbar {
+  width: 12px;
+  height: 12px;
+}
+
+*::-webkit-scrollbar-track {
+  background: oklch(17% 0.018 255);
+  border-radius: 0;
+}
+
+*::-webkit-scrollbar-thumb {
+  background: oklch(72% 0.15 180);
+  border-radius: 6px;
+  border: 2px solid oklch(17% 0.018 255);
+}
+
+*::-webkit-scrollbar-thumb:hover {
+  background: oklch(75% 0.18 180);
+}
+
+*::-webkit-scrollbar-thumb:active {
+  background: oklch(68% 0.12 180);
+}
