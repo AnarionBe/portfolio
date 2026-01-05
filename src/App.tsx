@@ -35,7 +35,12 @@ function App() {
         selectedProject={selectedProject}
         onProjectSelect={setSelectedProject}
       />
-      <Experience data={portfolioData.experience} allSkills={portfolioData.skills} />
+      <Experience
+        data={portfolioData.experience}
+        allSkills={portfolioData.skills}
+        allProjects={portfolioData.projects}
+        onProjectClick={setSelectedProject}
+      />
     </div>
   );
 }

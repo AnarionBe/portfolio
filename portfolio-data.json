@@ -127,6 +127,8 @@
       "company": "Tech Innovations Inc.",
       "position": "Senior Frontend Developer",
       "period": "2023 - Present",
+      "location": "San Francisco, CA",
+      "shortDescription": "Leading frontend development for enterprise applications",
       "description": [
         "Led development of customer-facing web applications serving 100K+ users",
         "Implemented modern React patterns and reduced bundle size by 40%",
@@ -138,12 +140,17 @@
         "typescript",
         "nextjs",
         "aws"
+      ],
+      "projects": [
+        "Task Management Dashboard"
       ]
     },
     {
       "company": "Digital Solutions Ltd.",
       "position": "Full Stack Developer",
       "period": "2021 - 2023",
+      "location": "Remote",
+      "shortDescription": "Built scalable full-stack web applications",
       "description": [
         "Built and maintained RESTful APIs handling 1M+ requests daily",
         "Developed responsive web applications using React and Vue.js",
@@ -155,12 +162,17 @@
         "react",
         "postgresql",
         "docker"
+      ],
+      "projects": [
+        "E-Commerce Platform"
       ]
     },
     {
       "company": "StartUp Ventures",
       "position": "Junior Web Developer",
       "period": "2020 - 2021",
+      "location": "New York, NY",
+      "shortDescription": "Developed features for e-commerce platforms",
       "description": [
         "Developed features for e-commerce platform using modern JavaScript",
         "Fixed bugs and improved application performance",
@@ -172,6 +184,9 @@
         "express",
         "mongodb",
         "jest"
+      ],
+      "projects": [
+        "Weather Forecast App"
       ]
     }
   ]
