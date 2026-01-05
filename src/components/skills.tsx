@@ -1,4 +1,6 @@
 import { Card } from "./card";
+import { TypingAnimation } from "./typing-animation";
+import { useInView } from "../hooks/use-in-view";
 import * as SimpleIcons from "react-icons/si";
 
 interface Skill {
@@ -12,6 +14,8 @@ interface SkillsProps {
 }
 
 export function Skills({ data }: SkillsProps) {
+  const { ref, isInView } = useInView({ threshold: 0.2 });
+
   const getLevelColor = (level: string) => {
     switch (level.toLowerCase()) {
       case "advanced":
@@ -34,9 +38,10 @@ export function Skills({ data }: SkillsProps) {
     <section id="skills" className="h-screen snap-start overflow-y-auto px-6 py-24">
       <div className="max-w-7xl mx-auto w-full">
         <div className="space-y-12">
-          <div className="space-y-2">
+          <div ref={ref} className="space-y-2">
             <h2 className="text-4xl md:text-5xl font-bold text-foreground">
-              <span className="text-primary">02.</span> {"<Skills />"}
+              <span className="text-primary">02.</span>{" "}
+              <TypingAnimation text="<Skills />" startTyping={isInView} speed={80} />
             </h2>
             <div className="h-1 w-96 bg-neutral"></div>
           </div>
