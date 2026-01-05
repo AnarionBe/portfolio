@@ -5,6 +5,7 @@ import { useInView } from "../hooks/use-in-view";
 import * as SimpleIcons from "react-icons/si";
 
 interface Skill {
+  slug: string;
   name: string;
   level: string;
   icon: string;
@@ -49,8 +50,8 @@ export function Skills({ data, projects, onProjectClick }: SkillsProps) {
     return Icon ? <Icon className="w-12 h-12 text-primary" /> : null;
   };
 
-  const getProjectsForSkill = (skillName: string) => {
-    return projects.filter((project) => project.skills.includes(skillName));
+  const getProjectsForSkill = (skillSlug: string) => {
+    return projects.filter((project) => project.skills.includes(skillSlug));
   };
 
   return (
@@ -146,9 +147,9 @@ export function Skills({ data, projects, onProjectClick }: SkillsProps) {
                     Projects using {selectedSkill.name}
                   </h3>
 
-                  {getProjectsForSkill(selectedSkill.name).length > 0 ? (
+                  {getProjectsForSkill(selectedSkill.slug).length > 0 ? (
                     <div className="space-y-4">
-                      {getProjectsForSkill(selectedSkill.name).map(
+                      {getProjectsForSkill(selectedSkill.slug).map(
                         (project) => (
                           <div
                             key={project.title}
@@ -170,18 +171,21 @@ export function Skills({ data, projects, onProjectClick }: SkillsProps) {
                                 {project.shortDescription}
                               </p>
                               <div className="flex flex-wrap gap-2 pt-2">
-                                {project.skills.map((skillName) => (
-                                  <span
-                                    key={skillName}
-                                    className={`text-xs px-2 py-1 rounded border ${
-                                      skillName === selectedSkill.name
-                                        ? "bg-primary/20 text-primary border-primary/50"
-                                        : "bg-neutral/50 text-foreground/70 border-neutral/30"
-                                    }`}
-                                  >
-                                    {skillName}
-                                  </span>
-                                ))}
+                                {project.skills.map((skillSlug) => {
+                                  const skill = data.find(s => s.slug === skillSlug);
+                                  return (
+                                    <span
+                                      key={skillSlug}
+                                      className={`text-xs px-2 py-1 rounded border ${
+                                        skillSlug === selectedSkill.slug
+                                          ? "bg-primary/20 text-primary border-primary/50"
+                                          : "bg-neutral/50 text-foreground/70 border-neutral/30"
+                                      }`}
+                                    >
+                                      {skill?.name || skillSlug}
+                                    </span>
+                                  );
+                                })}
                               </div>
                             </div>
                           </div>

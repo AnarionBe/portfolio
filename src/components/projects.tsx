@@ -17,6 +17,7 @@ interface Project {
 interface ProjectsProps {
   data: Project[];
   allSkills: Array<{
+    slug: string;
     name: string;
     level: string;
     icon: string;
@@ -34,8 +35,8 @@ export function Projects({ data, allSkills, selectedProject: externalSelectedPro
   const selectedProject = externalSelectedProject !== undefined ? externalSelectedProject : internalSelectedProject;
   const setSelectedProject = onProjectSelect || setInternalSelectedProject;
 
-  const getSkillDetails = (skillName: string) => {
-    return allSkills.find(skill => skill.name === skillName);
+  const getSkillDetails = (skillSlug: string) => {
+    return allSkills.find(skill => skill.slug === skillSlug);
   };
 
   return (
@@ -97,13 +98,14 @@ export function Projects({ data, allSkills, selectedProject: externalSelectedPro
                   {/* Technology tags over the image */}
                   {project.image && (
                     <div className="absolute top-4 left-4 right-4 flex flex-wrap gap-2 z-10 pointer-events-none">
-                      {project.skills.map((skillName) => {
+                      {project.skills.map((skillSlug) => {
+                        const skill = getSkillDetails(skillSlug);
                         return (
                           <span
-                            key={skillName}
+                            key={skillSlug}
                             className="text-xs px-2 py-1 rounded bg-background/80 backdrop-blur-sm text-primary border border-primary/30 shadow-lg"
                           >
-                            {skillName}
+                            {skill?.name || skillSlug}
                           </span>
                         );
                       })}
@@ -188,14 +190,14 @@ export function Projects({ data, allSkills, selectedProject: externalSelectedPro
                     Technologies Used
                   </h3>
                   <div className="flex flex-wrap gap-3">
-                    {selectedProject.skills.map((skillName) => {
-                      const skill = getSkillDetails(skillName);
+                    {selectedProject.skills.map((skillSlug) => {
+                      const skill = getSkillDetails(skillSlug);
                       return (
                         <div
-                          key={skillName}
+                          key={skillSlug}
                           className="px-3 py-2 rounded-lg bg-primary/10 text-primary border border-primary/30 flex items-center gap-2"
                         >
-                          <span className="font-medium">{skillName}</span>
+                          <span className="font-medium">{skill?.name || skillSlug}</span>
                           {skill && (
                             <span className="text-xs text-foreground/60">
                               {skill.level}
