@@ -1,7 +1,7 @@
 {
   "hero": {
-    "name": "Your Name",
-    "title": "I build things for the web",
+    "name": "Marco De Bona",
+    "title": "Web Artisan",
     "greeting": "Hi, my name is",
     "description": "I'm a web developer specializing in building exceptional digital experiences. Currently, I'm focused on building accessible, human-centered products using modern web technologies."
   },
@@ -62,7 +62,11 @@
       "title": "E-Commerce Platform",
       "shortDescription": "A full-stack e-commerce application with user authentication, product management, and payment integration.",
       "longDescription": "A comprehensive e-commerce platform built with modern web technologies. Features include user authentication with JWT, product catalog with advanced filtering, shopping cart functionality, checkout process with Stripe payment integration, order history tracking, and admin dashboard for product management. The application handles 10K+ daily transactions and serves a growing user base.",
-      "skills": ["React", "Node.js", "PostgreSQL"],
+      "skills": [
+        "React",
+        "Node.js",
+        "PostgreSQL"
+      ],
       "image": "https://images.unsplash.com/photo-1557821552-17105176677c?w=800&h=400&fit=crop",
       "images": [
         "https://images.unsplash.com/photo-1557821552-17105176677c?w=1200&h=800&fit=crop",
@@ -76,7 +80,11 @@
       "title": "Task Management Dashboard",
       "shortDescription": "Real-time collaborative task management tool with drag-and-drop functionality and team collaboration.",
       "longDescription": "An enterprise-grade task management application featuring real-time collaboration through WebSockets, drag-and-drop task organization using React DnD, team workspace management, role-based access control, analytics dashboard with charts and metrics, notification system, and file attachments. Built with a focus on performance and user experience, supporting teams of up to 100 members.",
-      "skills": ["Next.js", "TypeScript", "MongoDB"],
+      "skills": [
+        "Next.js",
+        "TypeScript",
+        "MongoDB"
+      ],
       "image": "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=800&h=400&fit=crop",
       "images": [
         "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=1200&h=800&fit=crop",
@@ -90,7 +98,10 @@
       "title": "Weather Forecast App",
       "shortDescription": "Modern weather application with accurate forecasts, interactive maps, and weather alerts.",
       "longDescription": "A beautiful and responsive weather forecasting application that leverages multiple weather APIs to provide accurate and detailed weather information. Features include 7-day forecasts, hourly predictions, interactive weather maps with radar, severe weather alerts, location-based weather tracking, historical weather data, and customizable widgets. The app uses advanced caching strategies to minimize API calls and provide offline functionality.",
-      "skills": ["Tailwind CSS", "Node.js"],
+      "skills": [
+        "Tailwind CSS",
+        "Node.js"
+      ],
       "image": "https://images.unsplash.com/photo-1592210454359-9043f067919b?w=800&h=400&fit=crop",
       "images": [
         "https://images.unsplash.com/photo-1592210454359-9043f067919b?w=1200&h=800&fit=crop",
