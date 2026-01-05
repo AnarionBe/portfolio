@@ -1,200 +1,241 @@
 {
   "hero": {
     "name": "Marco De Bona",
-    "title": "Web Artisan",
+    "title": "Senior Fullstack Developer",
     "greeting": "Hi, my name is",
-    "description": "I'm a web developer specializing in building exceptional digital experiences. Currently, I'm focused on building accessible, human-centered products using modern web technologies.",
-    "email": "marco.debona@example.com",
-    "phone": "+1 (555) 123-4567",
-    "profileImage": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=400&fit=crop",
+    "description": "I'm a senior fullstack developer specializing in building modern web and mobile applications. I focus on creating accessible, human-centered products using cutting-edge technologies and AI.",
+    "email": "",
+    "phone": "",
+    "profileImage": "",
     "socialLinks": {
       "github": "https://github.com/marcodebona",
       "linkedin": "https://linkedin.com/in/marcodebona"
     }
   },
+  "languages": [
+    {
+      "name": "French",
+      "level": "Native/Bilingual"
+    },
+    {
+      "name": "English",
+      "level": "Proficient"
+    }
+  ],
   "skills": [
+    {
+      "slug": "javascript",
+      "name": "JavaScript",
+      "level": "Advanced",
+      "icon": "SiJavascript",
+      "projects": []
+    },
     {
       "slug": "react",
       "name": "React",
       "level": "Advanced",
-      "icon": "SiReact"
+      "icon": "SiReact",
+      "projects": []
     },
     {
       "slug": "typescript",
       "name": "TypeScript",
       "level": "Advanced",
-      "icon": "SiTypescript"
+      "icon": "SiTypescript",
+      "projects": []
+    },
+    {
+      "slug": "vuejs",
+      "name": "Vue.js",
+      "level": "Advanced",
+      "icon": "SiVueDotJs",
+      "projects": []
+    },
+    {
+      "slug": "react_native",
+      "name": "React Native",
+      "level": "Advanced",
+      "icon": "SiReact",
+      "projects": []
     },
     {
       "slug": "nextjs",
       "name": "Next.js",
       "level": "Intermediate",
-      "icon": "SiNextdotjs"
+      "icon": "SiNextdotjs",
+      "projects": []
+    },
+    {
+      "slug": "nuxtjs",
+      "name": "Nuxt.js",
+      "level": "Intermediate",
+      "icon": "SiNuxtDotJs",
+      "projects": []
+    },
+    {
+      "slug": "adonisjs",
+      "name": "AdonisJs",
+      "level": "Advanced",
+      "icon": "SiAdonisjs",
+      "projects": []
+    },
+    {
+      "slug": "html",
+      "name": "HTML",
+      "level": "Advanced",
+      "icon": "SiHtml5",
+      "projects": []
+    },
+    {
+      "slug": "css",
+      "name": "CSS",
+      "level": "Advanced",
+      "icon": "SiCss3",
+      "projects": []
     },
     {
       "slug": "tailwind_css",
       "name": "Tailwind CSS",
       "level": "Advanced",
-      "icon": "SiTailwindcss"
+      "icon": "SiTailwindcss",
+      "projects": []
     },
     {
-      "slug": "nodejs",
-      "name": "Node.js",
-      "level": "Advanced",
-      "icon": "SiNodedotjs"
-    },
-    {
-      "slug": "postgresql",
-      "name": "PostgreSQL",
+      "slug": "php",
+      "name": "PHP",
       "level": "Intermediate",
-      "icon": "SiPostgresql"
+      "icon": "SiPhp",
+      "projects": []
     },
     {
-      "slug": "mongodb",
-      "name": "MongoDB",
+      "slug": "laravel",
+      "name": "Laravel",
       "level": "Intermediate",
-      "icon": "SiMongodb"
+      "icon": "SiLaravel",
+      "projects": []
+    }
+  ],
+  "tools": [
+    {
+      "name": "Git / GitHub",
+      "level": "Advanced"
     },
     {
-      "slug": "docker",
       "name": "Docker",
-      "level": "Intermediate",
-      "icon": "SiDocker"
+      "level": "Intermediate"
     },
     {
-      "slug": "git",
-      "name": "Git",
-      "level": "Advanced",
-      "icon": "SiGit"
+      "name": "Scaleway",
+      "level": "Intermediate"
     },
     {
-      "slug": "aws",
-      "name": "AWS",
-      "level": "Beginner",
-      "icon": "SiAmazonaws"
+      "name": "Linux",
+      "level": "Intermediate"
+    }
+  ],
+  "soft_skills": [
+    {
+      "name": "Fast learner",
+      "description": "I learn fast. It can be either to learn a new language or to discover a new codebase."
+    },
+    {
+      "name": "Product Vision",
+      "description": "I have a good product vision allowing me to make accurate suggestions for features and priorities."
     }
   ],
   "projects": [
     {
-      "title": "E-Commerce Platform",
-      "shortDescription": "A full-stack e-commerce application with user authentication, product management, and payment integration.",
-      "longDescription": "A comprehensive e-commerce platform built with modern web technologies. Features include user authentication with JWT, product catalog with advanced filtering, shopping cart functionality, checkout process with Stripe payment integration, order history tracking, and admin dashboard for product management. The application handles 10K+ daily transactions and serves a growing user base.",
-      "skills": [
-        "react",
-        "nodejs",
-        "postgresql"
+      "title": "DevMind",
+      "period": "09/2025 - Present",
+      "shortDescription": "AI assistant to help developers manage their projects",
+      "longDescription": "An AI-powered project management tool designed to streamline workflows for developers. By leveraging AI, DevMind automatically generates, documents, and prioritizes tasks, providing accurate time estimates based on individual skills, historical task data, and project priorities. The goal is to reduce manual planning, improve productivity, and ensure cohesive roadmap execution for solo developers.",
+      "technologies": [
+        "Oclif",
+        "AdonisJs",
+        "MistralAI"
       ],
-      "image": "https://images.unsplash.com/photo-1557821552-17105176677c?w=800&h=400&fit=crop",
-      "images": [
-        "https://images.unsplash.com/photo-1557821552-17105176677c?w=1200&h=800&fit=crop",
-        "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=1200&h=800&fit=crop",
-        "https://images.unsplash.com/photo-1563013544-824ae1b704d3?w=1200&h=800&fit=crop"
-      ],
-      "githubUrl": "#",
-      "liveUrl": "#"
+      "image": "",
+      "images": [],
+      "githubUrl": "",
+      "liveUrl": "",
+      "skills": []
     },
     {
-      "title": "Task Management Dashboard",
-      "shortDescription": "Real-time collaborative task management tool with drag-and-drop functionality and team collaboration.",
-      "longDescription": "An enterprise-grade task management application featuring real-time collaboration through WebSockets, drag-and-drop task organization using React DnD, team workspace management, role-based access control, analytics dashboard with charts and metrics, notification system, and file attachments. Built with a focus on performance and user experience, supporting teams of up to 100 members.",
-      "skills": [
-        "nextjs",
-        "typescript",
-        "mongodb"
+      "title": "Metal Galaxy",
+      "shortDescription": "Metal Music encyclopedia",
+      "longDescription": "The platform includes detailed references to metal bands, songs, albums, tours, and more, providing users with an extensive database to explore and discover metal music. Key features include user reviews, real-time updates, and a community-driven approach to ensure accurate and up-to-date information.",
+      "technologies": [
+        "React",
+        "AdonisJs",
+        "TailwindCss"
       ],
-      "image": "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=800&h=400&fit=crop",
-      "images": [
-        "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=1200&h=800&fit=crop",
-        "https://images.unsplash.com/photo-1507925921958-8a62f3d1a50d?w=1200&h=800&fit=crop",
-        "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=1200&h=800&fit=crop"
-      ],
-      "githubUrl": "#",
-      "liveUrl": "#"
-    },
-    {
-      "title": "Weather Forecast App",
-      "shortDescription": "Modern weather application with accurate forecasts, interactive maps, and weather alerts.",
-      "longDescription": "A beautiful and responsive weather forecasting application that leverages multiple weather APIs to provide accurate and detailed weather information. Features include 7-day forecasts, hourly predictions, interactive weather maps with radar, severe weather alerts, location-based weather tracking, historical weather data, and customizable widgets. The app uses advanced caching strategies to minimize API calls and provide offline functionality.",
-      "skills": [
-        "tailwind_css",
-        "nodejs"
-      ],
-      "image": "https://images.unsplash.com/photo-1592210454359-9043f067919b?w=800&h=400&fit=crop",
-      "images": [
-        "https://images.unsplash.com/photo-1592210454359-9043f067919b?w=1200&h=800&fit=crop",
-        "https://images.unsplash.com/photo-1561553590-267fc716698a?w=1200&h=800&fit=crop",
-        "https://images.unsplash.com/photo-1504608524841-42fe6f032b4b?w=1200&h=800&fit=crop"
-      ],
-      "githubUrl": "#",
-      "liveUrl": "#"
+      "image": "",
+      "images": [],
+      "githubUrl": "",
+      "liveUrl": "",
+      "skills": []
     }
   ],
   "experience": [
     {
-      "company": "Tech Innovations Inc.",
-      "position": "Senior Frontend Developer",
-      "period": "2023 - Present",
-      "location": "San Francisco, CA",
-      "shortDescription": "Leading frontend development for enterprise applications",
+      "company": "FixPilot (Startup creation)",
+      "position": "Lead Fullstack Developer",
+      "period": "01/2025 - 07/2025",
+      "location": "Brussels, Belgium",
+      "shortDescription": "The tool leverages artificial intelligence to streamline communications, manage work orders, and handle invoices, significantly reducing manual effort and increasing efficiency.",
       "description": [
-        "Led development of customer-facing web applications serving 100K+ users",
-        "Implemented modern React patterns and reduced bundle size by 40%",
-        "Mentored junior developers and conducted code reviews",
-        "Collaborated with design team to improve UI/UX consistency"
+        "Made the whole development and DevOps from scratch.",
+        "Key features include automated responses to providers, real-time status tracking of work orders, and seamless invoice management."
       ],
       "technologies": [
-        "react",
-        "typescript",
-        "nextjs",
-        "aws"
+        "NextJs",
+        "AdonisJs",
+        "TailwindCss",
+        "Vue.js",
+        "Ruby On Rails"
       ],
-      "projects": [
-        "Task Management Dashboard"
-      ]
+      "projects": []
     },
     {
-      "company": "Digital Solutions Ltd.",
-      "position": "Full Stack Developer",
-      "period": "2021 - 2023",
-      "location": "Remote",
-      "shortDescription": "Built scalable full-stack web applications",
-      "description": [
-        "Built and maintained RESTful APIs handling 1M+ requests daily",
-        "Developed responsive web applications using React and Vue.js",
-        "Integrated third-party services and payment gateways",
-        "Optimized database queries improving response time by 60%"
-      ],
+      "company": "Flowchase",
+      "position": "Lead Fullstack Developer",
+      "period": "11/2023 - 12/2024",
+      "location": "Brussels, Belgium",
+      "shortDescription": "Developed and stabilized a React Native application, enhancing performance and user experience. Designed and implemented a web application for English language training using React and Node.js.",
+      "description": [],
       "technologies": [
-        "nodejs",
-        "react",
-        "postgresql",
-        "docker"
+        "NodeJs",
+        "React",
+        "React Native"
       ],
-      "projects": [
-        "E-Commerce Platform"
-      ]
+      "projects": []
     },
     {
-      "company": "StartUp Ventures",
-      "position": "Junior Web Developer",
-      "period": "2020 - 2021",
-      "location": "New York, NY",
-      "shortDescription": "Developed features for e-commerce platforms",
-      "description": [
-        "Developed features for e-commerce platform using modern JavaScript",
-        "Fixed bugs and improved application performance",
-        "Participated in agile development process and daily standups",
-        "Wrote unit tests achieving 80% code coverage"
-      ],
+      "company": "Infinity Mobile",
+      "position": "Web & Mobile Developer",
+      "period": "2019 - 2023",
+      "location": "",
+      "shortDescription": "Maintained and optimized a legacy React Native application. Led the maintenance and enhancement of the Shopitag platform, leveraging Vue.js and Laravel. Developed an NFT/POAP wallet using Vue.js. Enhanced user experience on the Sayl Resto platform through targeted improvements and updates using Vue.js.",
+      "description": [],
       "technologies": [
-        "javascript",
-        "express",
-        "mongodb",
-        "jest"
+        "Laravel",
+        "Vue.js",
+        "React Native"
       ],
-      "projects": [
-        "Weather Forecast App"
-      ]
+      "projects": []
+    },
+    {
+      "company": "Mango 3D",
+      "position": "Junior Software Developer (Intern)",
+      "period": "",
+      "location": "",
+      "shortDescription": "Implemented a robust recurring payment system using Node.js. Developed a Time-lapse feature for printers using GoLang. Conducted research and development to optimize image display time on Raspberry Pi using C. Designed and created a connection portal for printers, facilitating efficient and reliable connectivity.",
+      "description": [],
+      "technologies": [
+        "Golang",
+        "NodeJs"
+      ],
+      "projects": []
     }
   ]
 }
