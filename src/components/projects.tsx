@@ -50,12 +50,13 @@ export function Projects({ data, allSkills }: ProjectsProps) {
                 <div
                   key={project.title}
                   onClick={() => setSelectedProject(project)}
+                  className="relative cursor-pointer"
                 >
                   <Card
                     hover
                     image={project.image}
                     imageAlt={project.title}
-                    className="cursor-pointer h-full"
+                    className="h-full"
                   >
                     <div className="flex flex-col h-full space-y-4">
                       <h3 className="text-xl font-semibold text-foreground">
@@ -65,19 +66,6 @@ export function Projects({ data, allSkills }: ProjectsProps) {
                       <p className="text-foreground/80 grow text-sm">
                         {project.shortDescription}
                       </p>
-
-                      <div className="flex flex-wrap gap-2">
-                        {project.skills.map((skillName) => {
-                          return (
-                            <span
-                              key={skillName}
-                              className="text-xs px-2 py-1 rounded bg-primary/10 text-primary border border-primary/30"
-                            >
-                              {skillName}
-                            </span>
-                          );
-                        })}
-                      </div>
 
                       <div className="pt-2">
                         <span className="text-primary hover:text-primary/80 transition-colors inline-flex items-center gap-1">
@@ -99,6 +87,22 @@ export function Projects({ data, allSkills }: ProjectsProps) {
                       </div>
                     </div>
                   </Card>
+
+                  {/* Technology tags over the image */}
+                  {project.image && (
+                    <div className="absolute top-4 left-4 right-4 flex flex-wrap gap-2 z-10 pointer-events-none">
+                      {project.skills.map((skillName) => {
+                        return (
+                          <span
+                            key={skillName}
+                            className="text-xs px-2 py-1 rounded bg-background/80 backdrop-blur-sm text-primary border border-primary/30 shadow-lg"
+                          >
+                            {skillName}
+                          </span>
+                        );
+                      })}
+                    </div>
+                  )}
                 </div>
               ))}
             </div>
