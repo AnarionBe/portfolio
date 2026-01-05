@@ -3,7 +3,14 @@
     "name": "Marco De Bona",
     "title": "Web Artisan",
     "greeting": "Hi, my name is",
-    "description": "I'm a web developer specializing in building exceptional digital experiences. Currently, I'm focused on building accessible, human-centered products using modern web technologies."
+    "description": "I'm a web developer specializing in building exceptional digital experiences. Currently, I'm focused on building accessible, human-centered products using modern web technologies.",
+    "email": "marco.debona@example.com",
+    "phone": "+1 (555) 123-4567",
+    "profileImage": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=400&fit=crop",
+    "socialLinks": {
+      "github": "https://github.com/marcodebona",
+      "linkedin": "https://linkedin.com/in/marcodebona"
+    }
   },
   "skills": [
     {
