@@ -1,26 +1,11 @@
-export function Skills() {
-  const skillCategories = [
-    {
-      title: "Frontend",
-      skills: [
-        "React",
-        "TypeScript",
-        "Next.js",
-        "Tailwind CSS",
-        "Vue.js",
-        "HTML/CSS",
-      ],
-    },
-    {
-      title: "Backend",
-      skills: ["Node.js", "Express", "PostgreSQL", "MongoDB", "REST APIs", "GraphQL"],
-    },
-    {
-      title: "Tools & Others",
-      skills: ["Git", "Docker", "AWS", "CI/CD", "Jest", "Vite"],
-    },
-  ];
+interface SkillsProps {
+  data: Array<{
+    title: string;
+    skills: string[];
+  }>;
+}
 
+export function Skills({ data }: SkillsProps) {
   return (
     <section id="skills" className="min-h-screen px-6 py-20">
       <div className="max-w-7xl mx-auto">
@@ -33,7 +18,7 @@ export function Skills() {
           </div>
 
           <div className="grid md:grid-cols-3 gap-8">
-            {skillCategories.map((category) => (
+            {data.map((category) => (
               <div
                 key={category.title}
                 className="bg-secondary border border-neutral rounded-lg p-6 space-y-4"

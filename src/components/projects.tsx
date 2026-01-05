@@ -1,31 +1,14 @@
-export function Projects() {
-  const projects = [
-    {
-      title: "E-Commerce Platform",
-      description:
-        "A full-stack e-commerce application with user authentication, product management, shopping cart, and payment integration using Stripe.",
-      technologies: ["React", "Node.js", "PostgreSQL", "Stripe API"],
-      githubUrl: "#",
-      liveUrl: "#",
-    },
-    {
-      title: "Task Management Dashboard",
-      description:
-        "Real-time collaborative task management tool with drag-and-drop functionality, team collaboration features, and analytics dashboard.",
-      technologies: ["Next.js", "TypeScript", "MongoDB", "Socket.io"],
-      githubUrl: "#",
-      liveUrl: "#",
-    },
-    {
-      title: "Weather Forecast App",
-      description:
-        "Modern weather application that provides accurate forecasts, interactive maps, and weather alerts using external weather APIs.",
-      technologies: ["Vue.js", "Tailwind CSS", "Weather API", "Vercel"],
-      githubUrl: "#",
-      liveUrl: "#",
-    },
-  ];
+interface ProjectsProps {
+  data: Array<{
+    title: string;
+    description: string;
+    technologies: string[];
+    githubUrl: string;
+    liveUrl: string;
+  }>;
+}
 
+export function Projects({ data }: ProjectsProps) {
   return (
     <section id="projects" className="min-h-screen px-6 py-20">
       <div className="max-w-7xl mx-auto">
@@ -38,7 +21,7 @@ export function Projects() {
           </div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {projects.map((project) => (
+            {data.map((project) => (
               <div
                 key={project.title}
                 className="bg-secondary border border-neutral rounded-lg p-6 space-y-4 hover:border-primary transition-colors duration-200"

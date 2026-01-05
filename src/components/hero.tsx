@@ -1,4 +1,13 @@
-export function Hero() {
+interface HeroProps {
+  data: {
+    name: string;
+    title: string;
+    greeting: string;
+    description: string;
+  };
+}
+
+export function Hero({ data }: HeroProps) {
   return (
     <section
       id="home"
@@ -7,19 +16,17 @@ export function Hero() {
       <div className="max-w-4xl w-full">
         <div className="space-y-6">
           <div className="space-y-2">
-            <p className="text-primary text-lg">Hi, my name is</p>
+            <p className="text-primary text-lg">{data.greeting}</p>
             <h1 className="text-5xl md:text-7xl font-bold text-foreground">
-              Your Name
+              {data.name}
             </h1>
             <h2 className="text-3xl md:text-5xl font-bold text-foreground/60">
-              I build things for the web
+              {data.title}
             </h2>
           </div>
 
           <p className="text-foreground/70 text-lg max-w-2xl leading-relaxed">
-            I'm a web developer specializing in building exceptional digital
-            experiences. Currently, I'm focused on building accessible,
-            human-centered products using modern web technologies.
+            {data.description}
           </p>
 
           <div className="flex gap-4 pt-4">

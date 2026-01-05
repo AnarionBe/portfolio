@@ -1,0 +1,134 @@
+{
+  "hero": {
+    "name": "Your Name",
+    "title": "I build things for the web",
+    "greeting": "Hi, my name is",
+    "description": "I'm a web developer specializing in building exceptional digital experiences. Currently, I'm focused on building accessible, human-centered products using modern web technologies."
+  },
+  "skills": [
+    {
+      "title": "Frontend",
+      "skills": [
+        "React",
+        "TypeScript",
+        "Next.js",
+        "Tailwind CSS",
+        "Vue.js",
+        "HTML/CSS"
+      ]
+    },
+    {
+      "title": "Backend",
+      "skills": [
+        "Node.js",
+        "Express",
+        "PostgreSQL",
+        "MongoDB",
+        "REST APIs",
+        "GraphQL"
+      ]
+    },
+    {
+      "title": "Tools & Others",
+      "skills": [
+        "Git",
+        "Docker",
+        "AWS",
+        "CI/CD",
+        "Jest",
+        "Vite"
+      ]
+    }
+  ],
+  "projects": [
+    {
+      "title": "E-Commerce Platform",
+      "description": "A full-stack e-commerce application with user authentication, product management, shopping cart, and payment integration using Stripe.",
+      "technologies": [
+        "React",
+        "Node.js",
+        "PostgreSQL",
+        "Stripe API"
+      ],
+      "githubUrl": "#",
+      "liveUrl": "#"
+    },
+    {
+      "title": "Task Management Dashboard",
+      "description": "Real-time collaborative task management tool with drag-and-drop functionality, team collaboration features, and analytics dashboard.",
+      "technologies": [
+        "Next.js",
+        "TypeScript",
+        "MongoDB",
+        "Socket.io"
+      ],
+      "githubUrl": "#",
+      "liveUrl": "#"
+    },
+    {
+      "title": "Weather Forecast App",
+      "description": "Modern weather application that provides accurate forecasts, interactive maps, and weather alerts using external weather APIs.",
+      "technologies": [
+        "Vue.js",
+        "Tailwind CSS",
+        "Weather API",
+        "Vercel"
+      ],
+      "githubUrl": "#",
+      "liveUrl": "#"
+    }
+  ],
+  "experience": [
+    {
+      "company": "Tech Innovations Inc.",
+      "position": "Senior Frontend Developer",
+      "period": "2023 - Present",
+      "description": [
+        "Led development of customer-facing web applications serving 100K+ users",
+        "Implemented modern React patterns and reduced bundle size by 40%",
+        "Mentored junior developers and conducted code reviews",
+        "Collaborated with design team to improve UI/UX consistency"
+      ],
+      "technologies": [
+        "React",
+        "TypeScript",
+        "Next.js",
+        "AWS"
+      ]
+    },
+    {
+      "company": "Digital Solutions Ltd.",
+      "position": "Full Stack Developer",
+      "period": "2021 - 2023",
+      "description": [
+        "Built and maintained RESTful APIs handling 1M+ requests daily",
+        "Developed responsive web applications using React and Vue.js",
+        "Integrated third-party services and payment gateways",
+        "Optimized database queries improving response time by 60%"
+      ],
+      "technologies": [
+        "Node.js",
+        "React",
+        "PostgreSQL",
+        "Docker"
+      ]
+    },
+    {
+      "company": "StartUp Ventures",
+      "position": "Junior Web Developer",
+      "period": "2020 - 2021",
+      "description": [
+        "Developed features for e-commerce platform using modern JavaScript",
+        "Fixed bugs and improved application performance",
+        "Participated in agile development process and daily standups",
+        "Wrote unit tests achieving 80% code coverage"
+      ],
+      "technologies": [
+        "JavaScript",
+        "Express",
+        "MongoDB",
+        "Jest"
+      ]
+    }
+  ]
+}
