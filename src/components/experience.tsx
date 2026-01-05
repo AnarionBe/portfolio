@@ -10,12 +10,12 @@ interface ExperienceProps {
 
 export function Experience({ data }: ExperienceProps) {
   return (
-    <section id="experience" className="min-h-screen px-6 py-20">
-      <div className="max-w-7xl mx-auto">
+    <section id="experience" className="h-screen snap-start overflow-y-auto px-6 py-24">
+      <div className="max-w-7xl mx-auto w-full">
         <div className="space-y-12">
           <div className="space-y-2">
             <h2 className="text-4xl md:text-5xl font-bold text-foreground">
-              <span className="text-primary">04.</span> Work Experience
+              <span className="text-primary">04.</span> {"<Experience />"}
             </h2>
             <div className="h-1 w-96 bg-neutral"></div>
           </div>

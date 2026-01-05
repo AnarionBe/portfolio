@@ -7,14 +7,12 @@ import portfolioData from "../portfolio-data.json";
 
 function App() {
   return (
-    <div className="min-h-screen bg-background text-foreground">
+    <div className="h-screen overflow-y-scroll snap-y snap-mandatory bg-background text-foreground">
       <NavBar />
-      <main>
-        <Hero data={portfolioData.hero} />
-        <Skills data={portfolioData.skills} />
-        <Projects data={portfolioData.projects} />
-        <Experience data={portfolioData.experience} />
-      </main>
+      <Hero data={portfolioData.hero} />
+      <Skills data={portfolioData.skills} />
+      <Projects data={portfolioData.projects} />
+      <Experience data={portfolioData.experience} />
     </div>
   );
 }

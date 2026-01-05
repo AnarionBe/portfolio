@@ -7,12 +7,12 @@ interface SkillsProps {
 
 export function Skills({ data }: SkillsProps) {
   return (
-    <section id="skills" className="min-h-screen px-6 py-20">
-      <div className="max-w-7xl mx-auto">
+    <section id="skills" className="h-screen snap-start overflow-y-auto px-6 py-24">
+      <div className="max-w-7xl mx-auto w-full">
         <div className="space-y-12">
           <div className="space-y-2">
             <h2 className="text-4xl md:text-5xl font-bold text-foreground">
-              <span className="text-primary">02.</span> Skills & Technologies
+              <span className="text-primary">02.</span> {"<Skills />"}
             </h2>
             <div className="h-1 w-96 bg-neutral"></div>
           </div>
