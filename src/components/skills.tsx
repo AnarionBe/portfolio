@@ -50,18 +50,25 @@ export function Skills({ data, projects, onProjectClick }: SkillsProps) {
   };
 
   const getProjectsForSkill = (skillName: string) => {
-    return projects.filter(project => project.skills.includes(skillName));
+    return projects.filter((project) => project.skills.includes(skillName));
   };
 
   return (
     <>
-      <section id="skills" className="h-screen snap-start overflow-y-auto px-6 py-24">
+      <section
+        id="skills"
+        className="h-screen snap-start overflow-y-auto px-6 py-24"
+      >
         <div className="max-w-7xl mx-auto w-full">
           <div className="space-y-12">
             <div ref={ref} className="space-y-2">
               <h2 className="text-4xl md:text-5xl font-bold text-foreground">
                 <span className="text-primary">02.</span>{" "}
-                <TypingAnimation text="<Skills />" startTyping={isInView} speed={80} />
+                <TypingAnimation
+                  text="<Skills />"
+                  startTyping={isInView}
+                  speed={80}
+                />
               </h2>
               <div className="h-1 w-96 bg-neutral"></div>
             </div>
@@ -73,12 +80,17 @@ export function Skills({ data, projects, onProjectClick }: SkillsProps) {
                   onClick={() => setSelectedSkill(skill)}
                   className="cursor-pointer"
                 >
-                  <Card hover className="flex flex-col items-center text-center space-y-3">
+                  <Card
+                    hover
+                    className="flex flex-col items-center text-center space-y-3"
+                  >
                     <div className="flex items-center justify-center h-16">
                       {getIcon(skill.icon)}
                     </div>
                     <div className="space-y-1">
-                      <h3 className="font-semibold text-foreground">{skill.name}</h3>
+                      <h3 className="font-semibold text-foreground">
+                        {skill.name}
+                      </h3>
                       <p className={`text-sm ${getLevelColor(skill.level)}`}>
                         {skill.level}
                       </p>
@@ -119,7 +131,11 @@ export function Skills({ data, projects, onProjectClick }: SkillsProps) {
                     <h2 className="text-3xl font-bold text-foreground">
                       {selectedSkill.name}
                     </h2>
-                    <p className={`text-lg ${getLevelColor(selectedSkill.level)}`}>
+                    <p
+                      className={`text-lg ${getLevelColor(
+                        selectedSkill.level
+                      )}`}
+                    >
                       {selectedSkill.level}
                     </p>
                   </div>
@@ -132,50 +148,45 @@ export function Skills({ data, projects, onProjectClick }: SkillsProps) {
 
                   {getProjectsForSkill(selectedSkill.name).length > 0 ? (
                     <div className="space-y-4">
-                      {getProjectsForSkill(selectedSkill.name).map((project) => (
-                        <div
-                          key={project.title}
-                          onClick={() => {
-                            if (onProjectClick) {
-                              setSelectedSkill(null);
-                              onProjectClick(project);
-                            }
-                          }}
-                          className="relative bg-secondary/40 backdrop-blur-md border border-neutral/30 rounded-lg p-4 overflow-hidden hover:border-primary/50 transition-all duration-300 cursor-pointer"
-                        >
-                          <div className="space-y-2">
-                            <div className="flex items-start justify-between gap-4">
-                              <h4 className="text-xl font-semibold text-foreground">
-                                {project.title}
-                              </h4>
-                              {project.image && (
-                                <img
-                                  src={project.image}
-                                  alt={project.title}
-                                  className="w-20 h-12 object-cover rounded border border-neutral/30"
-                                />
-                              )}
-                            </div>
-                            <p className="text-foreground/80 text-sm">
-                              {project.shortDescription}
-                            </p>
-                            <div className="flex flex-wrap gap-2 pt-2">
-                              {project.skills.map((skillName) => (
-                                <span
-                                  key={skillName}
-                                  className={`text-xs px-2 py-1 rounded border ${
-                                    skillName === selectedSkill.name
-                                      ? "bg-primary/20 text-primary border-primary/50"
-                                      : "bg-neutral/50 text-foreground/70 border-neutral/30"
-                                  }`}
-                                >
-                                  {skillName}
-                                </span>
-                              ))}
+                      {getProjectsForSkill(selectedSkill.name).map(
+                        (project) => (
+                          <div
+                            key={project.title}
+                            onClick={() => {
+                              if (onProjectClick) {
+                                setSelectedSkill(null);
+                                onProjectClick(project);
+                              }
+                            }}
+                            className="relative bg-secondary/40 backdrop-blur-md border border-neutral/30 rounded-lg p-4 overflow-hidden hover:border-primary/50 transition-all duration-300 cursor-pointer"
+                          >
+                            <div className="space-y-2">
+                              <div className="flex items-start justify-between gap-4">
+                                <h4 className="text-xl font-semibold text-foreground">
+                                  {project.title}
+                                </h4>
+                              </div>
+                              <p className="text-foreground/80 text-sm">
+                                {project.shortDescription}
+                              </p>
+                              <div className="flex flex-wrap gap-2 pt-2">
+                                {project.skills.map((skillName) => (
+                                  <span
+                                    key={skillName}
+                                    className={`text-xs px-2 py-1 rounded border ${
+                                      skillName === selectedSkill.name
+                                        ? "bg-primary/20 text-primary border-primary/50"
+                                        : "bg-neutral/50 text-foreground/70 border-neutral/30"
+                                    }`}
+                                  >
+                                    {skillName}
+                                  </span>
+                                ))}
+                              </div>
                             </div>
                           </div>
-                        </div>
-                      ))}
+                        )
+                      )}
                     </div>
                   ) : (
                     <p className="text-foreground/60 text-center py-8">
