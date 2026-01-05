@@ -10,7 +10,7 @@ function App() {
     <div className="h-screen overflow-y-scroll snap-y snap-mandatory bg-background text-foreground">
       <NavBar />
       <Hero data={portfolioData.hero} />
-      <Skills data={portfolioData.skills} />
+      <Skills data={portfolioData.skills} projects={portfolioData.projects} />
       <Projects data={portfolioData.projects} allSkills={portfolioData.skills} />
       <Experience data={portfolioData.experience} />
     </div>
