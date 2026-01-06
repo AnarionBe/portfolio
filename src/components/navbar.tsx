@@ -1,13 +1,16 @@
 import { useState, useEffect, useRef } from "react";
+import { useTranslation } from "react-i18next";
+import { LanguageToggle } from "./language-toggle";
 
 const navItems = [
-  { label: "Home", href: "#home", id: "home" },
-  { label: "Skills", href: "#skills", id: "skills" },
-  { label: "Projects", href: "#projects", id: "projects" },
-  { label: "Experience", href: "#experience", id: "experience" },
+  { labelKey: "nav.home", href: "#home", id: "home" },
+  { labelKey: "nav.skills", href: "#skills", id: "skills" },
+  { labelKey: "nav.projects", href: "#projects", id: "projects" },
+  { labelKey: "nav.experience", href: "#experience", id: "experience" },
 ];
 
 export function NavBar() {
+  const { t } = useTranslation();
   const [activeSection, setActiveSection] = useState("home");
   const [underlineStyle, setUnderlineStyle] = useState({ left: 0, width: 0 });
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -69,34 +72,37 @@ export function NavBar() {
           </a>
 
           {/* Desktop Navigation */}
-          <ul className="hidden md:flex gap-8 items-center relative">
-            {navItems.map((item) => (
-              <li key={item.href}>
-                <a
-                  ref={(el) => {
-                    navRefs.current[item.id] = el;
-                  }}
-                  href={item.href}
-                  className={`inline-block transition-all duration-200 ${
-                    activeSection === item.id
-                      ? "text-primary text-lg font-semibold scale-110"
-                      : "text-foreground/70 hover:text-primary"
-                  }`}
-                >
-                  {item.label}
-                </a>
-              </li>
-            ))}
-            {/* Animated underline */}
-            <span
-              className="absolute bottom-0 h-0.5 bg-primary transition-all duration-300 ease-out"
-              style={{
-                left: `${underlineStyle.left}px`,
-                width: `${underlineStyle.width}px`,
-                transform: "translateY(8px)",
-              }}
-            />
-          </ul>
+          <div className="hidden md:flex gap-6 items-center">
+            <ul className="flex gap-8 items-center relative">
+              {navItems.map((item) => (
+                <li key={item.href}>
+                  <a
+                    ref={(el) => {
+                      navRefs.current[item.id] = el;
+                    }}
+                    href={item.href}
+                    className={`inline-block transition-all duration-200 ${
+                      activeSection === item.id
+                        ? "text-primary text-lg font-semibold scale-110"
+                        : "text-foreground/70 hover:text-primary"
+                    }`}
+                  >
+                    {t(item.labelKey)}
+                  </a>
+                </li>
+              ))}
+              {/* Animated underline */}
+              <span
+                className="absolute bottom-0 h-0.5 bg-primary transition-all duration-300 ease-out"
+                style={{
+                  left: `${underlineStyle.left}px`,
+                  width: `${underlineStyle.width}px`,
+                  transform: "translateY(8px)",
+                }}
+              />
+            </ul>
+            <LanguageToggle />
+          </div>
 
           {/* Mobile Burger Menu Button */}
           <button
@@ -124,7 +130,7 @@ export function NavBar() {
 
         {/* Mobile Menu */}
         {isMobileMenuOpen && (
-          <div className="md:hidden mt-4 pb-4">
+          <div className="md:hidden mt-4 pb-4 space-y-4">
             <ul className="flex flex-col gap-4">
               {navItems.map((item) => (
                 <li key={item.href}>
@@ -137,11 +143,14 @@ export function NavBar() {
                         : "text-foreground/70 hover:text-primary hover:bg-primary/5"
                     }`}
                   >
-                    {item.label}
+                    {t(item.labelKey)}
                   </a>
                 </li>
               ))}
             </ul>
+            <div className="flex justify-center pt-2 border-t border-neutral/30">
+              <LanguageToggle />
+            </div>
           </div>
         )}
       </div>
