@@ -118,19 +118,23 @@
   "tools": [
     {
       "name": "Git / GitHub",
-      "level": "Advanced"
+      "level": "Advanced",
+      "icon": "SiGit"
     },
     {
       "name": "Docker",
-      "level": "Intermediate"
+      "level": "Intermediate",
+      "icon": "SiDocker"
     },
     {
       "name": "Scaleway",
-      "level": "Intermediate"
+      "level": "Intermediate",
+      "icon": "SiScaleway"
     },
     {
       "name": "Linux",
-      "level": "Intermediate"
+      "level": "Intermediate",
+      "icon": "SiLinux"
     }
   ],
   "soft_skills": [

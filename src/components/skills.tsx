@@ -11,6 +11,22 @@ interface Skill {
   icon: string;
 }
 
+interface Tool {
+  name: string;
+  level: string;
+  icon?: string;
+}
+
+interface Language {
+  name: string;
+  level: string;
+}
+
+interface SoftSkill {
+  name: string;
+  description: string;
+}
+
 interface Project {
   title: string;
   shortDescription: string;
@@ -24,11 +40,14 @@ interface Project {
 
 interface SkillsProps {
   data: Skill[];
+  tools: Tool[];
+  languages: Language[];
+  softSkills: SoftSkill[];
   projects: Project[];
   onProjectClick?: (project: Project) => void;
 }
 
-export function Skills({ data, projects, onProjectClick }: SkillsProps) {
+export function Skills({ data, tools, languages, softSkills, projects, onProjectClick }: SkillsProps) {
   const { ref, isInView } = useInView({ threshold: 0.2 });
   const [selectedSkill, setSelectedSkill] = useState<Skill | null>(null);
 
@@ -74,31 +93,103 @@ export function Skills({ data, projects, onProjectClick }: SkillsProps) {
               <div className="h-1 w-96 bg-neutral"></div>
             </div>
 
-            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6">
-              {data.map((skill) => (
-                <div
-                  key={skill.name}
-                  onClick={() => setSelectedSkill(skill)}
-                  className="cursor-pointer"
-                >
-                  <Card
-                    hover
-                    className="flex flex-col items-center text-center space-y-3"
+            {/* Technical Skills */}
+            <div className="space-y-6">
+              <h3 className="text-2xl font-bold text-foreground/90">
+                Technical Skills
+              </h3>
+              <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6">
+                {data.map((skill) => (
+                  <div
+                    key={skill.name}
+                    onClick={() => setSelectedSkill(skill)}
+                    className="cursor-pointer"
                   >
-                    <div className="flex items-center justify-center h-16">
-                      {getIcon(skill.icon)}
-                    </div>
-                    <div className="space-y-1">
-                      <h3 className="font-semibold text-foreground">
-                        {skill.name}
-                      </h3>
-                      <p className={`text-sm ${getLevelColor(skill.level)}`}>
-                        {skill.level}
-                      </p>
+                    <Card
+                      hover
+                      className="flex flex-col items-center text-center space-y-3"
+                    >
+                      <div className="flex items-center justify-center h-16">
+                        {getIcon(skill.icon)}
+                      </div>
+                      <div className="space-y-1">
+                        <h3 className="font-semibold text-foreground">
+                          {skill.name}
+                        </h3>
+                        <p className={`text-sm ${getLevelColor(skill.level)}`}>
+                          {skill.level}
+                        </p>
+                      </div>
+                    </Card>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            {/* Tools */}
+            <div className="space-y-6">
+              <h3 className="text-2xl font-bold text-foreground/90">
+                Tools & Technologies
+              </h3>
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                {tools.map((tool) => (
+                  <Card key={tool.name}>
+                    <div className="flex items-center gap-4">
+                      {tool.icon && (
+                        <div className="flex items-center justify-center w-12 h-12 shrink-0">
+                          {getIcon(tool.icon)}
+                        </div>
+                      )}
+                      <div className="flex flex-col space-y-1">
+                        <h4 className="font-semibold text-foreground">
+                          {tool.name}
+                        </h4>
+                        <p className={`text-sm ${getLevelColor(tool.level)}`}>
+                          {tool.level}
+                        </p>
+                      </div>
                     </div>
                   </Card>
-                </div>
-              ))}
+                ))}
+              </div>
+            </div>
+
+            {/* Languages */}
+            <div className="space-y-6">
+              <h3 className="text-2xl font-bold text-foreground/90">
+                Languages
+              </h3>
+              <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+                {languages.map((language) => (
+                  <Card key={language.name} className="flex flex-col space-y-2">
+                    <h4 className="font-semibold text-foreground">
+                      {language.name}
+                    </h4>
+                    <p className={`text-sm ${getLevelColor(language.level)}`}>
+                      {language.level}
+                    </p>
+                  </Card>
+                ))}
+              </div>
+            </div>
+
+            {/* Soft Skills */}
+            <div className="space-y-6">
+              <h3 className="text-2xl font-bold text-foreground/90">
+                Soft Skills
+              </h3>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                {softSkills.map((softSkill) => (
+                  <Card key={softSkill.name} className="space-y-2">
+                    <h4 className="font-semibold text-foreground text-lg">
+                      {softSkill.name}
+                    </h4>
+                    <p className="text-sm text-foreground/70">
+                      {softSkill.description}
+                    </p>
+                  </Card>
+                ))}
+              </div>
             </div>
           </div>
         </div>

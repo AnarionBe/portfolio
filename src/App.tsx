@@ -26,6 +26,9 @@ function App() {
       <Hero data={portfolioData.hero} />
       <Skills
         data={portfolioData.skills}
+        tools={portfolioData.tools}
+        languages={portfolioData.languages}
+        softSkills={portfolioData.soft_skills}
         projects={portfolioData.projects}
         onProjectClick={setSelectedProject}
       />
