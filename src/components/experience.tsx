@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useRef, useEffect } from "react";
 import { Card } from "./card";
 import { TypingAnimation } from "./typing-animation";
 import { useInView } from "../hooks/use-in-view";
@@ -47,6 +47,13 @@ export function Experience({
   const [selectedExperience, setSelectedExperience] = useState<Experience>(
     data[0]
   );
+  const scrollContainerRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    if (isInView && scrollContainerRef.current) {
+      scrollContainerRef.current.scrollTop = 0;
+    }
+  }, [isInView]);
 
   const getSkillName = (skillSlug: string) => {
     return (
@@ -77,7 +84,7 @@ export function Experience({
             <div className="h-1 w-96 bg-neutral"></div>
           </div>
 
-          <div className="space-y-12 flex-1 overflow-y-auto pr-4">
+          <div ref={scrollContainerRef} className="space-y-12 flex-1 overflow-y-auto pr-4">
 
             {/* Split View: Timeline + Details */}
             <div className="lg:flex gap-8">

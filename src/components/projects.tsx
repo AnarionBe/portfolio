@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useRef, useEffect } from "react";
 import { Card } from "./card";
 import { TypingAnimation } from "./typing-animation";
 import { useInView } from "../hooks/use-in-view";
@@ -36,6 +36,13 @@ export function Projects({
   const [internalSelectedProject, setInternalSelectedProject] =
     useState<Project | null>(null);
   const [fullscreenImage, setFullscreenImage] = useState<string | null>(null);
+  const scrollContainerRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    if (isInView && scrollContainerRef.current) {
+      scrollContainerRef.current.scrollTop = 0;
+    }
+  }, [isInView]);
 
   // Use external state if provided, otherwise use internal state
   const selectedProject =
@@ -67,7 +74,7 @@ export function Projects({
             <div className="h-1 w-96 bg-neutral"></div>
           </div>
 
-          <div className="space-y-12 flex-1 overflow-y-auto pr-4">
+          <div ref={scrollContainerRef} className="space-y-12 flex-1 overflow-y-auto pr-4">
 
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
               {data.map((project) => (

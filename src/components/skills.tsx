@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useRef, useEffect } from "react";
 import { Card } from "./card";
 import { TypingAnimation } from "./typing-animation";
 import { useInView } from "../hooks/use-in-view";
@@ -50,6 +50,13 @@ interface SkillsProps {
 export function Skills({ data, tools, languages, softSkills, projects, onProjectClick }: SkillsProps) {
   const { ref, isInView } = useInView({ threshold: 0.2 });
   const [selectedSkill, setSelectedSkill] = useState<Skill | null>(null);
+  const scrollContainerRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    if (isInView && scrollContainerRef.current) {
+      scrollContainerRef.current.scrollTop = 0;
+    }
+  }, [isInView]);
 
   const getLevelColor = (level: string) => {
     switch (level.toLowerCase()) {
@@ -92,7 +99,7 @@ export function Skills({ data, tools, languages, softSkills, projects, onProject
             <div className="h-1 w-96 bg-neutral"></div>
           </div>
 
-          <div className="space-y-12 flex-1 overflow-y-auto pr-4">
+          <div ref={scrollContainerRef} className="space-y-12 flex-1 overflow-y-auto pr-4">
 
             {/* Technical Skills */}
             <div className="space-y-6">
