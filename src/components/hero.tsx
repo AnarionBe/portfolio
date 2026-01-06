@@ -1,4 +1,4 @@
-import { useTranslation } from "react-i18next";
+// import { useTranslation } from "react-i18next";
 
 interface HeroProps {
   data: {
@@ -17,7 +17,7 @@ interface HeroProps {
 }
 
 export function Hero({ data }: HeroProps) {
-  const { t } = useTranslation();
+  // const { t } = useTranslation();
   return (
     <section
       id="home"

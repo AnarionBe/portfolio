@@ -9,7 +9,7 @@ export function MusicPlayer({ playlistId }: MusicPlayerProps) {
   const { t } = useTranslation();
   const [isOpen, setIsOpen] = useState(false);
   const [isMinimized, setIsMinimized] = useState(false);
-  const [isPlaying, setIsPlaying] = useState(false);
+  const [, setIsPlaying] = useState(false);
   const playerRef = useRef<HTMLIFrameElement>(null);
 
   // YouTube playlist embed URL (works for both YouTube and YouTube Music playlists)
