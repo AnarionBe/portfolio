@@ -147,6 +147,26 @@
       "description": "I have a good product vision allowing me to make accurate suggestions for features and priorities."
     }
   ],
+  "passions": [
+    {
+      "name": "Music",
+      "description": "Passionate about music, especially metal. I love discovering new bands and attending concerts.",
+      "icon": "🎸",
+      "image": ""
+    },
+    {
+      "name": "Gaming",
+      "description": "Enjoy playing video games in my free time, from strategy games to RPGs.",
+      "icon": "🎮",
+      "image": ""
+    },
+    {
+      "name": "Technology",
+      "description": "Always curious about new technologies and innovative solutions. I love experimenting with cutting-edge tools.",
+      "icon": "💻",
+      "image": ""
+    }
+  ],
   "projects": [
     {
       "title": "DevMind",

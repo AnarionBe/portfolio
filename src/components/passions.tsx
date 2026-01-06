@@ -1,0 +1,78 @@
+import { useRef, useEffect } from "react";
+import { useTranslation } from "react-i18next";
+import { Card } from "./card";
+import { TypingAnimation } from "./typing-animation";
+import { useInView } from "../hooks/use-in-view";
+
+interface Passion {
+  name: string;
+  description: string;
+  icon?: string;
+  image?: string;
+}
+
+interface PassionsProps {
+  data: Passion[];
+}
+
+export function Passions({ data }: PassionsProps) {
+  const { t } = useTranslation();
+  const { ref, isInView } = useInView({ threshold: 0.2 });
+  const scrollContainerRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    if (isInView && scrollContainerRef.current) {
+      scrollContainerRef.current.scrollTop = 0;
+    }
+  }, [isInView]);
+
+  return (
+    <section
+      id="passions"
+      className="h-screen snap-start flex flex-col px-6 py-24"
+    >
+      <div className="max-w-7xl mx-auto w-full flex flex-col h-full">
+        <div ref={ref} className="space-y-2 sticky top-0 bg-background z-10 pb-6">
+          <h2 className="text-4xl md:text-5xl font-bold text-foreground">
+            <span className="text-primary">05.</span>{" "}
+            <TypingAnimation
+              text={`<${t('passions.title')} />`}
+              startTyping={isInView}
+              speed={80}
+            />
+          </h2>
+          <div className="h-1 w-96 bg-neutral"></div>
+        </div>
+
+        <div ref={scrollContainerRef} className="space-y-12 flex-1 overflow-y-auto pr-4">
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {data.map((passion) => (
+              <Card
+                key={passion.name}
+                image={passion.image}
+                imageAlt={passion.name}
+                className="h-full"
+              >
+                <div className="flex flex-col space-y-4">
+                  <div className="flex items-center gap-3">
+                    {passion.icon && (
+                      <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center text-primary text-2xl">
+                        {passion.icon}
+                      </div>
+                    )}
+                    <h3 className="text-xl font-semibold text-foreground">
+                      {passion.name}
+                    </h3>
+                  </div>
+                  <p className="text-foreground/80 leading-relaxed">
+                    {passion.description}
+                  </p>
+                </div>
+              </Card>
+            ))}
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}

@@ -7,6 +7,7 @@ const navItems = [
   { labelKey: "nav.skills", href: "#skills", id: "skills" },
   { labelKey: "nav.projects", href: "#projects", id: "projects" },
   { labelKey: "nav.experience", href: "#experience", id: "experience" },
+  { labelKey: "nav.passions", href: "#passions", id: "passions" },
 ];
 
 export function NavBar() {
