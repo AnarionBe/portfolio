@@ -9,7 +9,7 @@
     "description": "I'm a senior fullstack developer specializing in building modern web and mobile applications. I focus on creating accessible, human-centered products using cutting-edge technologies and AI.",
     "email": "contact@anarion.tech",
     "phone": "+32473477736",
-    "profileImage": "",
+    "profileImage": "https://avatars.githubusercontent.com/u/25613222?s=400&u=9c17d0bba4f7836c348f2e8f09695795351a50a9&v=4",
     "socialLinks": {
       "github": "https://github.com/marcodebona",
       "linkedin": "https://linkedin.com/in/marcodebona"
@@ -17,126 +17,133 @@
   },
   "languages": [
     {
-      "name": "French",
-      "level": "Native/Bilingual"
+      "name": "skills.language.english",
+      "level": "skills.levels.native"
     },
     {
-      "name": "English",
-      "level": "Proficient"
+      "name": "skills.language.english",
+      "level": "skills.levels.proficient"
     }
   ],
   "skills": [
     {
       "slug": "javascript",
       "name": "JavaScript",
-      "level": "Advanced",
+      "level": "skills.levels.advanced",
       "icon": "SiJavascript",
       "projects": []
     },
     {
       "slug": "react",
       "name": "React",
-      "level": "Advanced",
+      "level": "skills.levels.advanced",
       "icon": "SiReact",
       "projects": []
     },
     {
       "slug": "typescript",
       "name": "TypeScript",
-      "level": "Advanced",
+      "level": "skills.levels.advanced",
       "icon": "SiTypescript",
       "projects": []
     },
     {
       "slug": "vuejs",
       "name": "Vue.js",
-      "level": "Advanced",
-      "icon": "SiVueDotJs",
+      "level": "skills.levels.advanced",
+      "icon": "SiVuedotjs",
       "projects": []
     },
     {
       "slug": "react_native",
       "name": "React Native",
-      "level": "Advanced",
+      "level": "skills.levels.advanced",
       "icon": "SiReact",
       "projects": []
     },
     {
       "slug": "nextjs",
       "name": "Next.js",
-      "level": "Intermediate",
+      "level": "skills.levels.intermediate",
       "icon": "SiNextdotjs",
       "projects": []
     },
     {
       "slug": "nuxtjs",
       "name": "Nuxt.js",
-      "level": "Intermediate",
-      "icon": "SiNuxtDotJs",
+      "level": "skills.levels.intermediate",
+      "icon": "SiNuxtdotjs",
       "projects": []
     },
     {
       "slug": "adonisjs",
       "name": "AdonisJs",
-      "level": "Advanced",
+      "level": "skills.levels.advanced",
       "icon": "SiAdonisjs",
       "projects": []
     },
     {
       "slug": "html",
       "name": "HTML",
-      "level": "Advanced",
+      "level": "skills.levels.advanced",
       "icon": "SiHtml5",
       "projects": []
     },
     {
       "slug": "css",
       "name": "CSS",
-      "level": "Advanced",
+      "level": "skills.levels.advanced",
       "icon": "SiCss3",
       "projects": []
     },
     {
       "slug": "tailwind_css",
       "name": "Tailwind CSS",
-      "level": "Advanced",
+      "level": "skills.levels.advanced",
       "icon": "SiTailwindcss",
       "projects": []
     },
     {
       "slug": "php",
       "name": "PHP",
-      "level": "Intermediate",
+      "level": "skills.levels.intermediate",
       "icon": "SiPhp",
       "projects": []
     },
     {
       "slug": "laravel",
       "name": "Laravel",
-      "level": "Intermediate",
+      "level": "skills.levels.intermediate",
       "icon": "SiLaravel",
+      "projects": []
+    },
+    {
+      "slug": "go_lang",
+      "name": "GoLang",
+      "level": "skills.levels.beginner",
+      "icon": "SiGo",
       "projects": []
     }
   ],
   "tools": [
     {
       "name": "Git / GitHub",
-      "level": "Advanced",
+      "level": "skills.levels.intermediate",
       "icon": "SiGit"
     },
     {
       "name": "Docker",
-      "level": "Intermediate",
+      "level": "skills.levels.beginner",
       "icon": "SiDocker"
     },
     {
       "name": "Scaleway",
-      "level": "Intermediate",
+      "level": "skills.levels.intermediate",
       "icon": "SiScaleway"
     },
     {
       "name": "Linux",
-      "level": "Intermediate",
+      "level": "skills.levels.intermediate",
       "icon": "SiLinux"
     }
   ],

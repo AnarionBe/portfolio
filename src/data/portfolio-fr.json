@@ -6,10 +6,20 @@
     "description": "Je suis un développeur fullstack senior spécialisé dans la création d'applications web et mobiles modernes. Je me concentre sur la création de produits accessibles et centrés sur l'humain en utilisant des technologies de pointe et l'IA.",
     "email": "contact@anarion.tech",
     "phone": "+32473477736",
-    "profileImage": "",
+    "profileImage": "https://avatars.githubusercontent.com/u/25613222?s=400&u=9c17d0bba4f7836c348f2e8f09695795351a50a9&v=4",
     "socialLinks": {
       "github": "https://github.com/marcodebona",
       "linkedin": "https://linkedin.com/in/marcodebona"
     }
-  }
+  },
+  "languages": [
+    {
+      "name": "French",
+      "level": "Native/Bilingual"
+    },
+    {
+      "name": "English",
+      "level": "Proficient"
+    }
+  ]
 }

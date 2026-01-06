@@ -48,7 +48,14 @@ interface SkillsProps {
   onProjectClick?: (project: Project) => void;
 }
 
-export function Skills({ data, tools, languages, softSkills, projects, onProjectClick }: SkillsProps) {
+export function Skills({
+  data,
+  tools,
+  languages,
+  softSkills,
+  projects,
+  onProjectClick,
+}: SkillsProps) {
   const { t } = useTranslation();
   const { ref, isInView } = useInView({ threshold: 0.2 });
   const [selectedSkill, setSelectedSkill] = useState<Skill | null>(null);
@@ -61,7 +68,9 @@ export function Skills({ data, tools, languages, softSkills, projects, onProject
   }, [isInView]);
 
   const getLevelColor = (level: string) => {
-    switch (level.toLowerCase()) {
+    const lvl = level.toLowerCase().split(".")[2];
+
+    switch (lvl) {
       case "advanced":
         return "text-success";
       case "intermediate":
@@ -89,11 +98,14 @@ export function Skills({ data, tools, languages, softSkills, projects, onProject
         className="h-screen snap-start flex flex-col px-6 py-24"
       >
         <div className="max-w-7xl mx-auto w-full flex flex-col h-full">
-          <div ref={ref} className="space-y-2 sticky top-0 bg-background z-10 pb-6">
+          <div
+            ref={ref}
+            className="space-y-2 sticky top-0 bg-background z-10 pb-6"
+          >
             <h2 className="text-4xl md:text-5xl font-bold text-foreground">
               <span className="text-primary">02.</span>{" "}
               <TypingAnimation
-                text={`<${t('skills.title')} />`}
+                text={`<${t("skills.title")} />`}
                 startTyping={isInView}
                 speed={80}
               />
@@ -101,12 +113,14 @@ export function Skills({ data, tools, languages, softSkills, projects, onProject
             <div className="h-1 w-96 bg-neutral"></div>
           </div>
 
-          <div ref={scrollContainerRef} className="space-y-12 flex-1 overflow-y-auto pr-4">
-
+          <div
+            ref={scrollContainerRef}
+            className="space-y-12 flex-1 overflow-y-auto pr-4"
+          >
             {/* Technical Skills */}
             <div className="space-y-6">
               <h3 className="text-2xl font-bold text-foreground/90">
-                {t('skills.technical')}
+                {t("skills.technical")}
               </h3>
               <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6">
                 {data.map((skill) => (
@@ -127,7 +141,7 @@ export function Skills({ data, tools, languages, softSkills, projects, onProject
                           {skill.name}
                         </h3>
                         <p className={`text-sm ${getLevelColor(skill.level)}`}>
-                          {skill.level}
+                          {t(skill.level)}
                         </p>
                       </div>
                     </Card>
@@ -139,7 +153,7 @@ export function Skills({ data, tools, languages, softSkills, projects, onProject
             {/* Tools */}
             <div className="space-y-6">
               <h3 className="text-2xl font-bold text-foreground/90">
-                {t('skills.tools')}
+                {t("skills.tools")}
               </h3>
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                 {tools.map((tool) => (
@@ -155,7 +169,7 @@ export function Skills({ data, tools, languages, softSkills, projects, onProject
                           {tool.name}
                         </h4>
                         <p className={`text-sm ${getLevelColor(tool.level)}`}>
-                          {tool.level}
+                          {t(tool.level)}
                         </p>
                       </div>
                     </div>
@@ -167,7 +181,7 @@ export function Skills({ data, tools, languages, softSkills, projects, onProject
             {/* Languages */}
             <div className="space-y-6">
               <h3 className="text-2xl font-bold text-foreground/90">
-                {t('skills.languages')}
+                {t("skills.languages")}
               </h3>
               <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
                 {languages.map((language) => (
@@ -176,7 +190,7 @@ export function Skills({ data, tools, languages, softSkills, projects, onProject
                       {language.name}
                     </h4>
                     <p className={`text-sm ${getLevelColor(language.level)}`}>
-                      {language.level}
+                      {t(language.level)}
                     </p>
                   </Card>
                 ))}
@@ -186,7 +200,7 @@ export function Skills({ data, tools, languages, softSkills, projects, onProject
             {/* Soft Skills */}
             <div className="space-y-6">
               <h3 className="text-2xl font-bold text-foreground/90">
-                {t('skills.softSkills')}
+                {t("skills.softSkills")}
               </h3>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 {softSkills.map((softSkill) => (
@@ -226,26 +240,14 @@ export function Skills({ data, tools, languages, softSkills, projects, onProject
             <Card>
               <div className="space-y-6">
                 <div className="flex items-center gap-4">
-                  <div className="flex items-center justify-center w-16 h-16">
-                    {getIcon(selectedSkill.icon)}
-                  </div>
-                  <div>
-                    <h2 className="text-3xl font-bold text-foreground">
-                      {selectedSkill.name}
-                    </h2>
-                    <p
-                      className={`text-lg ${getLevelColor(
-                        selectedSkill.level
-                      )}`}
-                    >
-                      {selectedSkill.level}
-                    </p>
-                  </div>
+                  <h2 className="text-3xl font-bold text-foreground">
+                    {selectedSkill.name}
+                  </h2>
                 </div>
 
                 <div className="space-y-4">
                   <h3 className="text-lg font-semibold text-foreground">
-                    {t('skills.projectsUsing')} {selectedSkill.name}
+                    {t("skills.projectsUsing")} {selectedSkill.name}
                   </h3>
 
                   {getProjectsForSkill(selectedSkill.slug).length > 0 ? (
@@ -273,7 +275,9 @@ export function Skills({ data, tools, languages, softSkills, projects, onProject
                               </p>
                               <div className="flex flex-wrap gap-2 pt-2">
                                 {project.skills.map((skillSlug) => {
-                                  const skill = data.find(s => s.slug === skillSlug);
+                                  const skill = data.find(
+                                    (s) => s.slug === skillSlug
+                                  );
                                   return (
                                     <span
                                       key={skillSlug}
@@ -295,7 +299,7 @@ export function Skills({ data, tools, languages, softSkills, projects, onProject
                     </div>
                   ) : (
                     <p className="text-foreground/60 text-center py-8">
-                      {t('skills.noProjects')} {selectedSkill.name}
+                      {t("skills.noProjects")} {selectedSkill.name}
                     </p>
                   )}
                 </div>

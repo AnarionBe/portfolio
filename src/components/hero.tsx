@@ -18,6 +18,7 @@ interface HeroProps {
 
 export function Hero({ data }: HeroProps) {
   // const { t } = useTranslation();
+  console.log(data.profileImage);
   return (
     <section
       id="home"

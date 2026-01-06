@@ -25,6 +25,10 @@
       "beginner": "Débutant",
       "native": "Natif/Bilingue",
       "proficient": "Courant"
+    },
+    "language": {
+      "french": "Français",
+      "english": "Anglais"
     }
   },
   "projects": {
