@@ -12,7 +12,6 @@ interface Experience {
   shortDescription: string;
   description: string[];
   technologies: string[];
-  projects: string[];
 }
 
 interface Project {
@@ -63,8 +62,16 @@ export function Experience({
     );
   };
 
-  const getProjectByTitle = (title: string) => {
-    return allProjects.find((project) => project.title === title);
+  const getProjectsForExperience = (experience: Experience) => {
+    // Find projects that use any of the technologies from this experience
+    return allProjects.filter((project) =>
+      project.skills.some((skillSlug) =>
+        experience.technologies.some(
+          (tech) => tech.toLowerCase() === skillSlug.toLowerCase() ||
+                    tech.toLowerCase().replace(/\s+/g, '') === skillSlug.toLowerCase().replace(/_/g, '')
+        )
+      )
+    );
   };
 
   return (
@@ -226,56 +233,51 @@ export function Experience({
                     </div>
 
                     {/* Related Projects */}
-                    {selectedExperience.projects.length > 0 && (
+                    {getProjectsForExperience(selectedExperience).length > 0 && (
                       <div className="space-y-3">
                         <h3 className="text-lg font-semibold text-foreground">
-                          Related Projects
+                          {t("experience.projects")}
                         </h3>
                         <div className="space-y-3">
-                          {selectedExperience.projects.map((projectTitle) => {
-                            const project = getProjectByTitle(projectTitle);
-                            if (!project) return null;
-
-                            return (
-                              <div
-                                key={projectTitle}
-                                onClick={() => {
-                                  if (onProjectClick) {
-                                    onProjectClick(project);
-                                  }
-                                }}
-                                className="relative bg-secondary/40 backdrop-blur-md border border-neutral/30 rounded-lg p-4 overflow-hidden hover:border-primary/50 transition-all duration-300 cursor-pointer"
-                              >
-                                <div className="flex gap-4">
-                                  <div className="flex-1 space-y-2">
-                                    <h4 className="text-lg font-semibold text-foreground">
-                                      {project.title}
-                                    </h4>
-                                    <p className="text-foreground/70 text-sm">
-                                      {project.shortDescription}
-                                    </p>
-                                    <div className="flex flex-wrap gap-2">
-                                      {project.skills
-                                        .slice(0, 3)
-                                        .map((skillSlug) => (
-                                          <span
-                                            key={skillSlug}
-                                            className="text-xs px-2 py-1 rounded bg-neutral/50 text-foreground/70 border border-neutral/30"
-                                          >
-                                            {getSkillName(skillSlug)}
-                                          </span>
-                                        ))}
-                                      {project.skills.length > 3 && (
-                                        <span className="text-xs text-foreground/60">
-                                          +{project.skills.length - 3} more
+                          {getProjectsForExperience(selectedExperience).map((project) => (
+                            <div
+                              key={project.title}
+                              onClick={() => {
+                                if (onProjectClick) {
+                                  onProjectClick(project);
+                                }
+                              }}
+                              className="relative bg-secondary/40 backdrop-blur-md border border-neutral/30 rounded-lg p-4 overflow-hidden hover:border-primary/50 transition-all duration-300 cursor-pointer"
+                            >
+                              <div className="flex gap-4">
+                                <div className="flex-1 space-y-2">
+                                  <h4 className="text-lg font-semibold text-foreground">
+                                    {project.title}
+                                  </h4>
+                                  <p className="text-foreground/70 text-sm">
+                                    {project.shortDescription}
+                                  </p>
+                                  <div className="flex flex-wrap gap-2">
+                                    {project.skills
+                                      .slice(0, 3)
+                                      .map((skillSlug: string) => (
+                                        <span
+                                          key={skillSlug}
+                                          className="text-xs px-2 py-1 rounded bg-neutral/50 text-foreground/70 border border-neutral/30"
+                                        >
+                                          {getSkillName(skillSlug)}
                                         </span>
-                                      )}
-                                    </div>
+                                      ))}
+                                    {project.skills.length > 3 && (
+                                      <span className="text-xs text-foreground/60">
+                                        +{project.skills.length - 3} more
+                                      </span>
+                                    )}
                                   </div>
                                 </div>
                               </div>
-                            );
-                          })}
+                            </div>
+                          ))}
                         </div>
                       </div>
                     )}
