@@ -1,0 +1,45 @@
+{
+  "nav": {
+    "home": "Home",
+    "skills": "Skills",
+    "projects": "Projects",
+    "experience": "Experience"
+  },
+  "hero": {
+    "greeting": "Hi, my name is",
+    "viewWork": "View My Work",
+    "experienceBtn": "Experience"
+  },
+  "skills": {
+    "title": "Skills",
+    "technical": "Technical Skills",
+    "tools": "Tools & Technologies",
+    "languages": "Languages",
+    "softSkills": "Soft Skills",
+    "projectsUsing": "Projects using",
+    "noProjects": "No projects found using",
+    "levels": {
+      "advanced": "Advanced",
+      "intermediate": "Intermediate",
+      "beginner": "Beginner",
+      "native": "Native/Bilingual",
+      "proficient": "Proficient"
+    }
+  },
+  "projects": {
+    "title": "Projects",
+    "viewDetails": "View Details",
+    "technologies": "Technologies",
+    "links": "Links",
+    "github": "GitHub",
+    "liveDemo": "Live Demo",
+    "close": "Close"
+  },
+  "experience": {
+    "title": "Experience",
+    "present": "Present",
+    "technologies": "Technologies",
+    "projects": "Projects",
+    "viewProject": "View Project"
+  }
+}
