@@ -3,7 +3,8 @@
     "home": "Accueil",
     "skills": "Compétences",
     "projects": "Projets",
-    "experience": "Expérience"
+    "experience": "Expérience",
+    "passions": "Passions"
   },
   "hero": {
     "greeting": "Bonjour, je m'appelle",
@@ -33,7 +34,9 @@
     "links": "Liens",
     "github": "GitHub",
     "liveDemo": "Démo en Direct",
-    "close": "Fermer"
+    "close": "Fermer",
+    "back": "Retour",
+    "screenshots": "Captures d'Écran du Projet"
   },
   "experience": {
     "title": "Expérience",
@@ -41,5 +44,8 @@
     "technologies": "Technologies",
     "projects": "Projets",
     "viewProject": "Voir le Projet"
+  },
+  "passions": {
+    "title": "Passions"
   }
 }

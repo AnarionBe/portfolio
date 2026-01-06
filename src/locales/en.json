@@ -3,7 +3,8 @@
     "home": "Home",
     "skills": "Skills",
     "projects": "Projects",
-    "experience": "Experience"
+    "experience": "Experience",
+    "passions": "Passions"
   },
   "hero": {
     "greeting": "Hi, my name is",
@@ -33,7 +34,9 @@
     "links": "Links",
     "github": "GitHub",
     "liveDemo": "Live Demo",
-    "close": "Close"
+    "close": "Close",
+    "back": "Back",
+    "screenshots": "Project Screenshots"
   },
   "experience": {
     "title": "Experience",
@@ -41,5 +44,8 @@
     "technologies": "Technologies",
     "projects": "Projects",
     "viewProject": "View Project"
+  },
+  "passions": {
+    "title": "Passions"
   }
 }
