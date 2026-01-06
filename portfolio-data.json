@@ -76,7 +76,7 @@
       "projects": []
     },
     {
-      "slug": "adonisjs",
+      "slug": "adonis_js",
       "name": "AdonisJs",
       "level": "skills.levels.advanced",
       "icon": "SiAdonisjs",
@@ -147,16 +147,7 @@
       "icon": "SiLinux"
     }
   ],
-  "soft_skills": [
-    {
-      "name": "Fast learner",
-      "description": "I learn fast. It can be either to learn a new language or to discover a new codebase."
-    },
-    {
-      "name": "Product Vision",
-      "description": "I have a good product vision allowing me to make accurate suggestions for features and priorities."
-    }
-  ],
+  "soft_skills": [],
   "passions": [
     {
       "name": "Music",
@@ -179,35 +170,25 @@
   ],
   "projects": [
     {
-      "title": "DevMind",
-      "period": "09/2025 - Present",
-      "shortDescription": "AI assistant to help developers manage their projects",
-      "longDescription": "An AI-powered project management tool designed to streamline workflows for developers. By leveraging AI, DevMind automatically generates, documents, and prioritizes tasks, providing accurate time estimates based on individual skills, historical task data, and project priorities. The goal is to reduce manual planning, improve productivity, and ensure cohesive roadmap execution for solo developers.",
-      "technologies": [
-        "Oclif",
-        "AdonisJs",
-        "MistralAI"
-      ],
-      "image": "",
-      "images": [],
-      "githubUrl": "",
-      "liveUrl": "",
-      "skills": []
-    },
-    {
       "title": "Metal Galaxy",
-      "shortDescription": "Metal Music encyclopedia",
-      "longDescription": "The platform includes detailed references to metal bands, songs, albums, tours, and more, providing users with an extensive database to explore and discover metal music. Key features include user reviews, real-time updates, and a community-driven approach to ensure accurate and up-to-date information.",
-      "technologies": [
-        "React",
-        "AdonisJs",
-        "TailwindCss"
+      "shortDescription": "A plateform that aim to gather metal music ecosystem on one place",
+      "longDescription": "Metal Galaxy is a plateform that will regroup every member of the metal family in the same place. It goes from fans to bands including promoters.<br /> The platform consist in 3 major features: a community driven encyclopedia, a live show agenda and a social network to connect fans and bands.",
+      "responsabilities": [
+        "Product vision",
+        "Design",
+        "Development"
       ],
-      "image": "",
+      "achievements": [],
+      "image": "https://images.unsplash.com/photo-1506091403742-e3aa39518db5?q=80&w=2340&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
       "images": [],
       "githubUrl": "",
-      "liveUrl": "",
-      "skills": []
+      "liveUrl": "metal-galaxy.net",
+      "skills": [
+        "react",
+        "adonis_js",
+        "tailwind_css",
+        "nest_js"
+      ]
     }
   ],
   "experience": [

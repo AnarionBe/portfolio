@@ -40,7 +40,9 @@
     "liveDemo": "Live Demo",
     "close": "Close",
     "back": "Back",
-    "screenshots": "Project Screenshots"
+    "screenshots": "Project Screenshots",
+    "responsibilities": "Responsibilities",
+    "achievements": "Achievements"
   },
   "experience": {
     "title": "Experience",

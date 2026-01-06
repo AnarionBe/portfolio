@@ -60,7 +60,9 @@ export function ProjectDetail() {
                 d="M15 19l-7-7 7-7"
               />
             </svg>
-            <span className="text-lg font-medium">{t("projects.back", "Back")}</span>
+            <span className="text-lg font-medium">
+              {t("projects.back", "Back")}
+            </span>
           </button>
         </div>
       </nav>
@@ -68,18 +70,48 @@ export function ProjectDetail() {
       {/* Project Content */}
       <div className="pt-24 px-6 pb-12">
         <div className="max-w-5xl mx-auto">
-          <Card
-            image={project.image}
-            imageAlt={project.title}
-          >
+          <Card image={project.image} imageAlt={project.title}>
             <div className="space-y-6">
               <h1 className="text-4xl md:text-5xl font-bold text-foreground">
                 {project.title}
               </h1>
 
-              <p className="text-foreground/90 leading-relaxed text-lg">
-                {project.longDescription}
-              </p>
+              <p
+                className="text-foreground/90 leading-relaxed text-lg"
+                dangerouslySetInnerHTML={{ __html: project.longDescription }}
+              ></p>
+
+              {/* Responsibilities */}
+              {project.responsabilities && project.responsabilities.length > 0 && (
+                <div className="space-y-3">
+                  <h2 className="text-2xl font-semibold text-foreground">
+                    {t("projects.responsibilities")}
+                  </h2>
+                  <ul className="list-disc list-inside space-y-2">
+                    {project.responsabilities.map((responsibility, index) => (
+                      <li key={index} className="text-foreground/80 text-lg">
+                        {responsibility}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              )}
+
+              {/* Achievements */}
+              {project.achievements && project.achievements.length > 0 && (
+                <div className="space-y-3">
+                  <h2 className="text-2xl font-semibold text-foreground">
+                    {t("projects.achievements")}
+                  </h2>
+                  <ul className="list-disc list-inside space-y-2">
+                    {project.achievements.map((achievement, index) => (
+                      <li key={index} className="text-foreground/80 text-lg">
+                        {achievement}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              )}
 
               {/* Image Gallery */}
               {project.images && project.images.length > 0 && (

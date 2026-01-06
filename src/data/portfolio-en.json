@@ -13,14 +13,47 @@
       "website": "https://anarion.tech"
     }
   },
-  "languages": [
+  "soft_skills": [
     {
-      "name": "French",
-      "level": "Native/Bilingual"
+      "name": "Fast learner",
+      "description": "I learn fast. It can be either to learn a new language or to discover a new codebase."
     },
     {
-      "name": "English",
-      "level": "Proficient"
+      "name": "Product Vision",
+      "description": "I have a good product vision allowing me to make accurate suggestions for features and priorities."
+    }
+  ],
+  "projects": [
+    {
+      "title": "DevMind",
+      "period": "09/2025 - Present",
+      "shortDescription": "AI assistant to help developers manage their projects",
+      "longDescription": "An AI-powered project management tool designed to streamline workflows for developers. By leveraging AI, DevMind automatically generates, documents, and prioritizes tasks, providing accurate time estimates based on individual skills, historical task data, and project priorities. The goal is to reduce manual planning, improve productivity, and ensure cohesive roadmap execution for solo developers.",
+      "technologies": [
+        "Oclif",
+        "AdonisJs",
+        "MistralAI"
+      ],
+      "image": "",
+      "images": [],
+      "githubUrl": "",
+      "liveUrl": "",
+      "skills": []
+    },
+    {
+      "title": "Metal Galaxy",
+      "shortDescription": "Metal Music encyclopedia",
+      "longDescription": "The platform includes detailed references to metal bands, songs, albums, tours, and more, providing users with an extensive database to explore and discover metal music. Key features include user reviews, real-time updates, and a community-driven approach to ensure accurate and up-to-date information.",
+      "technologies": [
+        "React",
+        "AdonisJs",
+        "TailwindCss"
+      ],
+      "image": "",
+      "images": [],
+      "githubUrl": "",
+      "liveUrl": "",
+      "skills": []
     }
   ]
 }
