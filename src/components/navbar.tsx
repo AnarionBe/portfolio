@@ -10,6 +10,7 @@ const navItems = [
 export function NavBar() {
   const [activeSection, setActiveSection] = useState("home");
   const [underlineStyle, setUnderlineStyle] = useState({ left: 0, width: 0 });
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const navRefs = useRef<{ [key: string]: HTMLAnchorElement | null }>({});
 
   useEffect(() => {
@@ -67,7 +68,8 @@ export function NavBar() {
             {"<Anarion />"}
           </a>
 
-          <ul className="flex gap-8 items-center relative">
+          {/* Desktop Navigation */}
+          <ul className="hidden md:flex gap-8 items-center relative">
             {navItems.map((item) => (
               <li key={item.href}>
                 <a
@@ -95,7 +97,53 @@ export function NavBar() {
               }}
             />
           </ul>
+
+          {/* Mobile Burger Menu Button */}
+          <button
+            className="md:hidden flex flex-col gap-1.5 w-8 h-8 justify-center items-center"
+            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+            aria-label="Toggle menu"
+          >
+            <span
+              className={`block w-6 h-0.5 bg-foreground transition-all duration-300 ${
+                isMobileMenuOpen ? "rotate-45 translate-y-2" : ""
+              }`}
+            />
+            <span
+              className={`block w-6 h-0.5 bg-foreground transition-all duration-300 ${
+                isMobileMenuOpen ? "opacity-0" : ""
+              }`}
+            />
+            <span
+              className={`block w-6 h-0.5 bg-foreground transition-all duration-300 ${
+                isMobileMenuOpen ? "-rotate-45 -translate-y-2" : ""
+              }`}
+            />
+          </button>
         </div>
+
+        {/* Mobile Menu */}
+        {isMobileMenuOpen && (
+          <div className="md:hidden mt-4 pb-4">
+            <ul className="flex flex-col gap-4">
+              {navItems.map((item) => (
+                <li key={item.href}>
+                  <a
+                    href={item.href}
+                    onClick={() => setIsMobileMenuOpen(false)}
+                    className={`block py-2 px-4 rounded-lg transition-all duration-200 ${
+                      activeSection === item.id
+                        ? "text-primary bg-primary/10 font-semibold"
+                        : "text-foreground/70 hover:text-primary hover:bg-primary/5"
+                    }`}
+                  >
+                    {item.label}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
+        )}
       </div>
     </nav>
   );
