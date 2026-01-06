@@ -30,99 +30,91 @@
       "slug": "javascript",
       "name": "JavaScript",
       "level": "skills.levels.advanced",
-      "icon": "SiJavascript",
-      "projects": []
+      "icon": "SiJavascript"
     },
     {
       "slug": "react",
       "name": "React",
       "level": "skills.levels.advanced",
-      "icon": "SiReact",
-      "projects": []
+      "icon": "SiReact"
     },
     {
       "slug": "typescript",
       "name": "TypeScript",
       "level": "skills.levels.advanced",
-      "icon": "SiTypescript",
-      "projects": []
+      "icon": "SiTypescript"
     },
     {
       "slug": "vue_js",
       "name": "Vue.js",
       "level": "skills.levels.advanced",
-      "icon": "SiVuedotjs",
-      "projects": []
+      "icon": "SiVuedotjs"
     },
     {
       "slug": "react_native",
       "name": "React Native",
       "level": "skills.levels.advanced",
-      "icon": "SiReact",
-      "projects": []
+      "icon": "SiReact"
     },
     {
       "slug": "nextjs",
       "name": "Next.js",
       "level": "skills.levels.intermediate",
-      "icon": "SiNextdotjs",
-      "projects": []
+      "icon": "SiNextdotjs"
     },
     {
       "slug": "nuxtjs",
       "name": "Nuxt.js",
       "level": "skills.levels.intermediate",
-      "icon": "SiNuxtdotjs",
-      "projects": []
+      "icon": "SiNuxtdotjs"
     },
     {
       "slug": "adonis_js",
       "name": "AdonisJs",
       "level": "skills.levels.advanced",
-      "icon": "SiAdonisjs",
-      "projects": []
+      "icon": "SiAdonisjs"
+    },
+    {
+      "slug": "nest_js",
+      "name": "Nest.js",
+      "level": "skills.levels.intermediate",
+      "icon": "SiNestjs"
     },
     {
       "slug": "html",
       "name": "HTML",
       "level": "skills.levels.advanced",
-      "icon": "SiHtml5",
-      "projects": []
+      "icon": "SiHtml5"
     },
     {
       "slug": "css",
       "name": "CSS",
       "level": "skills.levels.advanced",
-      "icon": "SiCss3",
-      "projects": []
+      "icon": "SiCss3"
     },
     {
       "slug": "tailwind_css",
       "name": "Tailwind CSS",
       "level": "skills.levels.advanced",
-      "icon": "SiTailwindcss",
-      "projects": []
+      "icon": "SiTailwindcss"
     },
     {
       "slug": "php",
       "name": "PHP",
       "level": "skills.levels.intermediate",
-      "icon": "SiPhp",
-      "projects": []
+      "icon": "SiPhp"
     },
     {
       "slug": "laravel",
       "name": "Laravel",
       "level": "skills.levels.intermediate",
-      "icon": "SiLaravel",
-      "projects": []
+      "icon": "SiLaravel"
     },
     {
       "slug": "go_lang",
       "name": "GoLang",
       "level": "skills.levels.beginner",
-      "icon": "SiGo",
-      "projects": []
+      "icon": "SiGo"
     }
   ],
   "tools": [
@@ -208,8 +200,7 @@
         "TailwindCss",
         "Vue.js",
         "Ruby On Rails"
-      ],
-      "projects": []
+      ]
     },
     {
       "company": "Flowchase",
@@ -222,8 +213,7 @@
         "NodeJs",
         "React",
         "React Native"
-      ],
-      "projects": []
+      ]
     },
     {
       "company": "Infinity Mobile",
@@ -236,8 +226,7 @@
         "Laravel",
         "Vue.js",
         "React Native"
-      ],
-      "projects": []
+      ]
     },
     {
       "company": "Mango 3D",
@@ -249,8 +238,7 @@
       "technologies": [
         "Golang",
         "NodeJs"
-      ],
-      "projects": []
+      ]
     }
   ]
 }

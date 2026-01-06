@@ -82,20 +82,21 @@ export function ProjectDetail() {
               ></p>
 
               {/* Responsibilities */}
-              {project.responsabilities && project.responsabilities.length > 0 && (
-                <div className="space-y-3">
-                  <h2 className="text-2xl font-semibold text-foreground">
-                    {t("projects.responsibilities")}
-                  </h2>
-                  <ul className="list-disc list-inside space-y-2">
-                    {project.responsabilities.map((responsibility, index) => (
-                      <li key={index} className="text-foreground/80 text-lg">
-                        {responsibility}
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              )}
+              {project.responsabilities &&
+                project.responsabilities.length > 0 && (
+                  <div className="space-y-3">
+                    <h2 className="text-2xl font-semibold text-foreground">
+                      {t("projects.responsibilities")}
+                    </h2>
+                    <ul className="list-disc list-inside space-y-2">
+                      {project.responsabilities.map((responsibility, index) => (
+                        <li key={index} className="text-foreground/80 text-lg">
+                          {responsibility}
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                )}
 
               {/* Achievements */}
               {project.achievements && project.achievements.length > 0 && (
