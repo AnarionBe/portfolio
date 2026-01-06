@@ -104,33 +104,36 @@ export function NavBar() {
             <LanguageToggle />
           </div>
 
-          {/* Mobile Burger Menu Button */}
-          <button
-            className="md:hidden flex flex-col gap-1.5 w-8 h-8 justify-center items-center"
-            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            aria-label="Toggle menu"
-          >
-            <span
-              className={`block w-6 h-0.5 bg-foreground transition-all duration-300 ${
-                isMobileMenuOpen ? "rotate-45 translate-y-2" : ""
-              }`}
-            />
-            <span
-              className={`block w-6 h-0.5 bg-foreground transition-all duration-300 ${
-                isMobileMenuOpen ? "opacity-0" : ""
-              }`}
-            />
-            <span
-              className={`block w-6 h-0.5 bg-foreground transition-all duration-300 ${
-                isMobileMenuOpen ? "-rotate-45 -translate-y-2" : ""
-              }`}
-            />
-          </button>
+          {/* Mobile Language Toggle and Burger Menu */}
+          <div className="md:hidden flex items-center gap-4">
+            <LanguageToggle />
+            <button
+              className="flex flex-col gap-1.5 w-8 h-8 justify-center items-center"
+              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+              aria-label="Toggle menu"
+            >
+              <span
+                className={`block w-6 h-0.5 bg-foreground transition-all duration-300 ${
+                  isMobileMenuOpen ? "rotate-45 translate-y-2" : ""
+                }`}
+              />
+              <span
+                className={`block w-6 h-0.5 bg-foreground transition-all duration-300 ${
+                  isMobileMenuOpen ? "opacity-0" : ""
+                }`}
+              />
+              <span
+                className={`block w-6 h-0.5 bg-foreground transition-all duration-300 ${
+                  isMobileMenuOpen ? "-rotate-45 -translate-y-2" : ""
+                }`}
+              />
+            </button>
+          </div>
         </div>
 
         {/* Mobile Menu */}
         {isMobileMenuOpen && (
-          <div className="md:hidden mt-4 pb-4 space-y-4">
+          <div className="md:hidden mt-4 pb-4">
             <ul className="flex flex-col gap-4">
               {navItems.map((item) => (
                 <li key={item.href}>
@@ -148,9 +151,6 @@ export function NavBar() {
                 </li>
               ))}
             </ul>
-            <div className="flex justify-center pt-2 border-t border-neutral/30">
-              <LanguageToggle />
-            </div>
           </div>
         )}
       </div>
