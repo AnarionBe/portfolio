@@ -52,21 +52,22 @@ export function Projects({
     <>
       <section
         id="projects"
-        className="h-screen snap-start overflow-y-auto px-6 py-24"
+        className="h-screen snap-start flex flex-col px-6 py-24"
       >
-        <div className="max-w-7xl mx-auto w-full">
-          <div className="space-y-12">
-            <div ref={ref} className="space-y-2">
-              <h2 className="text-4xl md:text-5xl font-bold text-foreground">
-                <span className="text-primary">03.</span>{" "}
-                <TypingAnimation
-                  text="<Projects />"
-                  startTyping={isInView}
-                  speed={80}
-                />
-              </h2>
-              <div className="h-1 w-96 bg-neutral"></div>
-            </div>
+        <div className="max-w-7xl mx-auto w-full flex flex-col h-full">
+          <div ref={ref} className="space-y-2 sticky top-0 bg-background z-10 pb-6">
+            <h2 className="text-4xl md:text-5xl font-bold text-foreground">
+              <span className="text-primary">03.</span>{" "}
+              <TypingAnimation
+                text="<Projects />"
+                startTyping={isInView}
+                speed={80}
+              />
+            </h2>
+            <div className="h-1 w-96 bg-neutral"></div>
+          </div>
+
+          <div className="space-y-12 flex-1 overflow-y-auto pr-4">
 
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
               {data.map((project) => (
