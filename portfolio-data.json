@@ -17,7 +17,7 @@
   },
   "languages": [
     {
-      "name": "skills.language.english",
+      "name": "skills.language.french",
       "level": "skills.levels.native"
     },
     {
@@ -57,16 +57,28 @@
       "icon": "SiReact"
     },
     {
-      "slug": "nextjs",
+      "slug": "next_js",
       "name": "Next.js",
       "level": "skills.levels.intermediate",
       "icon": "SiNextdotjs"
     },
     {
-      "slug": "nuxtjs",
+      "slug": "nuxt_js",
       "name": "Nuxt.js",
       "level": "skills.levels.intermediate",
       "icon": "SiNuxtdotjs"
+    },
+    {
+      "slug": "express_js",
+      "name": "Express.js",
+      "level": "skills.levels.advanced",
+      "icon": "SiExpress"
+    },
+    {
+      "slug": "node_js",
+      "name": "Node.js",
+      "level": "skills.levels.advanced",
+      "icon": "SiNodedotjs"
     },
     {
       "slug": "adonis_js",
@@ -115,6 +127,12 @@
       "name": "GoLang",
       "level": "skills.levels.beginner",
       "icon": "SiGo"
+    },
+    {
+      "slug": "ruby_on_rails",
+      "name": "Ruby on Rails",
+      "level": "skills.levels.beginner",
+      "icon": "SiRubyonrails"
     }
   ],
   "tools": [
@@ -162,30 +180,84 @@
   ],
   "projects": [
     {
+      "slug": "metal_galaxy",
       "title": "Metal Galaxy",
       "shortDescription": "A plateform that aim to gather metal music ecosystem on one place",
       "longDescription": "Metal Galaxy is a plateform that will regroup every member of the metal family in the same place. It goes from fans to bands including promoters.<br /> The platform consist in 3 major features: a community driven encyclopedia, a live show agenda and a social network to connect fans and bands.",
       "responsabilities": [
         "Product vision",
         "Design",
-        "Development"
+        "Fullstack Development",
+        "Infrastructure"
       ],
       "achievements": [],
       "image": "https://images.unsplash.com/photo-1506091403742-e3aa39518db5?q=80&w=2340&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
       "images": [],
       "githubUrl": "",
-      "liveUrl": "metal-galaxy.net",
+      "liveUrl": "https://metal-galaxy.net",
       "skills": [
         "react",
-        "adonis_js",
         "tailwind_css",
         "nest_js"
+      ]
+    },
+    {
+      "slug": "fix_pilot",
+      "title": "FixPilot",
+      "shortDescription": "A platform to automate converations between property maneages and service providers using ChatGPT.",
+      "longDescription": "FixPilot helps property managers to spend less time on handling emails and more to do their job. To achieve this goal, the platform read their incoming emails and take actions depending the intent but the human still have the last word in case of ambiguity.",
+      "responsabilities": [
+        "Fullstack Development",
+        "Infrastructure"
+      ],
+      "achievements": [
+        "Created ready to ship MVP",
+        "Created architecture to handle long term vision",
+        "Implemented automated tests on critical features",
+        "Implemented CI/CD pipeline",
+        "Created Scaleway infrastructure"
+      ],
+      "image": "https://images.unsplash.com/photo-1679083216051-aa510a1a2c0e?q=80&w=2232&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      "images": [],
+      "githubUrl": "",
+      "liveUrl": "",
+      "skills": [
+        "next_js",
+        "tailwind_css",
+        "adonis_js",
+        "vue_js",
+        "ruby_on_rails"
+      ]
+    },
+    {
+      "slug": "flowchase_app",
+      "title": "Flowchase App",
+      "shortDescription": "An application to help student improving their oral english skills.",
+      "longDescription": "The register give exercises created by linguists to test and challenge students and give feedback based on the recorded audio. The feedback provided include corrections and tips to improve their speaking skills.",
+      "responsabilities": [
+        "Mobile Development",
+        "Infrastructure",
+        "Backend Development"
+      ],
+      "achievements": [
+        "Stabilized the mobile application reducing the number of complaints by nearly 100%",
+        "Reduced infratructure cost by more than 50%",
+        "Implemeted bug reported tool to help support team",
+        "Implemented CI/CD pipeline"
+      ],
+      "image": "/images/flowchase.png",
+      "images": [],
+      "githubUrl": "",
+      "liveUrl": "",
+      "skills": [
+        "express_js",
+        "react_native"
       ]
     }
   ],
   "experience": [
     {
-      "company": "FixPilot (Startup creation)",
+      "company": "FixPilot",
       "position": "Lead Fullstack Developer",
       "period": "01/2025 - 07/2025",
       "location": "Brussels, Belgium",

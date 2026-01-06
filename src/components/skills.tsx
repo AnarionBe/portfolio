@@ -187,7 +187,7 @@ export function Skills({
                 {languages.map((language) => (
                   <Card key={language.name} className="flex flex-col space-y-2">
                     <h4 className="font-semibold text-foreground">
-                      {language.name}
+                      {t(language.name)}
                     </h4>
                     <p className={`text-sm ${getLevelColor(language.level)}`}>
                       {t(language.level)}
