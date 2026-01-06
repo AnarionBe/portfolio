@@ -47,5 +47,13 @@
   },
   "passions": {
     "title": "Passions"
+  },
+  "music": {
+    "openPlayer": "Open Music Player",
+    "player": "Music Player",
+    "expand": "Expand",
+    "minimize": "Minimize",
+    "close": "Close",
+    "playlistActive": "Playlist active"
   }
 }
