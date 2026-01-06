@@ -1,4 +1,5 @@
 import { useState, useRef, useEffect } from "react";
+import { useTranslation } from "react-i18next";
 import { Card } from "./card";
 import { TypingAnimation } from "./typing-animation";
 import { useInView } from "../hooks/use-in-view";
@@ -48,6 +49,7 @@ interface SkillsProps {
 }
 
 export function Skills({ data, tools, languages, softSkills, projects, onProjectClick }: SkillsProps) {
+  const { t } = useTranslation();
   const { ref, isInView } = useInView({ threshold: 0.2 });
   const [selectedSkill, setSelectedSkill] = useState<Skill | null>(null);
   const scrollContainerRef = useRef<HTMLDivElement>(null);
@@ -91,7 +93,7 @@ export function Skills({ data, tools, languages, softSkills, projects, onProject
             <h2 className="text-4xl md:text-5xl font-bold text-foreground">
               <span className="text-primary">02.</span>{" "}
               <TypingAnimation
-                text="<Skills />"
+                text={`<${t('skills.title')} />`}
                 startTyping={isInView}
                 speed={80}
               />
@@ -104,7 +106,7 @@ export function Skills({ data, tools, languages, softSkills, projects, onProject
             {/* Technical Skills */}
             <div className="space-y-6">
               <h3 className="text-2xl font-bold text-foreground/90">
-                Technical Skills
+                {t('skills.technical')}
               </h3>
               <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6">
                 {data.map((skill) => (
@@ -137,7 +139,7 @@ export function Skills({ data, tools, languages, softSkills, projects, onProject
             {/* Tools */}
             <div className="space-y-6">
               <h3 className="text-2xl font-bold text-foreground/90">
-                Tools & Technologies
+                {t('skills.tools')}
               </h3>
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                 {tools.map((tool) => (
@@ -165,7 +167,7 @@ export function Skills({ data, tools, languages, softSkills, projects, onProject
             {/* Languages */}
             <div className="space-y-6">
               <h3 className="text-2xl font-bold text-foreground/90">
-                Languages
+                {t('skills.languages')}
               </h3>
               <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
                 {languages.map((language) => (
@@ -184,7 +186,7 @@ export function Skills({ data, tools, languages, softSkills, projects, onProject
             {/* Soft Skills */}
             <div className="space-y-6">
               <h3 className="text-2xl font-bold text-foreground/90">
-                Soft Skills
+                {t('skills.softSkills')}
               </h3>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 {softSkills.map((softSkill) => (
@@ -243,7 +245,7 @@ export function Skills({ data, tools, languages, softSkills, projects, onProject
 
                 <div className="space-y-4">
                   <h3 className="text-lg font-semibold text-foreground">
-                    Projects using {selectedSkill.name}
+                    {t('skills.projectsUsing')} {selectedSkill.name}
                   </h3>
 
                   {getProjectsForSkill(selectedSkill.slug).length > 0 ? (
@@ -293,7 +295,7 @@ export function Skills({ data, tools, languages, softSkills, projects, onProject
                     </div>
                   ) : (
                     <p className="text-foreground/60 text-center py-8">
-                      No projects found using {selectedSkill.name}
+                      {t('skills.noProjects')} {selectedSkill.name}
                     </p>
                   )}
                 </div>

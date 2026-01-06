@@ -1,4 +1,5 @@
 import { useState, useRef, useEffect } from "react";
+import { useTranslation } from "react-i18next";
 import { Card } from "./card";
 import { TypingAnimation } from "./typing-animation";
 import { useInView } from "../hooks/use-in-view";
@@ -43,6 +44,7 @@ export function Experience({
   allProjects,
   onProjectClick,
 }: ExperienceProps) {
+  const { t } = useTranslation();
   const { ref, isInView } = useInView({ threshold: 0.2 });
   const [selectedExperience, setSelectedExperience] = useState<Experience>(
     data[0]
@@ -76,7 +78,7 @@ export function Experience({
             <h2 className="text-4xl md:text-5xl font-bold text-foreground">
               <span className="text-primary">04.</span>{" "}
               <TypingAnimation
-                text="<Experience />"
+                text={`<${t('experience.title')} />`}
                 startTyping={isInView}
                 speed={80}
               />

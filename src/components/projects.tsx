@@ -1,4 +1,5 @@
 import { useState, useRef, useEffect } from "react";
+import { useTranslation } from "react-i18next";
 import { Card } from "./card";
 import { TypingAnimation } from "./typing-animation";
 import { useInView } from "../hooks/use-in-view";
@@ -32,6 +33,7 @@ export function Projects({
   selectedProject: externalSelectedProject,
   onProjectSelect,
 }: ProjectsProps) {
+  const { t } = useTranslation();
   const { ref, isInView } = useInView({ threshold: 0.2 });
   const [internalSelectedProject, setInternalSelectedProject] =
     useState<Project | null>(null);
@@ -66,7 +68,7 @@ export function Projects({
             <h2 className="text-4xl md:text-5xl font-bold text-foreground">
               <span className="text-primary">03.</span>{" "}
               <TypingAnimation
-                text="<Projects />"
+                text={`<${t('projects.title')} />`}
                 startTyping={isInView}
                 speed={80}
               />

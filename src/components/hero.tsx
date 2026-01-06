@@ -1,3 +1,5 @@
+import { useTranslation } from "react-i18next";
+
 interface HeroProps {
   data: {
     name: string;
@@ -15,6 +17,7 @@ interface HeroProps {
 }
 
 export function Hero({ data }: HeroProps) {
+  const { t } = useTranslation();
   return (
     <section
       id="home"
