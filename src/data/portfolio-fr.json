@@ -1,0 +1,15 @@
+{
+  "hero": {
+    "name": "Marco De Bona",
+    "title": "Développeur Fullstack Senior",
+    "greeting": "Bonjour, je m'appelle",
+    "description": "Je suis un développeur fullstack senior spécialisé dans la création d'applications web et mobiles modernes. Je me concentre sur la création de produits accessibles et centrés sur l'humain en utilisant des technologies de pointe et l'IA.",
+    "email": "contact@anarion.tech",
+    "phone": "+32473477736",
+    "profileImage": "",
+    "socialLinks": {
+      "github": "https://github.com/marcodebona",
+      "linkedin": "https://linkedin.com/in/marcodebona"
+    }
+  }
+}
