@@ -57,6 +57,18 @@ function App() {
     }
   };
 
+  // Hide browser UI on mobile on page load
+  useEffect(() => {
+    // Scroll down slightly to hide the browser UI on mobile
+    window.scrollTo(0, 1);
+
+    // Also try on the scroll container
+    const scrollContainer = scrollContainerRef.current;
+    if (scrollContainer) {
+      scrollContainer.scrollTo(0, 1);
+    }
+  }, []);
+
   useEffect(() => {
     const scrollContainer = scrollContainerRef.current;
     if (!scrollContainer) return;
