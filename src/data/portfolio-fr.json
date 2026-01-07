@@ -12,14 +12,299 @@
       "linkedin": "https://linkedin.com/in/marcodebona"
     }
   },
-  "languages": [
+  "soft_skills": [
     {
-      "name": "French",
-      "level": "Native/Bilingual"
+      "name": "Apprentissage Rapide",
+      "description": "Je m'adapte rapidement aux nouvelles technologies et bases de code, ce qui me permet d'apporter de la valeur rapidement dans n'importe quel environnement."
     },
     {
-      "name": "English",
-      "level": "Proficient"
+      "name": "Vision Produit",
+      "description": "Forte vision produit qui me permet de faire des suggestions stratégiques pour les fonctionnalités et les priorités, garantissant un impact significatif."
+    }
+  ],
+  "passions": [
+    {
+      "name": "Musique",
+      "description": "Passionné de musique, en particulier le metal. J'adore découvrir de nouveaux groupes et assister à des concerts.",
+      "icon": "🎸",
+      "image": ""
+    },
+    {
+      "name": "Jeux Vidéo",
+      "description": "J'apprécie jouer aux jeux vidéo pendant mon temps libre, des jeux de stratégie aux RPG immersifs.",
+      "icon": "🎮",
+      "image": ""
+    },
+    {
+      "name": "Technologie",
+      "description": "Toujours curieux des technologies émergentes et des solutions innovantes. J'adore expérimenter avec des outils de pointe.",
+      "icon": "💻",
+      "image": ""
+    }
+  ],
+  "projects": [
+    {
+      "slug": "metal_galaxy_app",
+      "title": "Metal Galaxy",
+      "company": "metal_galaxy",
+      "shortDescription": "Une plateforme qui vise à réunir l'écosystème de la musique metal en un seul endroit.",
+      "longDescription": "Metal Galaxy est une plateforme complète conçue pour rassembler tous les membres de la communauté metal—des fans aux groupes en passant par les promoteurs. La plateforme comprend trois composants majeurs : une encyclopédie collaborative, un agenda de concerts et un réseau social connectant fans et groupes.",
+      "responsabilities": [
+        "Vision et stratégie produit",
+        "Design UI/UX",
+        "Développement fullstack",
+        "Infrastructure et DevOps"
+      ],
+      "achievements": [],
+      "image": "https://images.unsplash.com/photo-1506091403742-e3aa39518db5?q=80&w=2340&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      "images": [],
+      "githubUrl": "",
+      "liveUrl": "https://metal-galaxy.net",
+      "skills": [
+        "react",
+        "tailwind_css",
+        "nest_js",
+        "mongo_db"
+      ]
+    },
+    {
+      "slug": "fix_pilot_app",
+      "title": "FixPilot",
+      "company": "fix_pilot",
+      "shortDescription": "Une plateforme pour automatiser les conversations avec les prestataires de services via ChatGPT.",
+      "longDescription": "FixPilot aide les gestionnaires immobiliers à passer moins de temps à gérer les emails et plus de temps à faire leur travail. La plateforme lit les emails entrants et prend des actions en fonction de l'intention, tout en garantissant que les humains ont le dernier mot en cas d'ambiguïté.",
+      "responsabilities": [
+        "Développement fullstack",
+        "Infrastructure et DevOps"
+      ],
+      "achievements": [
+        "Livraison réussie du MVP",
+        "Création d'une architecture évolutive pour supporter la vision à long terme",
+        "Mise en place de tests automatisés pour les fonctionnalités critiques",
+        "Configuration du pipeline CI/CD",
+        "Déploiement de l'infrastructure Scaleway"
+      ],
+      "image": "https://images.unsplash.com/photo-1679083216051-aa510a1a2c0e?q=80&w=2232&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      "images": [],
+      "githubUrl": "",
+      "liveUrl": "",
+      "skills": [
+        "next_js",
+        "tailwind_css",
+        "adonis_js",
+        "vue_js",
+        "ruby_on_rails",
+        "postgre_sql"
+      ]
+    },
+    {
+      "slug": "flowchase_app",
+      "title": "Flowchase App",
+      "company": "flowchase",
+      "shortDescription": "Une application pour aider les étudiants à améliorer leurs compétences orales en anglais.",
+      "longDescription": "La plateforme propose des exercices créés par des linguistes pour tester et challenger les étudiants, offrant des retours basés sur l'audio enregistré. Les retours incluent des corrections et des conseils pratiques pour améliorer les compétences orales.",
+      "responsabilities": [
+        "Développement mobile",
+        "Infrastructure et DevOps",
+        "Développement backend"
+      ],
+      "achievements": [
+        "Stabilisation de l'application mobile, réduisant les plaintes des utilisateurs de près de 100%",
+        "Réduction des coûts d'infrastructure de plus de 50%",
+        "Mise en place d'un outil de signalement de bugs pour assister l'équipe support",
+        "Configuration du pipeline CI/CD"
+      ],
+      "image": "/images/flowchase.png",
+      "images": [],
+      "githubUrl": "",
+      "liveUrl": "",
+      "skills": [
+        "express_js",
+        "react_native",
+        "postgre_sql"
+      ]
+    },
+    {
+      "slug": "flowchase_teacher_portal",
+      "title": "Flowchase Teacher Portal",
+      "company": "flowchase",
+      "shortDescription": "Une plateforme pour les enseignants permettant de créer et gérer des classes tout en suivant la progression des étudiants.",
+      "longDescription": "Le portail enseignant permet aux professeurs de créer et gérer des classes, suivre la progression des étudiants et personnaliser les leçons adaptées aux besoins de chaque classe.",
+      "responsabilities": [
+        "Développement fullstack",
+        "Infrastructure et DevOps"
+      ],
+      "achievements": [
+        "Création d'une fonctionnalité de création automatique de classes, éliminant l'intervention de l'équipe support",
+        "Refonte de l'interface pour une meilleure expérience utilisateur et utilisabilité"
+      ],
+      "image": "/images/flowchase.png",
+      "images": [],
+      "githubUrl": "",
+      "liveUrl": "",
+      "skills": [
+        "next_js",
+        "tailwind_css",
+        "pug_js",
+        "postgre_sql"
+      ]
+    },
+    {
+      "slug": "flowchase_practice_tool",
+      "title": "Flowchase Practice Tool",
+      "company": "flowchase",
+      "shortDescription": "Une plateforme pour aider n'importe qui à améliorer ses compétences en anglais.",
+      "longDescription": "Le Flowchase Practice Tool permet à quiconque de s'entraîner en anglais avec un accent particulier sur l'oral. L'outil exploite l'IA de l'application Flowchase pour fournir des retours sur du texte soumis par l'utilisateur plutôt que sur du contenu pré-créé. Pour maximiser l'apprentissage, l'outil génère également des échantillons audio (via ElevenLabs) démontrant la prononciation correcte.",
+      "responsabilities": [
+        "Développement frontend",
+        "Infrastructure et DevOps"
+      ],
+      "achievements": [
+        "Livraison réussie du MVP",
+        "Mise en place du pipeline CI/CD"
+      ],
+      "image": "/images/flowchase.png",
+      "images": [],
+      "githubUrl": "",
+      "liveUrl": "",
+      "skills": [
+        "react",
+        "tailwind_css"
+      ]
+    },
+    {
+      "slug": "sayl_resto",
+      "title": "Sayl Resto",
+      "company": "infinity_mobile",
+      "shortDescription": "Une plateforme de commande en ligne pour restaurants.",
+      "longDescription": "Sayl Resto est une plateforme qui offre aux propriétaires de restaurants une présence en ligne pour gérer leurs menus, accepter des commandes et livrer de la nourriture à leurs clients efficacement.",
+      "responsabilities": [
+        "Développement frontend",
+        "Développement mobile"
+      ],
+      "achievements": [
+        "Mise en place de la fonctionnalité Sayl Loyalty Program",
+        "Intégration du widget Sayl Wallet",
+        "Création de versions mobiles pour les clients intéressés",
+        "Identification et correction d'un problème critique de timestamp rendant la fonctionnalité de commande par créneau horaire inutilisable hors du fuseau horaire belge"
+      ],
+      "image": "/images/sayl.webp",
+      "images": [],
+      "githubUrl": "",
+      "liveUrl": "",
+      "skills": [
+        "vue_js",
+        "sass"
+      ]
+    },
+    {
+      "slug": "sayl_wallet",
+      "title": "Sayl Wallet",
+      "company": "infinity_mobile",
+      "shortDescription": "Un portefeuille NFT et POAP pour les utilisateurs de Sayl.",
+      "longDescription": "Sayl Wallet offre aux clients de Sayl un moyen de fidéliser leurs utilisateurs via des NFTs et POAPs. Le portefeuille comprend une application web pour visualiser et gérer les NFTs, une porte d'accès pour restreindre l'accès à certaines pages ou sites web aux propriétaires de NFT spécifiques, et un widget permettant à quiconque d'intégrer le portefeuille sur leur propre site web.",
+      "responsabilities": [
+        "Développement frontend"
+      ],
+      "achievements": [
+        "Livraison réussie du produit complet"
+      ],
+      "image": "/images/sayl.webp",
+      "images": [],
+      "githubUrl": "",
+      "liveUrl": "",
+      "skills": [
+        "vue_js",
+        "react",
+        "sass"
+      ]
+    },
+    {
+      "slug": "sayl_retail",
+      "title": "Sayl Retail",
+      "company": "infinity_mobile",
+      "shortDescription": "Une alternative à Shopify.",
+      "longDescription": "Sayl Retail est une alternative à Shopify avec une promesse : commencer à vendre en moins de 5 minutes. La plateforme est une solution e-commerce complète, incluant un système de point de vente, un CRM, une gestion des stocks et un système de gestion d'entrepôt.",
+      "responsabilities": [
+        "Développement fullstack",
+        "Développement mobile"
+      ],
+      "achievements": [
+        "Création de la fonctionnalité de shopping par appel vidéo",
+        "Mise en place de la fonctionnalité Sayl Loyalty Program",
+        "Intégration du widget et de la porte d'accès Sayl Wallet",
+        "Développement de la fonctionnalité de layouts personnalisés",
+        "Refonte de l'interface pour un look moderne"
+      ],
+      "image": "/images/sayl.webp",
+      "images": [],
+      "githubUrl": "",
+      "liveUrl": "",
+      "skills": [
+        "vue_js",
+        "laravel",
+        "sass",
+        "react_native",
+        "mongo_db"
+      ]
+    },
+    {
+      "slug": "sayl_store_manager",
+      "title": "Sayl Store Manager",
+      "company": "infinity_mobile",
+      "shortDescription": "Outil de gestion des commandes depuis Sayl Resto.",
+      "longDescription": "Sayl Store Manager fournit une solution centralisée et facile pour gérer les commandes de Sayl Resto ainsi que les informations globales du restaurant comme les heures d'ouverture et les niveaux de stock.",
+      "responsabilities": [
+        "Développement fullstack",
+        "Développement mobile"
+      ],
+      "achievements": [
+        "Optimisation de l'application pour de meilleures performances, réduisant le temps de chargement de 10 secondes à 10 millisecondes",
+        "Mise en place de l'interface de gestion du Sayl Loyalty Program",
+        "Mise en place de l'interface de gestion de Sayl Wallet",
+        "Refonte de l'interface pour un look moderne et une meilleure UX"
+      ],
+      "image": "/images/sayl.webp",
+      "images": [],
+      "githubUrl": "",
+      "liveUrl": "",
+      "skills": [
+        "vue_js",
+        "laravel",
+        "sass",
+        "react_native",
+        "mongo_db"
+      ]
+    },
+    {
+      "slug": "mango_os",
+      "title": "Lychee OS",
+      "company": "mango_3d",
+      "shortDescription": "OS pour imprimantes 3D écrit en Go.",
+      "longDescription": "Lychee OS est un système d'exploitation conçu pour les imprimantes 3D avec une intégration directe du Lychee Slicer.",
+      "responsabilities": [
+        "Développement OS",
+        "Recherche et développement"
+      ],
+      "achievements": [
+        "Création de la fonctionnalité de timelapse d'impression pour l'OS",
+        "Mise en place des paiements récurrents avec Mollie",
+        "Mise à jour de la structure de la base de données pour supporter de nouvelles fonctionnalités",
+        "Création d'un portail web pour connecter facilement l'imprimante au slicer",
+        "Recherche et développement pour améliorer les performances de rendu d'images"
+      ],
+      "image": "/images/lychee.jpg",
+      "images": [],
+      "githubUrl": "",
+      "liveUrl": "",
+      "skills": [
+        "go_lang",
+        "c_lang",
+        "javascript",
+        "html",
+        "css",
+        "mongo_db"
+      ]
     }
   ]
 }

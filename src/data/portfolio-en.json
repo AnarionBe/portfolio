@@ -1,59 +1,310 @@
 {
   "hero": {
-    "name": "Marco",
+    "name": "Marco De Bona",
     "title": "Senior Fullstack Developer",
     "greeting": "Hi, my name is",
-    "description": "I'm a senior fullstack developer specializing in building modern web and mobile applications. I focus on creating accessible, human-centered products with focus on quality over quantity.",
+    "description": "I'm a senior fullstack developer specializing in building modern web and mobile applications. I focus on creating accessible, human-centered products using cutting-edge technologies and AI.",
     "email": "contact@anarion.tech",
     "phone": "+32473477736",
     "profileImage": "https://avatars.githubusercontent.com/u/25613222?s=400&u=9c17d0bba4f7836c348f2e8f09695795351a50a9&v=4",
     "socialLinks": {
-      "github": "https://github.com/AnarionBe",
-      "linkedin": "https://www.linkedin.com/in/marcodebona-anarion",
-      "website": "https://anarion.tech"
+      "github": "https://github.com/marcodebona",
+      "linkedin": "https://linkedin.com/in/marcodebona"
     }
   },
   "soft_skills": [
     {
-      "name": "Fast learner",
-      "description": "I learn fast. It can be either to learn a new language or to discover a new codebase."
+      "name": "Fast Learner",
+      "description": "I quickly adapt to new technologies and codebases, enabling me to deliver value rapidly in any environment."
     },
     {
       "name": "Product Vision",
-      "description": "I have a good product vision allowing me to make accurate suggestions for features and priorities."
+      "description": "Strong product sense that allows me to make strategic suggestions for features and prioritization, ensuring meaningful impact."
+    }
+  ],
+  "passions": [
+    {
+      "name": "Music",
+      "description": "Passionate about music, especially metal. I love discovering new bands and attending live concerts.",
+      "icon": "🎸",
+      "image": ""
+    },
+    {
+      "name": "Gaming",
+      "description": "I enjoy playing video games in my free time, from strategy games to immersive RPGs.",
+      "icon": "🎮",
+      "image": ""
+    },
+    {
+      "name": "Technology",
+      "description": "Always curious about emerging technologies and innovative solutions. I love experimenting with cutting-edge tools.",
+      "icon": "💻",
+      "image": ""
     }
   ],
   "projects": [
     {
-      "title": "DevMind",
-      "period": "09/2025 - Present",
-      "shortDescription": "AI assistant to help developers manage their projects",
-      "longDescription": "An AI-powered project management tool designed to streamline workflows for developers. By leveraging AI, DevMind automatically generates, documents, and prioritizes tasks, providing accurate time estimates based on individual skills, historical task data, and project priorities. The goal is to reduce manual planning, improve productivity, and ensure cohesive roadmap execution for solo developers.",
-      "technologies": [
-        "Oclif",
-        "AdonisJs",
-        "MistralAI"
+      "slug": "metal_galaxy_app",
+      "title": "Metal Galaxy",
+      "company": "metal_galaxy",
+      "shortDescription": "A platform that aims to unite the metal music ecosystem in one place.",
+      "longDescription": "Metal Galaxy is a comprehensive platform designed to bring together every member of the metal community—from fans to bands to promoters. The platform features three major components: a community-driven encyclopedia, a live show agenda, and a social network connecting fans and bands.",
+      "responsabilities": [
+        "Product vision and strategy",
+        "UI/UX design",
+        "Fullstack development",
+        "Infrastructure and DevOps"
       ],
-      "image": "",
+      "achievements": [],
+      "image": "https://images.unsplash.com/photo-1506091403742-e3aa39518db5?q=80&w=2340&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
       "images": [],
       "githubUrl": "",
-      "liveUrl": "",
-      "skills": []
+      "liveUrl": "https://metal-galaxy.net",
+      "skills": [
+        "react",
+        "tailwind_css",
+        "nest_js",
+        "mongo_db"
+      ]
     },
     {
-      "title": "Metal Galaxy",
-      "shortDescription": "Metal Music encyclopedia",
-      "longDescription": "The platform includes detailed references to metal bands, songs, albums, tours, and more, providing users with an extensive database to explore and discover metal music. Key features include user reviews, real-time updates, and a community-driven approach to ensure accurate and up-to-date information.",
-      "technologies": [
-        "React",
-        "AdonisJs",
-        "TailwindCss"
+      "slug": "fix_pilot_app",
+      "title": "FixPilot",
+      "company": "fix_pilot",
+      "shortDescription": "A platform to automate conversations with service providers using ChatGPT.",
+      "longDescription": "FixPilot helps property managers spend less time handling emails and more time doing their job. The platform reads incoming emails and takes actions based on intent, while ensuring humans have the final say in case of ambiguity.",
+      "responsabilities": [
+        "Fullstack development",
+        "Infrastructure and DevOps"
       ],
-      "image": "",
+      "achievements": [
+        "Shipped MVP successfully",
+        "Created scalable architecture to support long-term vision",
+        "Implemented automated testing for critical features",
+        "Set up CI/CD pipeline",
+        "Deployed Scaleway infrastructure"
+      ],
+      "image": "https://images.unsplash.com/photo-1679083216051-aa510a1a2c0e?q=80&w=2232&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
       "images": [],
       "githubUrl": "",
       "liveUrl": "",
-      "skills": []
+      "skills": [
+        "next_js",
+        "tailwind_css",
+        "adonis_js",
+        "vue_js",
+        "ruby_on_rails",
+        "postgre_sql"
+      ]
+    },
+    {
+      "slug": "flowchase_app",
+      "title": "Flowchase App",
+      "company": "flowchase",
+      "shortDescription": "An application to help students improve their oral English skills.",
+      "longDescription": "The platform provides exercises created by linguists to test and challenge students, offering feedback based on recorded audio. Feedback includes corrections and practical tips to enhance speaking skills.",
+      "responsabilities": [
+        "Mobile development",
+        "Infrastructure and DevOps",
+        "Backend development"
+      ],
+      "achievements": [
+        "Stabilized the mobile application, reducing user complaints by nearly 100%",
+        "Reduced infrastructure costs by more than 50%",
+        "Implemented bug reporting tool to assist support team",
+        "Set up CI/CD pipeline"
+      ],
+      "image": "/images/flowchase.png",
+      "images": [],
+      "githubUrl": "",
+      "liveUrl": "",
+      "skills": [
+        "express_js",
+        "react_native",
+        "postgre_sql"
+      ]
+    },
+    {
+      "slug": "flowchase_teacher_portal",
+      "title": "Flowchase Teacher Portal",
+      "company": "flowchase",
+      "shortDescription": "A platform for teachers to create and manage classes while tracking student progress.",
+      "longDescription": "The teacher portal enables teachers to create and manage classes, monitor student progress, and customize lessons tailored to each class's needs.",
+      "responsabilities": [
+        "Fullstack development",
+        "Infrastructure and DevOps"
+      ],
+      "achievements": [
+        "Created automated class creation feature, eliminating support team intervention",
+        "Redesigned UI for improved user experience and usability"
+      ],
+      "image": "/images/flowchase.png",
+      "images": [],
+      "githubUrl": "",
+      "liveUrl": "",
+      "skills": [
+        "next_js",
+        "tailwind_css",
+        "pug_js",
+        "postgre_sql"
+      ]
+    },
+    {
+      "slug": "flowchase_practice_tool",
+      "title": "Flowchase Practice Tool",
+      "company": "flowchase",
+      "shortDescription": "A platform to help anyone improve their English skills.",
+      "longDescription": "The Flowchase Practice Tool enables anyone to train their English skills with a strong focus on speaking. The tool leverages the Flowchase App's AI to provide feedback on user-submitted text rather than pre-created content. To maximize learning, the tool also generates audio samples (using ElevenLabs) demonstrating correct pronunciation.",
+      "responsabilities": [
+        "Frontend development",
+        "Infrastructure and DevOps"
+      ],
+      "achievements": [
+        "Shipped MVP successfully",
+        "Implemented CI/CD pipeline"
+      ],
+      "image": "/images/flowchase.png",
+      "images": [],
+      "githubUrl": "",
+      "liveUrl": "",
+      "skills": [
+        "react",
+        "tailwind_css"
+      ]
+    },
+    {
+      "slug": "sayl_resto",
+      "title": "Sayl Resto",
+      "company": "infinity_mobile",
+      "shortDescription": "An online ordering platform for restaurants.",
+      "longDescription": "Sayl Resto is a platform that provides restaurant owners with an online presence to manage their menus, accept orders, and deliver food to customers efficiently.",
+      "responsabilities": [
+        "Frontend development",
+        "Mobile development"
+      ],
+      "achievements": [
+        "Implemented Sayl Loyalty Program feature",
+        "Integrated Sayl Wallet widget",
+        "Created mobile versions for interested customers",
+        "Identified and fixed a critical timestamp issue that made the timeslot ordering feature unusable outside Belgium's timezone"
+      ],
+      "image": "/images/sayl.webp",
+      "images": [],
+      "githubUrl": "",
+      "liveUrl": "",
+      "skills": [
+        "vue_js",
+        "sass"
+      ]
+    },
+    {
+      "slug": "sayl_wallet",
+      "title": "Sayl Wallet",
+      "company": "infinity_mobile",
+      "shortDescription": "An NFT and POAP wallet for Sayl's users.",
+      "longDescription": "Sayl Wallet offers Sayl customers a way to build loyalty with their users through NFTs and POAPs. The wallet includes a web application to view and manage NFTs, a gate to restrict access to specific pages or websites to NFT owners, and a widget allowing anyone to integrate the wallet into their own website.",
+      "responsabilities": [
+        "Frontend development"
+      ],
+      "achievements": [
+        "Shipped full product successfully"
+      ],
+      "image": "/images/sayl.webp",
+      "images": [],
+      "githubUrl": "",
+      "liveUrl": "",
+      "skills": [
+        "vue_js",
+        "react",
+        "sass"
+      ]
+    },
+    {
+      "slug": "sayl_retail",
+      "title": "Sayl Retail",
+      "company": "infinity_mobile",
+      "shortDescription": "An alternative to Shopify.",
+      "longDescription": "Sayl Retail is an alternative to Shopify with one promise: start selling in less than 5 minutes. The platform is a complete e-commerce solution, including a POS system, CRM, inventory management, and warehouse management system.",
+      "responsabilities": [
+        "Fullstack development",
+        "Mobile development"
+      ],
+      "achievements": [
+        "Created video call shopping feature",
+        "Implemented Sayl Loyalty Program feature",
+        "Integrated Sayl Wallet widget and gate",
+        "Developed custom layouts feature",
+        "Redesigned UI for a modern look"
+      ],
+      "image": "/images/sayl.webp",
+      "images": [],
+      "githubUrl": "",
+      "liveUrl": "",
+      "skills": [
+        "vue_js",
+        "laravel",
+        "sass",
+        "react_native",
+        "mongo_db"
+      ]
+    },
+    {
+      "slug": "sayl_store_manager",
+      "title": "Sayl Store Manager",
+      "company": "infinity_mobile",
+      "shortDescription": "Tool for managing orders from Sayl Resto.",
+      "longDescription": "Sayl Store Manager provides an easy, centralized solution for managing orders from Sayl Resto as well as global restaurant information like opening hours and stock levels.",
+      "responsabilities": [
+        "Fullstack development",
+        "Mobile development"
+      ],
+      "achievements": [
+        "Optimized the app for better performance, reducing loading time from 10 seconds to 10 milliseconds",
+        "Implemented Sayl Loyalty Program management interface",
+        "Implemented Sayl Wallet management interface",
+        "Reworked the UI for a modern look and improved UX"
+      ],
+      "image": "/images/sayl.webp",
+      "images": [],
+      "githubUrl": "",
+      "liveUrl": "",
+      "skills": [
+        "vue_js",
+        "laravel",
+        "sass",
+        "react_native",
+        "mongo_db"
+      ]
+    },
+    {
+      "slug": "mango_os",
+      "title": "Lychee OS",
+      "company": "mango_3d",
+      "shortDescription": "OS for 3D printers written in Go.",
+      "longDescription": "Lychee OS is an operating system built for 3D printers with direct integration of the Lychee Slicer.",
+      "responsabilities": [
+        "OS development",
+        "Research and development"
+      ],
+      "achievements": [
+        "Created printing timelapse feature for the OS",
+        "Implemented recurring payments with Mollie",
+        "Updated database structure to support new features",
+        "Created web portal to easily connect the printer to the slicer",
+        "Conducted R&D to improve image rendering performance"
+      ],
+      "image": "/images/lychee.jpg",
+      "images": [],
+      "githubUrl": "",
+      "liveUrl": "",
+      "skills": [
+        "go_lang",
+        "c_lang",
+        "javascript",
+        "html",
+        "css",
+        "mongo_db"
+      ]
     }
   ]
 }
