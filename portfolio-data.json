@@ -481,8 +481,8 @@
       "period": "07/2025 - now",
       "location": "Liege, Belgium",
       "description": [
-        "Made the whole development and DevOps from scratch.",
-        "Key features include automated responses to providers, real-time status tracking of work orders, and seamless invoice management."
+        "Founded Metal Galaxy, a platform designed to unite the metal music community by connecting fans, bands, and promoters in one centralized ecosystem.",
+        "Led product vision, design, and full-stack development from concept to launch, building features including a community-driven encyclopedia, live show agenda, and social networking capabilities."
       ],
       "technologies": [],
       "logo": "",
@@ -495,8 +495,8 @@
       "period": "01/2025 - 07/2025",
       "location": "Brussels, Belgium",
       "description": [
-        "Made the whole development and DevOps from scratch.",
-        "Key features include automated responses to providers, real-time status tracking of work orders, and seamless invoice management."
+        "Led the development of an AI-powered platform that automates property manager communications with service providers using ChatGPT, significantly reducing email handling time.",
+        "Built complete infrastructure and architecture from scratch, implementing automated testing, CI/CD pipelines, and scalable cloud infrastructure on Scaleway to support long-term product vision."
       ],
       "technologies": [],
       "logo": "",
@@ -508,7 +508,10 @@
       "position": "Lead Fullstack Developer",
       "period": "11/2023 - 12/2024",
       "location": "Brussels, Belgium",
-      "description": [],
+      "description": [
+        "Led development of an English learning platform consisting of a mobile app, teacher portal, and practice tool, leveraging AI to provide real-time feedback on speaking skills.",
+        "Stabilized mobile application reducing user complaints by nearly 100%, reduced infrastructure costs by over 50%, and automated class creation workflows eliminating manual support intervention."
+      ],
       "technologies": [],
       "logo": "/images/flowchase_logo.jpg",
       "website": ""
@@ -519,7 +522,10 @@
       "position": "Web & Mobile Developer",
       "period": "2019 - 2023",
       "location": "",
-      "description": [],
+      "description": [
+        "Developed and maintained the Sayl ecosystem, a comprehensive suite of e-commerce and restaurant management solutions including Sayl Retail (Shopify alternative), Sayl Resto (online ordering), and innovative NFT/POAP wallet integration.",
+        "Implemented key features across web and mobile platforms including video call shopping, loyalty programs, custom layouts, and significantly improved performance (reducing load times from 10 seconds to 10 milliseconds in Store Manager)."
+      ],
       "technologies": [],
       "logo": "/images/ifm_logo.png",
       "website": "https://www.saylcloud.com/"
@@ -528,9 +534,12 @@
       "slug": "mango_3d",
       "company": "Mango3D",
       "position": "Junior Software Developer (Intern)",
-      "period": "",
+      "period": "2018 - 2019",
       "location": "",
-      "description": [],
+      "description": [
+        "Contributed to the development of Lychee OS, an operating system for 3D printers with integrated Lychee Slicer functionality, working with Go, C, and web technologies.",
+        "Implemented key features including print timelapse recording, recurring payment system with Mollie, and a web portal for seamless printer-to-slicer connectivity, while conducting R&D to optimize image rendering performance."
+      ],
       "technologies": [],
       "logo": "/images/mango_logo.jpg",
       "website": "https://mango3d.io/"
