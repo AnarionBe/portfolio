@@ -15,7 +15,7 @@ export function usePortfolioData() {
   return {
     ...portfolioDataMain,
     hero: langData.hero,
-    // projects: langData.projects,
+    projects: langData.projects,
     // skills: langData.skills,
     // soft_skills: langData.soft_skills,
     // tools: langData.tools,
