@@ -133,6 +133,36 @@
       "name": "Ruby on Rails",
       "level": "skills.levels.beginner",
       "icon": "SiRubyonrails"
+    },
+    {
+      "slug": "pug_js",
+      "name": "Pug.js",
+      "level": "skills.levels.beginner",
+      "icon": "SiPug"
+    },
+    {
+      "slug": "sass",
+      "name": "Sass",
+      "level": "skills.levels.intermediate",
+      "icon": "SiSass"
+    },
+    {
+      "slug": "c_lang",
+      "name": "C",
+      "level": "skills.levels.beginner",
+      "icon": "SiC"
+    },
+    {
+      "slug": "postgre_sql",
+      "name": "PostgreSQL",
+      "level": "skills.levels.advanced",
+      "icon": "SiPostgresql"
+    },
+    {
+      "slug": "mongo_db",
+      "name": "MongoDB",
+      "level": "skills.levels.intermediate",
+      "icon": "SiMongodb"
     }
   ],
   "tools": [
@@ -180,9 +210,10 @@
   ],
   "projects": [
     {
-      "slug": "metal_galaxy",
+      "slug": "metal_galaxy_app",
       "title": "Metal Galaxy",
-      "shortDescription": "A plateform that aim to gather metal music ecosystem on one place",
+      "company": "metal_galaxy",
+      "shortDescription": "A plateform that aim to gather metal music ecosystem on one place.",
       "longDescription": "Metal Galaxy is a plateform that will regroup every member of the metal family in the same place. It goes from fans to bands including promoters.<br /> The platform consist in 3 major features: a community driven encyclopedia, a live show agenda and a social network to connect fans and bands.",
       "responsabilities": [
         "Product vision",
@@ -198,20 +229,22 @@
       "skills": [
         "react",
         "tailwind_css",
-        "nest_js"
+        "nest_js",
+        "mongo_db"
       ]
     },
     {
-      "slug": "fix_pilot",
+      "slug": "fix_pilot_app",
       "title": "FixPilot",
-      "shortDescription": "A platform to automate converations between property maneages and service providers using ChatGPT.",
+      "company": "fix_pilot",
+      "shortDescription": "A platform to automate converations with service providers using ChatGPT.",
       "longDescription": "FixPilot helps property managers to spend less time on handling emails and more to do their job. To achieve this goal, the platform read their incoming emails and take actions depending the intent but the human still have the last word in case of ambiguity.",
       "responsabilities": [
         "Fullstack Development",
         "Infrastructure"
       ],
       "achievements": [
-        "Created ready to ship MVP",
+        "Shipped MVP",
         "Created architecture to handle long term vision",
         "Implemented automated tests on critical features",
         "Implemented CI/CD pipeline",
@@ -226,12 +259,14 @@
         "tailwind_css",
         "adonis_js",
         "vue_js",
-        "ruby_on_rails"
+        "ruby_on_rails",
+        "postgre_sql"
       ]
     },
     {
       "slug": "flowchase_app",
       "title": "Flowchase App",
+      "company": "flowchase",
       "shortDescription": "An application to help student improving their oral english skills.",
       "longDescription": "The register give exercises created by linguists to test and challenge students and give feedback based on the recorded audio. The feedback provided include corrections and tips to improve their speaking skills.",
       "responsabilities": [
@@ -251,7 +286,190 @@
       "liveUrl": "",
       "skills": [
         "express_js",
-        "react_native"
+        "react_native",
+        "postgre_sql"
+      ]
+    },
+    {
+      "slug": "flowchase_teacher_portal",
+      "title": "Flowchase Teacher Portal",
+      "company": "flowchase",
+      "shortDescription": "A platform for teachers to create, manage classes, and track student progress.",
+      "longDescription": "The teacher portal allows teachers to create and manage classes monitor student progress but also to customize lessons given to a class.",
+      "responsabilities": [
+        "Fullstack Development",
+        "Infrastructure"
+      ],
+      "achievements": [
+        "Created a feature to automate classes creation totally removing the need for the support",
+        "Updated the UI to be more user friendly and more practical"
+      ],
+      "image": "/images/flowchase.png",
+      "images": [],
+      "githubUrl": "",
+      "liveUrl": "",
+      "skills": [
+        "next_js",
+        "tailwind_css",
+        "pug_js",
+        "postgre_sql"
+      ]
+    },
+    {
+      "slug": "flowchase_practice_tool",
+      "title": "Flowchase Practice Tool",
+      "company": "flowchase",
+      "shortDescription": "A platform to allow anybody to improve themselves in english.",
+      "longDescription": "The Flowchase Practice tool is made to allow anyone to train their english skills with strong focus on speaking. The tool uses the Flawchase App's AI to give the same kind on feedback but applied to a text given by the user an not pre-created. In order to give as much help to the user, the tool also generate an audio (using ElevenLabs) sample to give the correct pronunciation.",
+      "responsabilities": [
+        "Frontend Development",
+        "Infrastructure"
+      ],
+      "image": "/images/flowchase.png",
+      "images": [],
+      "githubUrl": "",
+      "liveUrl": "",
+      "skills": [
+        "react",
+        "tailwind_css"
+      ],
+      "achievements": [
+        "Shipped MVP",
+        "Implemented CI/CD pipeline"
+      ]
+    },
+    {
+      "slug": "sayl_resto",
+      "title": "Sayl Resto",
+      "company": "infinity_mobile",
+      "shortDescription": "An online ordering platform for restaurants.",
+      "longDescription": "Sayl Resto is a platform that give to restorant owner an online presence to manage their menu, take orders and deliver food to their customers.",
+      "responsabilities": [
+        "Frontend Development",
+        "Mobile Development"
+      ],
+      "image": "/images/sayl.webp",
+      "images": [],
+      "githubUrl": "",
+      "liveUrl": "",
+      "skills": [
+        "vue_js",
+        "sass"
+      ],
+      "achievements": [
+        "Implemeted Sayl Loyalty Program feature",
+        "Implemeted Sayl Wallet widget",
+        "Created mobile versions for interested customers",
+        "Identified and fixed a major timestamp issue that make the timeslot ordering feature unusable outside Belgium's timezone"
+      ]
+    },
+    {
+      "slug": "sayl_wallet",
+      "title": "Sayl Wallet",
+      "company": "infinity_mobile",
+      "shortDescription": "An NFT and POAP Wallet for Sayl's users.",
+      "longDescription": "Sayl Wallet offer to sayl's customer a way to fidelize their users with NFTs and POAPs. The wallet consist on a web application to view and manage NFTs, an gate to restrict access to certain pages or website to owners of a certain NFT as well as a widget to allow anybody to integrate the wallet to their own website.",
+      "responsabilities": [
+        "Frontend Development"
+      ],
+      "image": "/images/sayl.webp",
+      "images": [],
+      "githubUrl": "",
+      "liveUrl": "",
+      "skills": [
+        "vue_js",
+        "react",
+        "sass"
+      ],
+      "achievements": [
+        "Shipped full product"
+      ]
+    },
+    {
+      "slug": "sayl_retail",
+      "title": "Sayl Retail",
+      "company": "infinity_mobile",
+      "shortDescription": "An alternative to Shopify.",
+      "longDescription": "Sayl Retail is an alternative to shopify with 1 promess: start selling in less than 5 minutes. The platform is a complete e-commerce solution, including a POS, a CRM, an inventory and a warehouse management system.",
+      "responsabilities": [
+        "Fullstack Development",
+        "Mobile Development"
+      ],
+      "image": "/images/sayl.webp",
+      "images": [],
+      "githubUrl": "",
+      "liveUrl": "",
+      "skills": [
+        "vue_js",
+        "laravel",
+        "sass",
+        "react_native",
+        "mongo_db"
+      ],
+      "achievements": [
+        "Created video call shopping feature",
+        "Implemeted Sayl Loyalty Program feature",
+        "Implemeted Sayl Wallet widget and gate",
+        "Implemeted custom layouts feature",
+        "Updated the UI for a more modern look"
+      ]
+    },
+    {
+      "slug": "sayl_store_manager",
+      "title": "Sayl Store Manager",
+      "company": "infinity_mobile",
+      "shortDescription": "Tool for managing orders from Sayl Resto.",
+      "longDescription": "Sayl Store Manager provide an easy and centralized place for managing orders from Sayl Resto but also global restorant informations like opening hours, stocks, ...",
+      "responsabilities": [
+        "Fullstack Development",
+        "Mobile Development"
+      ],
+      "image": "/images/sayl.webp",
+      "images": [],
+      "githubUrl": "",
+      "liveUrl": "",
+      "skills": [
+        "vue_js",
+        "laravel",
+        "sass",
+        "react_native",
+        "mongo_db"
+      ],
+      "achievements": [
+        "Optimized the app for better performance reducing loading time from 10 seconds to 10 miliseconds",
+        "Implemeted Sayl Loyalty Program management interface",
+        "Implemeted Sayl Wallet management interface",
+        "Reworked the UI for a more modern look and a better UX"
+      ]
+    },
+    {
+      "slug": "mango_os",
+      "title": "Lychee OS",
+      "company": "mango_3d",
+      "shortDescription": "OS for 3d printers written in Go.",
+      "longDescription": "Lychee OS is an OS made for 3d printers with a direct intergration of the Lychee Slicer.",
+      "responsabilities": [
+        "OS Development",
+        "R&D"
+      ],
+      "image": "/images/lychee.jpg",
+      "images": [],
+      "githubUrl": "",
+      "liveUrl": "",
+      "skills": [
+        "go_lang",
+        "c_lang",
+        "javascript",
+        "html",
+        "css",
+        "mongo_db"
+      ],
+      "achievements": [
+        "Created printing timelapse feature for the OS",
+        "Implemented recuring payments with Mollie",
+        "Updated Database structure to support new features",
+        "Created web portal to easily connect the printer to the slicer",
+        "R&D to improve image rendering performances"
       ]
     }
   ],
