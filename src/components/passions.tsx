@@ -29,7 +29,7 @@ export function Passions({ data }: PassionsProps) {
   return (
     <section
       id="passions"
-      className="h-screen snap-start flex flex-col px-6 py-20 pb-6 md:pb-24"
+      className="h-screen snap-start flex flex-col px-6 py-20 pb-24 md:pb-24"
     >
       <div className="max-w-7xl mx-auto w-full flex flex-col h-full">
         <div ref={ref} className="space-y-2 sticky top-0 bg-background z-10 pb-4 md:pt-6 md:pb-6">

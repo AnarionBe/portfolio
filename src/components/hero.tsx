@@ -66,7 +66,7 @@ export function Hero({ data }: HeroProps) {
   return (
     <section
       id="home"
-      className="h-screen snap-start flex flex-col px-6 py-24 pb-6 md:pb-24 md:justify-center md:py-0"
+      className="h-screen snap-start flex flex-col px-6 py-24 pb-24 md:pb-24 md:justify-center md:py-0"
     >
       <div ref={containerRef} className="max-w-6xl w-full mx-auto overflow-y-auto md:overflow-visible">
         <div className="flex flex-col lg:flex-row items-center gap-12">
