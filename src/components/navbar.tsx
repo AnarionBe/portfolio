@@ -11,7 +11,7 @@ const navItems = [
 ];
 
 export function NavBar() {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
   const [activeSection, setActiveSection] = useState("home");
   const [underlineStyle, setUnderlineStyle] = useState({ left: 0, width: 0 });
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -50,25 +50,35 @@ export function NavBar() {
   }, []);
 
   useEffect(() => {
-    const activeElement = navRefs.current[activeSection];
-    if (activeElement) {
-      const parent = activeElement.parentElement?.parentElement;
-      if (parent) {
-        const parentRect = parent.getBoundingClientRect();
-        const activeRect = activeElement.getBoundingClientRect();
-        setUnderlineStyle({
-          left: activeRect.left - parentRect.left,
-          width: activeRect.width,
-        });
+    const updateUnderline = () => {
+      const activeElement = navRefs.current[activeSection];
+      if (activeElement) {
+        const parent = activeElement.parentElement?.parentElement;
+        if (parent) {
+          const parentRect = parent.getBoundingClientRect();
+          const activeRect = activeElement.getBoundingClientRect();
+          setUnderlineStyle({
+            left: activeRect.left - parentRect.left,
+            width: activeRect.width,
+          });
+        }
       }
-    }
-  }, [activeSection]);
+    };
+
+    // Update immediately
+    updateUnderline();
+
+    // Also update after a small delay to ensure text has rendered with new language
+    const timeout = setTimeout(updateUnderline, 50);
+
+    return () => clearTimeout(timeout);
+  }, [activeSection, i18n.language]);
 
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-lg border-b border-neutral">
       <div className="max-w-7xl mx-auto px-6 py-4">
         <div className="flex items-center justify-between">
-          <a href="#home" className="text-xl font-bold text-primary">
+          <a href="#home" className="text-lg md:text-xl font-bold text-primary">
             {"<Anarion />"}
           </a>
 
@@ -82,9 +92,9 @@ export function NavBar() {
                       navRefs.current[item.id] = el;
                     }}
                     href={item.href}
-                    className={`inline-block transition-all duration-200 ${
+                    className={`inline-block transition-all duration-200 text-sm md:text-base ${
                       activeSection === item.id
-                        ? "text-primary text-lg font-semibold scale-110"
+                        ? "text-primary md:text-lg font-semibold scale-110"
                         : "text-foreground/70 hover:text-primary"
                     }`}
                   >
@@ -141,7 +151,7 @@ export function NavBar() {
                   <a
                     href={item.href}
                     onClick={() => setIsMobileMenuOpen(false)}
-                    className={`block py-2 px-4 rounded-lg transition-all duration-200 ${
+                    className={`block py-2 px-3 rounded-lg transition-all duration-200 text-sm ${
                       activeSection === item.id
                         ? "text-primary bg-primary/10 font-semibold"
                         : "text-foreground/70 hover:text-primary hover:bg-primary/5"
