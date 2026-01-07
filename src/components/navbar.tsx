@@ -1,8 +1,8 @@
 import { useState, useEffect, useRef } from "react";
 import { useTranslation } from "react-i18next";
 import { LanguageToggle } from "./language-toggle";
-import { exportPortfolioAsPDF } from "../utils/pdf-export";
-import { usePortfolioData } from "../hooks/use-portfolio-data";
+// import { exportPortfolioAsPDF } from "../utils/pdf-export";
+// import { usePortfolioData } from "../hooks/use-portfolio-data";
 
 const navItems = [
   { labelKey: "nav.home", href: "#home", id: "home" },
@@ -18,11 +18,11 @@ export function NavBar() {
   const [underlineStyle, setUnderlineStyle] = useState({ left: 0, width: 0 });
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const navRefs = useRef<{ [key: string]: HTMLAnchorElement | null }>({});
-  const portfolioData = usePortfolioData();
+  // const portfolioData = usePortfolioData();
 
-  const handleExportPDF = () => {
-    exportPortfolioAsPDF(portfolioData);
-  };
+  // const handleExportPDF = () => {
+  //   exportPortfolioAsPDF(portfolioData);
+  // };
 
   useEffect(() => {
     const observer = new IntersectionObserver(
