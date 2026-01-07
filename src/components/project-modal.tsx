@@ -35,7 +35,12 @@ interface ProjectModalProps {
   onClose: () => void;
 }
 
-export function ProjectModal({ project, allSkills, experiences, onClose }: ProjectModalProps) {
+export function ProjectModal({
+  project,
+  allSkills,
+  experiences,
+  onClose,
+}: ProjectModalProps) {
   const { t } = useTranslation();
   const [fullscreenImage, setFullscreenImage] = useState<string | null>(null);
 
@@ -89,20 +94,21 @@ export function ProjectModal({ project, allSkills, experiences, onClose }: Proje
               ></p>
 
               {/* Responsibilities */}
-              {project.responsabilities && project.responsabilities.length > 0 && (
-                <div className="space-y-3">
-                  <h2 className="text-2xl font-semibold text-foreground">
-                    {t("projects.responsibilities")}
-                  </h2>
-                  <ul className="list-disc list-inside space-y-2">
-                    {project.responsabilities.map((responsibility, index) => (
-                      <li key={index} className="text-foreground/80 text-lg">
-                        {responsibility}
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              )}
+              {project.responsabilities &&
+                project.responsabilities.length > 0 && (
+                  <div className="space-y-3">
+                    <h2 className="text-2xl font-semibold text-foreground">
+                      {t("projects.responsibilities")}
+                    </h2>
+                    <ul className="list-disc list-inside space-y-2">
+                      {project.responsabilities.map((responsibility, index) => (
+                        <li key={index} className="text-foreground/80 text-lg">
+                          {responsibility}
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                )}
 
               {/* Achievements */}
               {project.achievements && project.achievements.length > 0 && (
@@ -210,7 +216,7 @@ export function ProjectModal({ project, allSkills, experiences, onClose }: Proje
       {/* Fullscreen Image Modal */}
       {fullscreenImage && (
         <div
-          className="fixed inset-0 bg-background/95 backdrop-blur-md z-[60] flex items-center justify-center p-6"
+          className="fixed inset-0 bg-background/95 backdrop-blur-md z-60 flex items-center justify-center p-6"
           onClick={() => setFullscreenImage(null)}
         >
           <button
