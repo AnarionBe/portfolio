@@ -29,7 +29,7 @@ export function Passions({ data }: PassionsProps) {
   return (
     <section
       id="passions"
-      className="h-screen snap-start flex flex-col px-6 py-24 pb-40 md:pb-24"
+      className="h-screen snap-start flex flex-col px-6 py-24 pb-24 md:pb-24"
     >
       <div className="max-w-7xl mx-auto w-full flex flex-col h-full">
         <div ref={ref} className="space-y-2 sticky top-0 bg-background z-10 pb-4 md:pb-6">
@@ -44,7 +44,7 @@ export function Passions({ data }: PassionsProps) {
           <div className="h-1 w-48 md:w-96 bg-neutral"></div>
         </div>
 
-        <div ref={scrollContainerRef} className="space-y-12 flex-1 overflow-y-auto pr-4 pb-48 md:pb-0">
+        <div ref={scrollContainerRef} className="space-y-12 flex-1 overflow-y-auto pr-4 pb-24 md:pb-0">
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6">
             {data.map((passion) => (
               <Card

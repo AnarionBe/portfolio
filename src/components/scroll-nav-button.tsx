@@ -32,7 +32,7 @@ export function ScrollNavButton({
 
   // Adjust position when on last section to avoid footer overlap
   const bottomPosition = currentSection === sections[sections.length - 1]
-    ? "bottom-[14rem]"
+    ? "bottom-20"
     : "bottom-6";
 
   return (
