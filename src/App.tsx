@@ -90,20 +90,28 @@ function App() {
     // Observe all sections
     sectionElements.forEach((section) => observer.observe(section));
 
-    // Prevent manual scrolling on mobile
-    const preventScroll = (e: WheelEvent | TouchEvent) => {
+    // Prevent scrolling on the main container on mobile, but allow inner scrolling
+    const preventMainScroll = (e: WheelEvent | TouchEvent) => {
       if (window.innerWidth < 768) {
-        e.preventDefault();
+        // Check if the scroll is happening on the main container itself
+        // and not on a child scrollable element
+        const target = e.target as HTMLElement;
+        const scrollableChild = target.closest('[class*="overflow-y-auto"]');
+
+        // Only prevent if not scrolling within a scrollable child
+        if (!scrollableChild || scrollableChild === scrollContainer) {
+          e.preventDefault();
+        }
       }
     };
 
-    scrollContainer.addEventListener("wheel", preventScroll, { passive: false });
-    scrollContainer.addEventListener("touchmove", preventScroll, { passive: false });
+    scrollContainer.addEventListener("wheel", preventMainScroll, { passive: false });
+    scrollContainer.addEventListener("touchmove", preventMainScroll, { passive: false });
 
     return () => {
       sectionElements.forEach((section) => observer.unobserve(section));
-      scrollContainer.removeEventListener("wheel", preventScroll);
-      scrollContainer.removeEventListener("touchmove", preventScroll);
+      scrollContainer.removeEventListener("wheel", preventMainScroll);
+      scrollContainer.removeEventListener("touchmove", preventMainScroll);
     };
   }, []);
 
@@ -111,7 +119,7 @@ function App() {
     <>
       <div
         ref={scrollContainerRef}
-        className="h-screen overflow-hidden md:overflow-y-scroll snap-y snap-mandatory bg-background text-foreground"
+        className="h-screen overflow-hidden md:overflow-y-scroll snap-y snap-proximity bg-background text-foreground"
       >
         <NavBar />
         <Hero data={portfolioData.hero} />
