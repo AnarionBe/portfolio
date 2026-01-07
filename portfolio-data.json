@@ -484,7 +484,9 @@
         "Made the whole development and DevOps from scratch.",
         "Key features include automated responses to providers, real-time status tracking of work orders, and seamless invoice management."
       ],
-      "technologies": []
+      "technologies": [],
+      "logo": "",
+      "website": "https://metal-galaxy.net/"
     },
     {
       "slug": "fix_pilot",
@@ -496,7 +498,9 @@
         "Made the whole development and DevOps from scratch.",
         "Key features include automated responses to providers, real-time status tracking of work orders, and seamless invoice management."
       ],
-      "technologies": []
+      "technologies": [],
+      "logo": "",
+      "website": ""
     },
     {
       "slug": "flowchase",
@@ -505,7 +509,9 @@
       "period": "11/2023 - 12/2024",
       "location": "Brussels, Belgium",
       "description": [],
-      "technologies": []
+      "technologies": [],
+      "logo": "/images/flowchase_logo.jpg",
+      "website": ""
     },
     {
       "slug": "infinity_mobile",
@@ -514,7 +520,9 @@
       "period": "2019 - 2023",
       "location": "",
       "description": [],
-      "technologies": []
+      "technologies": [],
+      "logo": "/images/ifm_logo.png",
+      "website": "https://www.saylcloud.com/"
     },
     {
       "slug": "mango_3d",
@@ -523,7 +531,9 @@
       "period": "",
       "location": "",
       "description": [],
-      "technologies": []
+      "technologies": [],
+      "logo": "/images/mango_logo.jpg",
+      "website": "https://mango3d.io/"
     }
   ]
 }

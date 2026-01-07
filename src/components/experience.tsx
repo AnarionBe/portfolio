@@ -13,6 +13,8 @@ interface Experience {
   shortDescription?: string;
   description: string[];
   technologies: string[];
+  logo?: string;
+  website?: string;
 }
 
 interface Project {
@@ -198,16 +200,56 @@ export function Experience({
                   <div className="space-y-6">
                     <div className="space-y-2">
                       <div className="flex items-start justify-between gap-4">
-                        <div>
-                          <h2 className="text-3xl font-bold text-foreground">
-                            {selectedExperience.position}
-                          </h2>
-                          <p className="text-xl text-primary font-semibold">
-                            {selectedExperience.company}
-                          </p>
-                          <p className="text-foreground/60">
-                            {selectedExperience.location}
-                          </p>
+                        <div className="flex-1">
+                          <div className="flex items-start gap-4">
+                            {selectedExperience.logo && (
+                              <div className="shrink-0">
+                                <img
+                                  src={selectedExperience.logo}
+                                  alt={`${selectedExperience.company} logo`}
+                                  className="w-16 h-16 object-contain rounded-lg bg-background/50 p-2 border border-neutral/30"
+                                />
+                              </div>
+                            )}
+                            <div className="flex-1">
+                              <h2 className="text-3xl font-bold text-foreground">
+                                {selectedExperience.position}
+                              </h2>
+                              <div className="flex items-center gap-2 mt-1">
+                                {selectedExperience.website ? (
+                                  <a
+                                    href={selectedExperience.website}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className="text-xl text-primary font-semibold hover:text-primary/80 transition-colors inline-flex items-center gap-2"
+                                    onClick={(e) => e.stopPropagation()}
+                                  >
+                                    {selectedExperience.company}
+                                    <svg
+                                      className="w-4 h-4"
+                                      fill="none"
+                                      stroke="currentColor"
+                                      viewBox="0 0 24 24"
+                                    >
+                                      <path
+                                        strokeLinecap="round"
+                                        strokeLinejoin="round"
+                                        strokeWidth={2}
+                                        d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
+                                      />
+                                    </svg>
+                                  </a>
+                                ) : (
+                                  <p className="text-xl text-primary font-semibold">
+                                    {selectedExperience.company}
+                                  </p>
+                                )}
+                              </div>
+                              <p className="text-foreground/60">
+                                {selectedExperience.location}
+                              </p>
+                            </div>
+                          </div>
                         </div>
                         <span className="text-sm text-foreground/60 bg-neutral/50 px-3 py-1 rounded whitespace-nowrap">
                           {selectedExperience.period}
