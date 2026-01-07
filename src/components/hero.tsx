@@ -1,4 +1,5 @@
 import { useRef, useEffect } from "react";
+import { useTypingAnimation } from "../hooks/use-typing-animation";
 // import { useTranslation } from "react-i18next";
 
 interface HeroProps {
@@ -23,6 +24,13 @@ export function Hero({ data }: HeroProps) {
   const containerRef = useRef<HTMLDivElement>(null);
   const touchStartY = useRef<number>(0);
   const touchEndY = useRef<number>(0);
+
+  const animatedName = useTypingAnimation({
+    texts: [data.name, "Anarion"],
+    typingSpeed: 100,
+    deletingSpeed: 50,
+    delayBetweenTexts: 5000, // 5 seconds
+  });
 
   useEffect(() => {
     const container = containerRef.current;
@@ -78,8 +86,9 @@ export function Hero({ data }: HeroProps) {
           <div className="flex-1 space-y-4 md:space-y-6">
             <div className="space-y-1 md:space-y-2">
               <p className="text-primary text-sm md:text-lg">{data.greeting}</p>
-              <h1 className="text-3xl md:text-5xl lg:text-6xl font-bold text-foreground">
-                {data.name}
+              <h1 className="text-3xl md:text-5xl lg:text-6xl font-bold text-foreground min-h-[1.2em]">
+                {animatedName}
+                <span className="inline-block w-[0.6em] h-[1.2em] bg-primary ml-1 animate-pulse align-middle"></span>
               </h1>
               <h2 className="text-xl md:text-3xl lg:text-4xl font-bold text-foreground/60">
                 {data.title}
