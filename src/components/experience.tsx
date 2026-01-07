@@ -384,7 +384,7 @@ export function Experience({
                                   <p className="text-foreground/70 text-sm">
                                     {project.shortDescription}
                                   </p>
-                                  <div className="flex flex-wrap gap-2">
+                                  <div className="flex flex-wrap gap-2 items-center">
                                     {project.skills
                                       .slice(0, 3)
                                       .map((skillSlug: string) => (
