@@ -53,9 +53,9 @@ export function Projects({ data, experiences, onProjectSelect }: ProjectsProps) 
       <div className="max-w-7xl mx-auto w-full flex flex-col h-full">
         <div
           ref={ref}
-          className="space-y-2 sticky top-0 bg-background z-10 pb-6"
+          className="space-y-2 sticky top-0 bg-background z-10 pb-4 md:pb-6"
         >
-          <h2 className="text-4xl md:text-5xl font-bold text-foreground">
+          <h2 className="text-2xl md:text-4xl lg:text-5xl font-bold text-foreground">
             <span className="text-primary">03.</span>{" "}
             <TypingAnimation
               text={`<${t("projects.title")} />`}
@@ -63,14 +63,14 @@ export function Projects({ data, experiences, onProjectSelect }: ProjectsProps) 
               speed={80}
             />
           </h2>
-          <div className="h-1 w-96 bg-neutral"></div>
+          <div className="h-1 w-48 md:w-96 bg-neutral"></div>
         </div>
 
         <div
           ref={scrollContainerRef}
           className="space-y-12 flex-1 overflow-y-auto pr-4"
         >
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6">
             {data.map((project) => (
               <div
                 key={project.title}
@@ -85,25 +85,25 @@ export function Projects({ data, experiences, onProjectSelect }: ProjectsProps) 
                 >
                   <div className="flex flex-col h-full">
                     <div>
-                      <h3 className="text-xl font-semibold text-foreground">
+                      <h3 className="text-lg md:text-xl font-semibold text-foreground">
                         {project.title}
                       </h3>
                       {getCompanyName(project.company) && (
-                        <p className="text-sm text-primary/70 mt-1">
+                        <p className="text-xs md:text-sm text-primary/70 mt-1">
                           {getCompanyName(project.company)}
                         </p>
                       )}
                     </div>
 
-                    <p className="text-foreground/80 text-sm mt-4 flex-1">
+                    <p className="text-foreground/80 text-xs md:text-sm mt-3 md:mt-4 flex-1">
                       {project.shortDescription}
                     </p>
 
-                    <div className="pt-4">
-                      <span className="text-primary hover:text-primary/80 transition-colors inline-flex items-center gap-1">
+                    <div className="pt-3 md:pt-4">
+                      <span className="text-sm md:text-base text-primary hover:text-primary/80 transition-colors inline-flex items-center gap-1">
                         {t("projects.viewDetails")}
                         <svg
-                          className="w-4 h-4"
+                          className="w-3 h-3 md:w-4 md:h-4"
                           fill="none"
                           stroke="currentColor"
                           viewBox="0 0 24 24"

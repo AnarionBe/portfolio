@@ -100,9 +100,9 @@ export function Skills({
         <div className="max-w-7xl mx-auto w-full flex flex-col h-full">
           <div
             ref={ref}
-            className="space-y-2 sticky top-0 bg-background z-10 pb-6"
+            className="space-y-2 sticky top-0 bg-background z-10 pb-4 md:pb-6"
           >
-            <h2 className="text-4xl md:text-5xl font-bold text-foreground">
+            <h2 className="text-2xl md:text-4xl lg:text-5xl font-bold text-foreground">
               <span className="text-primary">02.</span>{" "}
               <TypingAnimation
                 text={`<${t("skills.title")} />`}
@@ -110,7 +110,7 @@ export function Skills({
                 speed={80}
               />
             </h2>
-            <div className="h-1 w-96 bg-neutral"></div>
+            <div className="h-1 w-48 md:w-96 bg-neutral"></div>
           </div>
 
           <div
@@ -118,8 +118,8 @@ export function Skills({
             className="space-y-12 flex-1 overflow-y-auto pr-4"
           >
             {/* Technical Skills */}
-            <div className="space-y-6">
-              <h3 className="text-2xl font-bold text-foreground/90">
+            <div className="space-y-4 md:space-y-6">
+              <h3 className="text-xl md:text-2xl font-bold text-foreground/90">
                 {t("skills.technical")}
               </h3>
               <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6">
@@ -137,10 +137,10 @@ export function Skills({
                         {getIcon(skill.icon)}
                       </div>
                       <div className="space-y-1">
-                        <h3 className="font-semibold text-foreground">
+                        <h3 className="text-sm md:text-base font-semibold text-foreground">
                           {skill.name}
                         </h3>
-                        <p className={`text-sm ${getLevelColor(skill.level)}`}>
+                        <p className={`text-xs md:text-sm ${getLevelColor(skill.level)}`}>
                           {t(skill.level)}
                         </p>
                       </div>
@@ -151,8 +151,8 @@ export function Skills({
             </div>
 
             {/* Tools */}
-            <div className="space-y-6">
-              <h3 className="text-2xl font-bold text-foreground/90">
+            <div className="space-y-4 md:space-y-6">
+              <h3 className="text-xl md:text-2xl font-bold text-foreground/90">
                 {t("skills.tools")}
               </h3>
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -165,10 +165,10 @@ export function Skills({
                         </div>
                       )}
                       <div className="flex flex-col space-y-1">
-                        <h4 className="font-semibold text-foreground">
+                        <h4 className="text-sm md:text-base font-semibold text-foreground">
                           {tool.name}
                         </h4>
-                        <p className={`text-sm ${getLevelColor(tool.level)}`}>
+                        <p className={`text-xs md:text-sm ${getLevelColor(tool.level)}`}>
                           {t(tool.level)}
                         </p>
                       </div>
@@ -179,17 +179,17 @@ export function Skills({
             </div>
 
             {/* Languages */}
-            <div className="space-y-6">
-              <h3 className="text-2xl font-bold text-foreground/90">
+            <div className="space-y-4 md:space-y-6">
+              <h3 className="text-xl md:text-2xl font-bold text-foreground/90">
                 {t("skills.languages")}
               </h3>
-              <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+              <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-6">
                 {languages.map((language) => (
-                  <Card key={language.name} className="flex flex-col space-y-2">
-                    <h4 className="font-semibold text-foreground">
+                  <Card key={language.name} className="flex flex-col space-y-1 md:space-y-2">
+                    <h4 className="text-sm md:text-base font-semibold text-foreground">
                       {t(language.name)}
                     </h4>
-                    <p className={`text-sm ${getLevelColor(language.level)}`}>
+                    <p className={`text-xs md:text-sm ${getLevelColor(language.level)}`}>
                       {t(language.level)}
                     </p>
                   </Card>
@@ -198,17 +198,17 @@ export function Skills({
             </div>
 
             {/* Soft Skills */}
-            <div className="space-y-6">
-              <h3 className="text-2xl font-bold text-foreground/90">
+            <div className="space-y-4 md:space-y-6">
+              <h3 className="text-xl md:text-2xl font-bold text-foreground/90">
                 {t("skills.softSkills")}
               </h3>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
                 {softSkills.map((softSkill) => (
-                  <Card key={softSkill.name} className="space-y-2">
-                    <h4 className="font-semibold text-foreground text-lg">
+                  <Card key={softSkill.name} className="space-y-1 md:space-y-2">
+                    <h4 className="text-base md:text-lg font-semibold text-foreground">
                       {softSkill.name}
                     </h4>
-                    <p className="text-sm text-foreground/70">
+                    <p className="text-xs md:text-sm text-foreground/70">
                       {softSkill.description}
                     </p>
                   </Card>

@@ -22,7 +22,7 @@ export function Hero({ data }: HeroProps) {
   return (
     <section
       id="home"
-      className="h-screen snap-start flex flex-col items-center justify-center px-6 pt-20 relative"
+      className="h-screen snap-start flex flex-col items-center justify-center px-6 relative"
     >
       <div className="max-w-6xl w-full">
         <div className="flex flex-col lg:flex-row items-center gap-12">
@@ -39,29 +39,29 @@ export function Hero({ data }: HeroProps) {
           </div>
 
           {/* Right: Content */}
-          <div className="flex-1 space-y-6">
-            <div className="space-y-2">
-              <p className="text-primary text-lg">{data.greeting}</p>
-              <h1 className="text-4xl md:text-6xl font-bold text-foreground">
+          <div className="flex-1 space-y-4 md:space-y-6">
+            <div className="space-y-1 md:space-y-2">
+              <p className="text-primary text-sm md:text-lg">{data.greeting}</p>
+              <h1 className="text-3xl md:text-5xl lg:text-6xl font-bold text-foreground">
                 {data.name}
               </h1>
-              <h2 className="text-2xl md:text-4xl font-bold text-foreground/60">
+              <h2 className="text-xl md:text-3xl lg:text-4xl font-bold text-foreground/60">
                 {data.title}
               </h2>
             </div>
 
-            <p className="text-foreground/70 text-lg leading-relaxed">
+            <p className="text-foreground/70 text-sm md:text-base lg:text-lg leading-relaxed">
               {data.description}
             </p>
 
             {/* Contact Information */}
-            <div className="space-y-2">
+            <div className="space-y-1 md:space-y-2">
               <a
                 href={`mailto:${data.email}`}
-                className="flex items-center gap-2 text-foreground/80 hover:text-primary transition-colors duration-200"
+                className="flex items-center gap-2 text-sm md:text-base text-foreground/80 hover:text-primary transition-colors duration-200"
               >
                 <svg
-                  className="w-5 h-5"
+                  className="w-4 h-4 md:w-5 md:h-5"
                   fill="none"
                   stroke="currentColor"
                   viewBox="0 0 24 24"
@@ -77,10 +77,10 @@ export function Hero({ data }: HeroProps) {
               </a>
               <a
                 href={`tel:${data.phone}`}
-                className="flex items-center gap-2 text-foreground/80 hover:text-primary transition-colors duration-200"
+                className="flex items-center gap-2 text-sm md:text-base text-foreground/80 hover:text-primary transition-colors duration-200"
               >
                 <svg
-                  className="w-5 h-5"
+                  className="w-4 h-4 md:w-5 md:h-5"
                   fill="none"
                   stroke="currentColor"
                   viewBox="0 0 24 24"
@@ -97,15 +97,15 @@ export function Hero({ data }: HeroProps) {
             </div>
 
             {/* Social Links */}
-            <div className="flex gap-4">
+            <div className="flex gap-3 md:gap-4">
               <a
                 href={data.socialLinks.github}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center gap-2 px-6 py-3 border border-primary text-primary rounded-lg hover:bg-primary/10 transition-colors duration-200"
+                className="flex items-center gap-1.5 md:gap-2 px-4 py-2 md:px-6 md:py-3 text-sm md:text-base border border-primary text-primary rounded-lg hover:bg-primary/10 transition-colors duration-200"
               >
                 <svg
-                  className="w-5 h-5"
+                  className="w-4 h-4 md:w-5 md:h-5"
                   fill="currentColor"
                   viewBox="0 0 24 24"
                 >
@@ -117,10 +117,10 @@ export function Hero({ data }: HeroProps) {
                 href={data.socialLinks.linkedin}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center gap-2 px-6 py-3 border border-primary text-primary rounded-lg hover:bg-primary/10 transition-colors duration-200"
+                className="flex items-center gap-1.5 md:gap-2 px-4 py-2 md:px-6 md:py-3 text-sm md:text-base border border-primary text-primary rounded-lg hover:bg-primary/10 transition-colors duration-200"
               >
                 <svg
-                  className="w-5 h-5"
+                  className="w-4 h-4 md:w-5 md:h-5"
                   fill="currentColor"
                   viewBox="0 0 24 24"
                 >
@@ -135,11 +135,11 @@ export function Hero({ data }: HeroProps) {
 
       <a
         href="#skills"
-        className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 text-primary/70 hover:text-primary transition-colors duration-200 animate-bounce"
+        className="hidden md:flex absolute bottom-8 left-1/2 -translate-x-1/2 flex-col items-center gap-1 md:gap-2 text-primary/70 hover:text-primary transition-colors duration-200 animate-bounce"
       >
-        <span className="text-sm">Scroll Down</span>
+        <span className="text-xs md:text-sm">Scroll Down</span>
         <svg
-          className="w-6 h-6"
+          className="w-5 h-5 md:w-6 md:h-6"
           fill="none"
           stroke="currentColor"
           viewBox="0 0 24 24"

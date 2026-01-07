@@ -130,9 +130,9 @@ export function Experience({
         <div className="max-w-7xl mx-auto w-full flex flex-col h-full">
           <div
             ref={ref}
-            className="space-y-2 sticky top-0 bg-background z-10 pb-6"
+            className="space-y-2 sticky top-0 bg-background z-10 pb-4 md:pb-6"
           >
-            <h2 className="text-4xl md:text-5xl font-bold text-foreground">
+            <h2 className="text-2xl md:text-4xl lg:text-5xl font-bold text-foreground">
               <span className="text-primary">04.</span>{" "}
               <TypingAnimation
                 text={`<${t("experience.title")} />`}
@@ -140,12 +140,30 @@ export function Experience({
                 speed={80}
               />
             </h2>
-            <div className="h-1 w-96 bg-neutral"></div>
+            <div className="h-1 w-48 md:w-96 bg-neutral"></div>
           </div>
 
           <div className="flex-1 flex lg:flex-row flex-col gap-8 overflow-hidden">
-            {/* Left: Timeline with periods */}
-            <div className="lg:w-auto w-full overflow-y-auto pr-4">
+            {/* Mobile Select Dropdown */}
+            <div className="lg:hidden w-full">
+              <select
+                value={selectedExperience.company}
+                onChange={(e) => {
+                  const selected = data.find((exp) => exp.company === e.target.value);
+                  if (selected) setSelectedExperience(selected);
+                }}
+                className="w-full px-4 py-3 text-sm bg-background/40 backdrop-blur-md border border-primary/30 text-foreground rounded-lg focus:outline-none focus:border-primary/50 transition-all duration-200"
+              >
+                {data.map((exp) => (
+                  <option key={exp.company} value={exp.company}>
+                    {exp.position} - {exp.company} ({exp.period})
+                  </option>
+                ))}
+              </select>
+            </div>
+
+            {/* Desktop Timeline with periods */}
+            <div className="hidden lg:block lg:w-auto w-full overflow-y-auto pr-4">
               <div className="relative">
                 <div className="space-y-8 relative">
                   {/* Vertical timeline line - starts at first dot, ends at last dot */}
