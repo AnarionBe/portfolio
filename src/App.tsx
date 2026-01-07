@@ -5,6 +5,7 @@ import { Skills } from "./components/skills";
 import { Projects } from "./components/projects";
 import { Experience } from "./components/experience";
 import { Passions } from "./components/passions";
+import { Footer } from "./components/footer";
 import { ProjectModal } from "./components/project-modal";
 import { ScrollNavButton } from "./components/scroll-nav-button";
 import { usePortfolioData } from "./hooks/use-portfolio-data";
@@ -135,6 +136,7 @@ function App() {
           onProjectClick={handleProjectClick}
         />
         <Passions data={portfolioData.passions} />
+        <Footer data={portfolioData.hero} />
       </div>
 
       <ProjectModal

@@ -61,5 +61,12 @@
     "minimize": "Minimize",
     "close": "Close",
     "playlistActive": "Playlist active"
+  },
+  "footer": {
+    "tagline": "Full-stack developer passionate about creating innovative solutions",
+    "contact": "Contact",
+    "followMe": "Follow Me",
+    "rights": "All rights reserved.",
+    "builtWith": "Built with React, TypeScript & Tailwind CSS"
   }
 }
