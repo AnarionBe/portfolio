@@ -44,7 +44,7 @@ export function Passions({ data }: PassionsProps) {
           <div className="h-1 w-48 md:w-96 bg-neutral"></div>
         </div>
 
-        <div ref={scrollContainerRef} className="space-y-12 flex-1 overflow-y-auto pr-4 pb-28 md:pb-0">
+        <div ref={scrollContainerRef} className="space-y-12 flex-1 overflow-y-auto pr-4 pb-40 md:pb-0">
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6">
             {data.map((passion) => (
               <Card
