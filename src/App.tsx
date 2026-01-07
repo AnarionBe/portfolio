@@ -116,7 +116,8 @@ function App() {
     <>
       <div
         ref={scrollContainerRef}
-        className="h-screen overflow-y-scroll snap-y snap-proximity bg-background text-foreground"
+        className="h-full overflow-y-scroll snap-y snap-proximity bg-background text-foreground"
+        style={{ height: '100dvh' }}
       >
         <NavBar />
         <Hero data={portfolioData.hero} />
