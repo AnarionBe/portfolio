@@ -99,7 +99,7 @@ function App() {
     <>
       <div
         ref={scrollContainerRef}
-        className="h-screen overflow-hidden md:overflow-y-scroll snap-y snap-proximity bg-background text-foreground"
+        className="h-screen overflow-y-scroll snap-y snap-proximity bg-background text-foreground"
       >
         <NavBar />
         <Hero data={portfolioData.hero} />
