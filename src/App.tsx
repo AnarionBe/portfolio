@@ -136,8 +136,14 @@ function App() {
           onProjectClick={handleProjectClick}
         />
         <Passions data={portfolioData.passions} />
-        <Footer data={portfolioData.hero} />
       </div>
+
+      {/* Footer - shown when on last section */}
+      {currentSection === "passions" && (
+        <div className="fixed bottom-0 left-0 right-0 z-30">
+          <Footer data={portfolioData.hero} />
+        </div>
+      )}
 
       <ProjectModal
         project={selectedProject}

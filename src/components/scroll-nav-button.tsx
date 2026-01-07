@@ -30,8 +30,13 @@ export function ScrollNavButton({
 
   if (!showButton) return null;
 
+  // Adjust position when on last section to avoid footer overlap
+  const bottomPosition = currentSection === sections[sections.length - 1]
+    ? "bottom-[14rem]"
+    : "bottom-6";
+
   return (
-    <div className="fixed bottom-6 right-6 z-40 flex flex-col gap-3">
+    <div className={`fixed ${bottomPosition} right-6 z-40 flex flex-col gap-3 transition-all duration-300`}>
       {/* Up arrow button - show if not first section */}
       {!isFirst && (
         <button
