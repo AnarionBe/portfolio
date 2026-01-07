@@ -17,8 +17,6 @@ export function usePortfolioData() {
     hero: langData.hero,
     projects: langData.projects,
     experience: langData.experience,
-    // skills: langData.skills,
-    // soft_skills: langData.soft_skills,
-    // tools: langData.tools,
+    soft_skills: langData.soft_skills,
   };
 }
