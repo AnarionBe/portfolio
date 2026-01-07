@@ -32,7 +32,7 @@ export function Passions({ data }: PassionsProps) {
       className="h-screen snap-start flex flex-col px-6 py-20 pb-6 md:pb-24"
     >
       <div className="max-w-7xl mx-auto w-full flex flex-col h-full">
-        <div ref={ref} className="space-y-2 sticky top-0 bg-background z-10 pb-4 md:pb-6">
+        <div ref={ref} className="space-y-2 sticky top-0 bg-background z-10 pb-4 md:pt-6 md:pb-6">
           <h2 className="text-2xl md:text-4xl lg:text-5xl font-bold text-foreground">
             <span className="text-primary">05.</span>{" "}
             <TypingAnimation

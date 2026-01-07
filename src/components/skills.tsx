@@ -122,7 +122,7 @@ export function Skills({
         <div className="max-w-7xl mx-auto w-full flex flex-col h-full">
           <div
             ref={ref}
-            className="space-y-2 sticky top-0 bg-background z-10 pb-4 md:pb-6"
+            className="space-y-2 sticky top-0 bg-background z-10 pb-4 md:pt-6 md:pb-6"
           >
             <h2 className="text-2xl md:text-4xl lg:text-5xl font-bold text-foreground">
               <span className="text-primary">02.</span>{" "}
