@@ -28,6 +28,8 @@ interface Project {
   images?: string[];
   githubUrl?: string;
   liveUrl?: string;
+  responsabilities?: string[];
+  achievements?: string[];
 }
 
 interface ExperienceProps {
@@ -70,19 +72,22 @@ export function Experience({
   const getProjectsForExperience = (experience: Experience) => {
     // Find projects that belong to this company
     if (experience.slug) {
-      return allProjects.filter((project) => project.company === experience.slug);
+      return allProjects.filter(
+        (project) => project.company === experience.slug
+      );
     }
     // Fallback: match by company name if no slug
-    return allProjects.filter((project) =>
-      project.company?.toLowerCase() === experience.company.toLowerCase()
+    return allProjects.filter(
+      (project) =>
+        project.company?.toLowerCase() === experience.company.toLowerCase()
     );
   };
 
   const getAllTechnologies = (experience: Experience) => {
     // Get all unique skill slugs from experience technologies and related projects
-    const experienceTechs = (experience.technologies || []).map(tech =>
+    const experienceTechs = (experience.technologies || []).map((tech) =>
       // Normalize to slug format (lowercase with underscores)
-      tech.toLowerCase().replace(/\s+/g, '_').replace(/\./g, '_')
+      tech.toLowerCase().replace(/\s+/g, "_").replace(/\./g, "_")
     );
     const projects = getProjectsForExperience(experience);
     const projectSkills = projects.flatMap((project) => project.skills || []);
@@ -92,6 +97,30 @@ export function Experience({
     return allTechs;
   };
 
+  const getAllDescriptions = (experience: Experience) => {
+    // Combine experience descriptions with project responsibilities and achievements
+    const experienceDescriptions = experience.description || [];
+    const projects = getProjectsForExperience(experience);
+
+    // Collect all responsibilities and achievements from projects
+    const projectResponsibilities = projects.flatMap(
+      (project) => project.responsabilities || []
+    );
+    const projectAchievements = projects.flatMap(
+      (project) => project.achievements || []
+    );
+
+    // Merge all descriptions and deduplicate
+    const allDescriptions = [
+      ...experienceDescriptions,
+      ...projectResponsibilities,
+      ...projectAchievements,
+    ];
+
+    // Remove duplicates by converting to Set and back
+    return [...new Set(allDescriptions)];
+  };
+
   return (
     <>
       <section
@@ -99,11 +128,14 @@ export function Experience({
         className="h-screen snap-start flex flex-col px-6 py-24"
       >
         <div className="max-w-7xl mx-auto w-full flex flex-col h-full">
-          <div ref={ref} className="space-y-2 sticky top-0 bg-background z-10 pb-6">
+          <div
+            ref={ref}
+            className="space-y-2 sticky top-0 bg-background z-10 pb-6"
+          >
             <h2 className="text-4xl md:text-5xl font-bold text-foreground">
               <span className="text-primary">04.</span>{" "}
               <TypingAnimation
-                text={`<${t('experience.title')} />`}
+                text={`<${t("experience.title")} />`}
                 startTyping={isInView}
                 speed={80}
               />
@@ -111,11 +143,9 @@ export function Experience({
             <div className="h-1 w-96 bg-neutral"></div>
           </div>
 
-          <div ref={scrollContainerRef} className="space-y-12 flex-1 overflow-y-auto pr-4">
-
-            {/* Split View: Timeline + Details */}
-            <div className="lg:flex gap-8">
-              {/* Left: Timeline with periods */}
+          <div className="flex-1 flex lg:flex-row flex-col gap-8 overflow-hidden">
+            {/* Left: Timeline with periods */}
+            <div className="lg:w-auto w-full overflow-y-auto pr-4">
               <div className="relative">
                 <div className="space-y-8 relative">
                   {/* Vertical timeline line - starts at first dot, ends at last dot */}
@@ -140,8 +170,8 @@ export function Experience({
                       }`}
                     >
                       {/* Timeline dot */}
-                      <div className="absolute right-0 top-2 -mr-2">
-                        <div className="relative w-4 h-4 flex items-center justify-center">
+                      <div className="absolute right-0 top-0 -mr-2 h-full flex items-start">
+                        <div className="relative w-4 h-4 flex items-center justify-center mt-[0.4rem]">
                           {selectedExperience.company === exp.company && (
                             <div className="absolute w-6 h-6 rounded-full bg-primary/20 animate-pulse"></div>
                           )}
@@ -193,10 +223,11 @@ export function Experience({
                   ))}
                 </div>
               </div>
+            </div>
 
-              {/* Right: Details */}
-              <div className="lg:pl-8 flex-1">
-                <Card>
+            {/* Right: Details */}
+            <div className="flex-1 overflow-y-auto pr-4" ref={scrollContainerRef}>
+              <Card>
                   <div className="space-y-6">
                     <div className="space-y-2">
                       <div className="flex items-start justify-between gap-4">
@@ -257,85 +288,94 @@ export function Experience({
                       </div>
                     </div>
 
-                    <div className="space-y-3">
-                      <h3 className="text-lg font-semibold text-foreground">
-                        Key Responsibilities
-                      </h3>
-                      <ul className="space-y-2">
-                        {selectedExperience.description.map((item, i) => (
-                          <li
-                            key={i}
-                            className="text-foreground/80 flex items-start gap-2"
-                          >
-                            <span className="text-primary mt-1">▹</span>
-                            <span>{item}</span>
-                          </li>
-                        ))}
-                      </ul>
-                    </div>
+                    {getAllDescriptions(selectedExperience).length > 0 && (
+                      <div className="space-y-3">
+                        <h3 className="text-lg font-semibold text-foreground">
+                          Key Responsibilities & Achievements
+                        </h3>
+                        <ul className="space-y-2">
+                          {getAllDescriptions(selectedExperience).map(
+                            (item, i) => (
+                              <li
+                                key={i}
+                                className="text-foreground/80 flex items-start gap-2"
+                              >
+                                <span className="text-primary -mt-0.5">▹</span>
+                                <span>{item}</span>
+                              </li>
+                            )
+                          )}
+                        </ul>
+                      </div>
+                    )}
 
                     <div className="space-y-3">
                       <h3 className="text-lg font-semibold text-foreground">
                         Technologies Used
                       </h3>
                       <div className="flex flex-wrap gap-2">
-                        {getAllTechnologies(selectedExperience).map((techSlug) => (
-                          <span
-                            key={techSlug}
-                            className="text-sm bg-neutral/50 text-primary px-3 py-1.5 rounded-lg border border-neutral/30"
-                          >
-                            {getSkillName(techSlug)}
-                          </span>
-                        ))}
+                        {getAllTechnologies(selectedExperience).map(
+                          (techSlug) => (
+                            <span
+                              key={techSlug}
+                              className="text-sm bg-neutral/50 text-primary px-3 py-1.5 rounded-lg border border-neutral/30"
+                            >
+                              {getSkillName(techSlug)}
+                            </span>
+                          )
+                        )}
                       </div>
                     </div>
 
                     {/* Related Projects */}
-                    {getProjectsForExperience(selectedExperience).length > 0 && (
+                    {getProjectsForExperience(selectedExperience).length >
+                      0 && (
                       <div className="space-y-3">
                         <h3 className="text-lg font-semibold text-foreground">
                           {t("experience.projects")}
                         </h3>
                         <div className="space-y-3">
-                          {getProjectsForExperience(selectedExperience).map((project) => (
-                            <div
-                              key={project.title}
-                              onClick={() => {
-                                if (onProjectClick) {
-                                  onProjectClick(project);
-                                }
-                              }}
-                              className="relative bg-secondary/40 backdrop-blur-md border border-neutral/30 rounded-lg p-4 overflow-hidden hover:border-primary/50 transition-all duration-300 cursor-pointer"
-                            >
-                              <div className="flex gap-4">
-                                <div className="flex-1 space-y-2">
-                                  <h4 className="text-lg font-semibold text-foreground">
-                                    {project.title}
-                                  </h4>
-                                  <p className="text-foreground/70 text-sm">
-                                    {project.shortDescription}
-                                  </p>
-                                  <div className="flex flex-wrap gap-2">
-                                    {project.skills
-                                      .slice(0, 3)
-                                      .map((skillSlug: string) => (
-                                        <span
-                                          key={skillSlug}
-                                          className="text-xs px-2 py-1 rounded bg-neutral/50 text-foreground/70 border border-neutral/30"
-                                        >
-                                          {getSkillName(skillSlug)}
+                          {getProjectsForExperience(selectedExperience).map(
+                            (project) => (
+                              <div
+                                key={project.title}
+                                onClick={() => {
+                                  if (onProjectClick) {
+                                    onProjectClick(project);
+                                  }
+                                }}
+                                className="relative bg-secondary/40 backdrop-blur-md border border-neutral/30 rounded-lg p-4 overflow-hidden hover:border-primary/50 transition-all duration-300 cursor-pointer"
+                              >
+                                <div className="flex gap-4">
+                                  <div className="flex-1 space-y-2">
+                                    <h4 className="text-lg font-semibold text-foreground">
+                                      {project.title}
+                                    </h4>
+                                    <p className="text-foreground/70 text-sm">
+                                      {project.shortDescription}
+                                    </p>
+                                    <div className="flex flex-wrap gap-2">
+                                      {project.skills
+                                        .slice(0, 3)
+                                        .map((skillSlug: string) => (
+                                          <span
+                                            key={skillSlug}
+                                            className="text-xs px-2 py-1 rounded bg-neutral/50 text-foreground/70 border border-neutral/30"
+                                          >
+                                            {getSkillName(skillSlug)}
+                                          </span>
+                                        ))}
+                                      {project.skills.length > 3 && (
+                                        <span className="text-xs text-foreground/60">
+                                          +{project.skills.length - 3} more
                                         </span>
-                                      ))}
-                                    {project.skills.length > 3 && (
-                                      <span className="text-xs text-foreground/60">
-                                        +{project.skills.length - 3} more
-                                      </span>
-                                    )}
+                                      )}
+                                    </div>
                                   </div>
                                 </div>
                               </div>
-                            </div>
-                          ))}
+                            )
+                          )}
                         </div>
                       </div>
                     )}
@@ -343,7 +383,6 @@ export function Experience({
                 </Card>
               </div>
             </div>
-          </div>
         </div>
       </section>
     </>
