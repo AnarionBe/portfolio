@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
 import { NavBar } from "./components/navbar";
 import { Hero } from "./components/hero";
 import { Skills } from "./components/skills";
@@ -6,6 +6,7 @@ import { Projects } from "./components/projects";
 import { Experience } from "./components/experience";
 import { Passions } from "./components/passions";
 import { ProjectModal } from "./components/project-modal";
+import { ScrollNavButton } from "./components/scroll-nav-button";
 import { usePortfolioData } from "./hooks/use-portfolio-data";
 // import { MusicPlayer } from "./components/music-player";
 // import portfolioDataMain from "../portfolio-data.json";
@@ -26,6 +27,10 @@ interface Project {
 function App() {
   const portfolioData = usePortfolioData();
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
+  const [currentSection, setCurrentSection] = useState("home");
+  const scrollContainerRef = useRef<HTMLDivElement>(null);
+
+  const sections = ["home", "skills", "projects", "experience", "passions"];
 
   const handleProjectClick = (project: Project) => {
     setSelectedProject(project);
@@ -35,9 +40,78 @@ function App() {
     setSelectedProject(null);
   };
 
+  const handleNavigate = (direction: "up" | "down") => {
+    const currentIndex = sections.indexOf(currentSection);
+    let targetIndex = currentIndex;
+
+    if (direction === "up" && currentIndex > 0) {
+      targetIndex = currentIndex - 1;
+    } else if (direction === "down" && currentIndex < sections.length - 1) {
+      targetIndex = currentIndex + 1;
+    }
+
+    const targetSection = document.getElementById(sections[targetIndex]);
+    if (targetSection) {
+      targetSection.scrollIntoView({ behavior: "smooth" });
+    }
+  };
+
+  useEffect(() => {
+    const scrollContainer = scrollContainerRef.current;
+    if (!scrollContainer) return;
+
+    // Get all sections
+    const sectionElements = scrollContainer.querySelectorAll("section[id]");
+
+    // Create Intersection Observer
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          // Update URL when section is in view (more than 50% visible)
+          if (entry.isIntersecting && entry.intersectionRatio > 0.5) {
+            const sectionId = entry.target.getAttribute("id");
+            if (sectionId) {
+              // Update URL without scrolling
+              window.history.replaceState(null, "", `#${sectionId}`);
+              // Update current section state
+              setCurrentSection(sectionId);
+            }
+          }
+        });
+      },
+      {
+        root: scrollContainer,
+        threshold: [0, 0.5, 1],
+        rootMargin: "-10% 0px -10% 0px",
+      }
+    );
+
+    // Observe all sections
+    sectionElements.forEach((section) => observer.observe(section));
+
+    // Prevent manual scrolling on mobile
+    const preventScroll = (e: WheelEvent | TouchEvent) => {
+      if (window.innerWidth < 768) {
+        e.preventDefault();
+      }
+    };
+
+    scrollContainer.addEventListener("wheel", preventScroll, { passive: false });
+    scrollContainer.addEventListener("touchmove", preventScroll, { passive: false });
+
+    return () => {
+      sectionElements.forEach((section) => observer.unobserve(section));
+      scrollContainer.removeEventListener("wheel", preventScroll);
+      scrollContainer.removeEventListener("touchmove", preventScroll);
+    };
+  }, []);
+
   return (
     <>
-      <div className="h-screen overflow-y-scroll snap-y snap-mandatory bg-background text-foreground">
+      <div
+        ref={scrollContainerRef}
+        className="h-screen overflow-hidden md:overflow-y-scroll snap-y snap-mandatory bg-background text-foreground"
+      >
         <NavBar />
         <Hero data={portfolioData.hero} />
         <Skills
@@ -68,6 +142,12 @@ function App() {
         allSkills={portfolioData.skills}
         experiences={portfolioData.experience}
         onClose={handleCloseModal}
+      />
+
+      <ScrollNavButton
+        currentSection={currentSection}
+        sections={sections}
+        onNavigate={handleNavigate}
       />
 
       {/* <MusicPlayer playlistId={portfolioDataMain.music.youtubePlaylistId} /> */}
