@@ -125,7 +125,7 @@ export function Experience({
     <>
       <section
         id="experience"
-        className="h-screen snap-start flex flex-col px-6 py-24 pb-6 md:pb-24"
+        className="h-screen snap-start flex flex-col px-6 py-20 pb-6 md:pb-24"
       >
         <div className="max-w-7xl mx-auto w-full flex flex-col h-full">
           <div
@@ -149,7 +149,9 @@ export function Experience({
               <select
                 value={selectedExperience.company}
                 onChange={(e) => {
-                  const selected = data.find((exp) => exp.company === e.target.value);
+                  const selected = data.find(
+                    (exp) => exp.company === e.target.value
+                  );
                   if (selected) setSelectedExperience(selected);
                 }}
                 className="w-full px-4 py-3 text-sm bg-background/40 backdrop-blur-md border border-primary/30 text-foreground rounded-lg focus:outline-none focus:border-primary/50 transition-all duration-200"
@@ -244,163 +246,165 @@ export function Experience({
             </div>
 
             {/* Right: Details */}
-            <div className="flex-1 overflow-y-auto pr-4 pb-28 md:pb-0" ref={scrollContainerRef}>
+            <div
+              className="flex-1 overflow-y-auto pr-4 pb-28 md:pb-0"
+              ref={scrollContainerRef}
+            >
               <Card>
-                  <div className="space-y-6">
-                    <div className="space-y-2">
-                      <div className="flex items-start justify-between gap-4">
-                        <div className="flex-1">
-                          <div className="flex items-start gap-4">
-                            {selectedExperience.logo && (
-                              <div className="shrink-0">
-                                <img
-                                  src={selectedExperience.logo}
-                                  alt={`${selectedExperience.company} logo`}
-                                  className="w-16 h-16 object-contain rounded-lg bg-background/50 p-2 border border-neutral/30"
-                                />
-                              </div>
-                            )}
-                            <div className="flex-1">
-                              <h2 className="text-3xl font-bold text-foreground">
-                                {selectedExperience.position}
-                              </h2>
-                              <div className="flex items-center gap-2 mt-1">
-                                {selectedExperience.website ? (
-                                  <a
-                                    href={selectedExperience.website}
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                    className="text-xl text-primary font-semibold hover:text-primary/80 transition-colors inline-flex items-center gap-2"
-                                    onClick={(e) => e.stopPropagation()}
-                                  >
-                                    {selectedExperience.company}
-                                    <svg
-                                      className="w-4 h-4"
-                                      fill="none"
-                                      stroke="currentColor"
-                                      viewBox="0 0 24 24"
-                                    >
-                                      <path
-                                        strokeLinecap="round"
-                                        strokeLinejoin="round"
-                                        strokeWidth={2}
-                                        d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
-                                      />
-                                    </svg>
-                                  </a>
-                                ) : (
-                                  <p className="text-xl text-primary font-semibold">
-                                    {selectedExperience.company}
-                                  </p>
-                                )}
-                              </div>
-                              <p className="text-foreground/60">
-                                {selectedExperience.location}
-                              </p>
+                <div className="space-y-6">
+                  <div className="space-y-2">
+                    <div className="flex items-start justify-between gap-4">
+                      <div className="flex-1">
+                        <div className="flex items-start gap-4">
+                          {selectedExperience.logo && (
+                            <div className="shrink-0">
+                              <img
+                                src={selectedExperience.logo}
+                                alt={`${selectedExperience.company} logo`}
+                                className="w-16 h-16 object-contain rounded-lg bg-background/50 p-2 border border-neutral/30"
+                              />
                             </div>
+                          )}
+                          <div className="flex-1">
+                            <h2 className="text-3xl font-bold text-foreground">
+                              {selectedExperience.position}
+                            </h2>
+                            <div className="flex items-center gap-2 mt-1">
+                              {selectedExperience.website ? (
+                                <a
+                                  href={selectedExperience.website}
+                                  target="_blank"
+                                  rel="noopener noreferrer"
+                                  className="text-xl text-primary font-semibold hover:text-primary/80 transition-colors inline-flex items-center gap-2"
+                                  onClick={(e) => e.stopPropagation()}
+                                >
+                                  {selectedExperience.company}
+                                  <svg
+                                    className="w-4 h-4"
+                                    fill="none"
+                                    stroke="currentColor"
+                                    viewBox="0 0 24 24"
+                                  >
+                                    <path
+                                      strokeLinecap="round"
+                                      strokeLinejoin="round"
+                                      strokeWidth={2}
+                                      d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
+                                    />
+                                  </svg>
+                                </a>
+                              ) : (
+                                <p className="text-xl text-primary font-semibold">
+                                  {selectedExperience.company}
+                                </p>
+                              )}
+                            </div>
+                            <p className="text-foreground/60">
+                              {selectedExperience.location}
+                            </p>
                           </div>
                         </div>
-                        <span className="text-sm text-foreground/60 bg-neutral/50 px-3 py-1 rounded whitespace-nowrap">
-                          {selectedExperience.period}
-                        </span>
                       </div>
+                      <span className="text-sm text-foreground/60 bg-neutral/50 px-3 py-1 rounded whitespace-nowrap">
+                        {selectedExperience.period}
+                      </span>
                     </div>
+                  </div>
 
-                    {getAllDescriptions(selectedExperience).length > 0 && (
-                      <div className="space-y-3">
-                        <h3 className="text-lg font-semibold text-foreground">
-                          Key Responsibilities & Achievements
-                        </h3>
-                        <ul className="space-y-2">
-                          {getAllDescriptions(selectedExperience).map(
-                            (item, i) => (
-                              <li
-                                key={i}
-                                className="text-foreground/80 flex items-start gap-2"
-                              >
-                                <span className="text-primary -mt-0.5">▹</span>
-                                <span>{item}</span>
-                              </li>
-                            )
-                          )}
-                        </ul>
-                      </div>
-                    )}
-
+                  {getAllDescriptions(selectedExperience).length > 0 && (
                     <div className="space-y-3">
                       <h3 className="text-lg font-semibold text-foreground">
-                        Technologies Used
+                        Key Responsibilities & Achievements
                       </h3>
-                      <div className="flex flex-wrap gap-2">
-                        {getAllTechnologies(selectedExperience).map(
-                          (techSlug) => (
-                            <span
-                              key={techSlug}
-                              className="text-sm bg-neutral/50 text-primary px-3 py-1.5 rounded-lg border border-neutral/30"
+                      <ul className="space-y-2">
+                        {getAllDescriptions(selectedExperience).map(
+                          (item, i) => (
+                            <li
+                              key={i}
+                              className="text-foreground/80 flex items-start gap-2"
                             >
-                              {getSkillName(techSlug)}
-                            </span>
+                              <span className="text-primary -mt-0.5">▹</span>
+                              <span>{item}</span>
+                            </li>
+                          )
+                        )}
+                      </ul>
+                    </div>
+                  )}
+
+                  <div className="space-y-3">
+                    <h3 className="text-lg font-semibold text-foreground">
+                      Technologies Used
+                    </h3>
+                    <div className="flex flex-wrap gap-2">
+                      {getAllTechnologies(selectedExperience).map(
+                        (techSlug) => (
+                          <span
+                            key={techSlug}
+                            className="text-sm bg-neutral/50 text-primary px-3 py-1.5 rounded-lg border border-neutral/30"
+                          >
+                            {getSkillName(techSlug)}
+                          </span>
+                        )
+                      )}
+                    </div>
+                  </div>
+
+                  {/* Related Projects */}
+                  {getProjectsForExperience(selectedExperience).length > 0 && (
+                    <div className="space-y-3">
+                      <h3 className="text-lg font-semibold text-foreground">
+                        {t("experience.projects")}
+                      </h3>
+                      <div className="space-y-3">
+                        {getProjectsForExperience(selectedExperience).map(
+                          (project) => (
+                            <div
+                              key={project.title}
+                              onClick={() => {
+                                if (onProjectClick) {
+                                  onProjectClick(project);
+                                }
+                              }}
+                              className="relative bg-secondary/40 backdrop-blur-md border border-neutral/30 rounded-lg p-4 overflow-hidden hover:border-primary/50 transition-all duration-300 cursor-pointer"
+                            >
+                              <div className="flex gap-4">
+                                <div className="flex-1 space-y-2">
+                                  <h4 className="text-lg font-semibold text-foreground">
+                                    {project.title}
+                                  </h4>
+                                  <p className="text-foreground/70 text-sm">
+                                    {project.shortDescription}
+                                  </p>
+                                  <div className="flex flex-wrap gap-2">
+                                    {project.skills
+                                      .slice(0, 3)
+                                      .map((skillSlug: string) => (
+                                        <span
+                                          key={skillSlug}
+                                          className="text-xs px-2 py-1 rounded bg-neutral/50 text-foreground/70 border border-neutral/30"
+                                        >
+                                          {getSkillName(skillSlug)}
+                                        </span>
+                                      ))}
+                                    {project.skills.length > 3 && (
+                                      <span className="text-xs text-foreground/60">
+                                        +{project.skills.length - 3} more
+                                      </span>
+                                    )}
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
                           )
                         )}
                       </div>
                     </div>
-
-                    {/* Related Projects */}
-                    {getProjectsForExperience(selectedExperience).length >
-                      0 && (
-                      <div className="space-y-3">
-                        <h3 className="text-lg font-semibold text-foreground">
-                          {t("experience.projects")}
-                        </h3>
-                        <div className="space-y-3">
-                          {getProjectsForExperience(selectedExperience).map(
-                            (project) => (
-                              <div
-                                key={project.title}
-                                onClick={() => {
-                                  if (onProjectClick) {
-                                    onProjectClick(project);
-                                  }
-                                }}
-                                className="relative bg-secondary/40 backdrop-blur-md border border-neutral/30 rounded-lg p-4 overflow-hidden hover:border-primary/50 transition-all duration-300 cursor-pointer"
-                              >
-                                <div className="flex gap-4">
-                                  <div className="flex-1 space-y-2">
-                                    <h4 className="text-lg font-semibold text-foreground">
-                                      {project.title}
-                                    </h4>
-                                    <p className="text-foreground/70 text-sm">
-                                      {project.shortDescription}
-                                    </p>
-                                    <div className="flex flex-wrap gap-2">
-                                      {project.skills
-                                        .slice(0, 3)
-                                        .map((skillSlug: string) => (
-                                          <span
-                                            key={skillSlug}
-                                            className="text-xs px-2 py-1 rounded bg-neutral/50 text-foreground/70 border border-neutral/30"
-                                          >
-                                            {getSkillName(skillSlug)}
-                                          </span>
-                                        ))}
-                                      {project.skills.length > 3 && (
-                                        <span className="text-xs text-foreground/60">
-                                          +{project.skills.length - 3} more
-                                        </span>
-                                      )}
-                                    </div>
-                                  </div>
-                                </div>
-                              </div>
-                            )
-                          )}
-                        </div>
-                      </div>
-                    )}
-                  </div>
-                </Card>
-              </div>
+                  )}
+                </div>
+              </Card>
             </div>
+          </div>
         </div>
       </section>
     </>

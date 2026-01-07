@@ -95,7 +95,7 @@ export function Skills({
     <>
       <section
         id="skills"
-        className="h-screen snap-start flex flex-col px-6 py-24 pb-6 md:pb-24"
+        className="h-screen snap-start flex flex-col px-6 py-20 pb-6 md:pb-24"
       >
         <div className="max-w-7xl mx-auto w-full flex flex-col h-full">
           <div
