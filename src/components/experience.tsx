@@ -253,6 +253,13 @@ export function Experience({
               <Card>
                 <div className="space-y-6">
                   <div className="space-y-2">
+                    {/* Mobile: Period at top */}
+                    <div className="md:hidden">
+                      <span className="text-xs text-primary font-medium">
+                        {selectedExperience.period}
+                      </span>
+                    </div>
+
                     <div className="flex items-start justify-between gap-4">
                       <div className="flex-1">
                         <div className="flex items-start gap-4">
@@ -305,7 +312,8 @@ export function Experience({
                           </div>
                         </div>
                       </div>
-                      <span className="text-sm text-foreground/60 bg-neutral/50 px-3 py-1 rounded whitespace-nowrap">
+                      {/* Desktop: Period on the right */}
+                      <span className="hidden md:inline-block text-sm text-foreground/60 bg-neutral/50 px-3 py-1 rounded whitespace-nowrap">
                         {selectedExperience.period}
                       </span>
                     </div>
