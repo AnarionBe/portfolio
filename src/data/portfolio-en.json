@@ -40,6 +40,24 @@
       "description": "Always curious about emerging technologies and innovative solutions. I love experimenting with cutting-edge tools.",
       "icon": "💻",
       "image": ""
+    },
+    {
+      "name": "Table Tennis",
+      "description": "Dedicated table tennis player for 17 years in the same club. Currently serving as vice-president.",
+      "icon": "🏓",
+      "image": ""
+    },
+    {
+      "name": "Board Games",
+      "description": "Enthusiastic board game player with a preference for expert-level strategy games.",
+      "icon": "🎲",
+      "image": ""
+    },
+    {
+      "name": "Lord of the Rings",
+      "description": "Devoted Lord of the Rings enthusiast with deep knowledge of Tolkien's Middle-earth universe.",
+      "icon": "💍",
+      "image": ""
     }
   ],
   "projects": [

@@ -18,5 +18,6 @@ export function usePortfolioData() {
     projects: langData.projects,
     experience: langData.experience,
     soft_skills: langData.soft_skills,
+    passions: langData.passions,
   };
 }

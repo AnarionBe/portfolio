@@ -40,6 +40,24 @@
       "description": "Toujours curieux des technologies émergentes et des solutions innovantes. J'adore expérimenter avec des outils de pointe.",
       "icon": "💻",
       "image": ""
+    },
+    {
+      "name": "Tennis de Table",
+      "description": "Joueur de tennis de table dévoué depuis 17 ans dans le même club. Actuellement vice-président.",
+      "icon": "🏓",
+      "image": ""
+    },
+    {
+      "name": "Jeux de Société",
+      "description": "Joueur passionné de jeux de société avec une préférence pour les jeux de stratégie de niveau expert.",
+      "icon": "🎲",
+      "image": ""
+    },
+    {
+      "name": "Le Seigneur des Anneaux",
+      "description": "Passionné du Seigneur des Anneaux avec une connaissance approfondie de l'univers de la Terre du Milieu de Tolkien.",
+      "icon": "💍",
+      "image": ""
     }
   ],
   "projects": [
