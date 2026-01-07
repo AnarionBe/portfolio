@@ -90,28 +90,8 @@ function App() {
     // Observe all sections
     sectionElements.forEach((section) => observer.observe(section));
 
-    // Prevent scrolling on the main container on mobile, but allow inner scrolling
-    const preventMainScroll = (e: WheelEvent | TouchEvent) => {
-      if (window.innerWidth < 768) {
-        // Check if the scroll is happening on the main container itself
-        // and not on a child scrollable element
-        const target = e.target as HTMLElement;
-        const scrollableChild = target.closest('[class*="overflow-y-auto"]');
-
-        // Only prevent if not scrolling within a scrollable child
-        if (!scrollableChild || scrollableChild === scrollContainer) {
-          e.preventDefault();
-        }
-      }
-    };
-
-    scrollContainer.addEventListener("wheel", preventMainScroll, { passive: false });
-    scrollContainer.addEventListener("touchmove", preventMainScroll, { passive: false });
-
     return () => {
       sectionElements.forEach((section) => observer.unobserve(section));
-      scrollContainer.removeEventListener("wheel", preventMainScroll);
-      scrollContainer.removeEventListener("touchmove", preventMainScroll);
     };
   }, []);
 

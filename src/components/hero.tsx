@@ -1,3 +1,4 @@
+import { useRef, useEffect } from "react";
 // import { useTranslation } from "react-i18next";
 
 interface HeroProps {
@@ -19,12 +20,47 @@ interface HeroProps {
 export function Hero({ data }: HeroProps) {
   // const { t } = useTranslation();
   console.log(data.profileImage);
+  const containerRef = useRef<HTMLDivElement>(null);
+  const touchStartY = useRef<number>(0);
+  const touchEndY = useRef<number>(0);
+
+  useEffect(() => {
+    const container = containerRef.current;
+    if (!container) return;
+
+    const handleTouchStart = (e: TouchEvent) => {
+      touchStartY.current = e.touches[0].clientY;
+    };
+
+    const handleTouchMove = (e: TouchEvent) => {
+      touchEndY.current = e.touches[0].clientY;
+
+      // Only allow pull-to-refresh when scrolled to top on mobile
+      if (window.innerWidth < 768 && container.scrollTop === 0) {
+        const pullDistance = touchEndY.current - touchStartY.current;
+
+        // If pulling down from top (positive distance)
+        if (pullDistance > 100) {
+          window.location.reload();
+        }
+      }
+    };
+
+    container.addEventListener("touchstart", handleTouchStart, { passive: true });
+    container.addEventListener("touchmove", handleTouchMove, { passive: true });
+
+    return () => {
+      container.removeEventListener("touchstart", handleTouchStart);
+      container.removeEventListener("touchmove", handleTouchMove);
+    };
+  }, []);
+
   return (
     <section
       id="home"
-      className="h-screen snap-start flex flex-col items-center justify-center px-6 relative"
+      className="h-screen snap-start flex flex-col px-6 py-24 pb-6 md:pb-24 md:justify-center md:py-0"
     >
-      <div className="max-w-6xl w-full">
+      <div ref={containerRef} className="max-w-6xl w-full mx-auto overflow-y-auto md:overflow-visible">
         <div className="flex flex-col lg:flex-row items-center gap-12">
           {/* Left: Profile Image */}
           <div className="shrink-0">
