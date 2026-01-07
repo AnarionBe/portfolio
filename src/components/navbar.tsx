@@ -119,7 +119,8 @@ export function NavBar() {
                 }}
               />
             </ul>
-            <button
+            {/* PDF Export - Disabled for now */}
+            {/* <button
               onClick={handleExportPDF}
               className="px-4 py-2 text-sm border border-primary text-primary rounded-lg hover:bg-primary/10 transition-colors duration-200 flex items-center gap-2"
               title="Export as PDF CV"
@@ -138,7 +139,7 @@ export function NavBar() {
                 />
               </svg>
               PDF CV
-            </button>
+            </button> */}
             <LanguageToggle />
           </div>
 
@@ -188,7 +189,8 @@ export function NavBar() {
                   </a>
                 </li>
               ))}
-              <li>
+              {/* PDF Export - Disabled for now */}
+              {/* <li>
                 <button
                   onClick={() => {
                     handleExportPDF();
@@ -211,7 +213,7 @@ export function NavBar() {
                   </svg>
                   Export PDF CV
                 </button>
-              </li>
+              </li> */}
             </ul>
           </div>
         )}
