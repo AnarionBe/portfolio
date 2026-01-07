@@ -306,5 +306,77 @@
         "mongo_db"
       ]
     }
+  ],
+  "experience": [
+    {
+      "slug": "metal_galaxy",
+      "company": "Metal Galaxy",
+      "position": "Fondateur",
+      "period": "07/2025 - maintenant",
+      "location": "Liège, Belgique",
+      "description": [
+        "Fondation de Metal Galaxy, une plateforme conçue pour unir la communauté mondiale du metal en connectant fans, groupes et promoteurs au sein d'un écosystème centralisé.",
+        "Direction complète de la vision produit, du design et du développement full-stack depuis la conception jusqu'au lancement, en créant des fonctionnalités clés telles qu'une encyclopédie communautaire, un agenda complet de concerts live et des capacités de réseautage social pour favoriser les connexions au sein de la communauté metal."
+      ],
+      "technologies": [],
+      "logo": "",
+      "website": "https://metal-galaxy.net/"
+    },
+    {
+      "slug": "fix_pilot",
+      "company": "FixPilot",
+      "position": "Lead Développeur Fullstack",
+      "period": "01/2025 - 07/2025",
+      "location": "Bruxelles, Belgique",
+      "description": [
+        "Direction du développement end-to-end d'une plateforme alimentée par l'IA qui automatise les communications des gestionnaires immobiliers avec les prestataires de services via ChatGPT, réduisant significativement le temps de traitement manuel des emails et améliorant l'efficacité opérationnelle.",
+        "Architecture et construction complète de l'infrastructure depuis zéro, avec implémentation de tests automatisés complets, pipelines CI/CD et infrastructure cloud scalable sur Scaleway pour soutenir la vision produit à long terme et garantir des performances fiables à grande échelle."
+      ],
+      "technologies": [],
+      "logo": "",
+      "website": ""
+    },
+    {
+      "slug": "flowchase",
+      "company": "Flowchase",
+      "position": "Lead Développeur Fullstack",
+      "period": "11/2023 - 12/2024",
+      "location": "Bruxelles, Belgique",
+      "description": [
+        "Direction du développement d'une plateforme complète d'apprentissage de l'anglais composée d'une application mobile, d'un portail enseignant et d'un outil de pratique, exploitant l'IA pour fournir un retour en temps réel sur les compétences orales et la prononciation.",
+        "Réalisation d'améliorations significatives en stabilisant l'application mobile (réduction des plaintes utilisateurs de près de 100%), optimisation des coûts d'infrastructure (réduction de plus de 50%) et automatisation complète des workflows de création de classes pour éliminer toute intervention manuelle du support."
+      ],
+      "technologies": [],
+      "logo": "/images/flowchase_logo.jpg",
+      "website": ""
+    },
+    {
+      "slug": "infinity_mobile",
+      "company": "Infinity Mobile",
+      "position": "Développeur Web & Mobile",
+      "period": "2019 - 2023",
+      "location": "",
+      "description": [
+        "Développement et maintenance de l'écosystème Sayl, une suite complète de solutions e-commerce et de gestion de restaurants incluant Sayl Retail (alternative à Shopify), Sayl Resto (plateforme de commande en ligne) et une intégration innovante de wallet NFT/POAP pour les programmes de fidélité.",
+        "Implémentation de fonctionnalités critiques sur les plateformes web et mobile incluant le shopping par appel vidéo, les programmes de fidélité et les layouts personnalisés, tout en réalisant des améliorations de performance spectaculaires (réduction des temps de chargement de 10 secondes à 10 millisecondes dans Store Manager) et modernisation de l'UI/UX sur tous les produits."
+      ],
+      "technologies": [],
+      "logo": "/images/ifm_logo.png",
+      "website": "https://www.saylcloud.com/"
+    },
+    {
+      "slug": "mango_3d",
+      "company": "Mango3D",
+      "position": "Développeur Junior (Stage)",
+      "period": "2018 - 2019",
+      "location": "",
+      "description": [
+        "Contribution au développement de Lychee OS, un système d'exploitation pour imprimantes 3D avec intégration du Lychee Slicer, en travaillant avec Go, C et les technologies web pour créer une expérience d'impression fluide.",
+        "Implémentation de fonctionnalités clés incluant l'enregistrement de timelapse d'impression, un système de paiement récurrent avec intégration Mollie et un portail web pour une connectivité transparente entre l'imprimante et le slicer, tout en menant des R&D pour optimiser les performances de rendu d'images sur systèmes embarqués."
+      ],
+      "technologies": [],
+      "logo": "/images/mango_logo.jpg",
+      "website": "https://mango3d.io/"
+    }
   ]
 }
