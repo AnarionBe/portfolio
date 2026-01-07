@@ -125,7 +125,7 @@ export function Experience({
     <>
       <section
         id="experience"
-        className="h-screen snap-start flex flex-col px-6 py-24"
+        className="h-screen snap-start flex flex-col px-6 py-24 pb-0 md:pb-24"
       >
         <div className="max-w-7xl mx-auto w-full flex flex-col h-full">
           <div
@@ -244,7 +244,7 @@ export function Experience({
             </div>
 
             {/* Right: Details */}
-            <div className="flex-1 overflow-y-auto pr-4" ref={scrollContainerRef}>
+            <div className="flex-1 overflow-y-auto pr-4 pb-28 md:pb-0" ref={scrollContainerRef}>
               <Card>
                   <div className="space-y-6">
                     <div className="space-y-2">

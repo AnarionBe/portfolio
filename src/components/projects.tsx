@@ -48,7 +48,7 @@ export function Projects({ data, experiences, onProjectSelect }: ProjectsProps) 
   return (
     <section
       id="projects"
-      className="h-screen snap-start flex flex-col px-6 py-24"
+      className="h-screen snap-start flex flex-col px-6 py-24 pb-0 md:pb-24"
     >
       <div className="max-w-7xl mx-auto w-full flex flex-col h-full">
         <div
@@ -68,7 +68,7 @@ export function Projects({ data, experiences, onProjectSelect }: ProjectsProps) 
 
         <div
           ref={scrollContainerRef}
-          className="space-y-12 flex-1 overflow-y-auto pr-4"
+          className="space-y-12 flex-1 overflow-y-auto pr-4 pb-28 md:pb-0"
         >
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6">
             {data.map((project) => (
