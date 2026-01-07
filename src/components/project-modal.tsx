@@ -78,18 +78,18 @@ export function ProjectModal({
           <Card image={project.image} imageAlt={project.title}>
             <div className="space-y-6">
               <div>
-                <h1 className="text-4xl md:text-5xl font-bold text-foreground">
+                <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-foreground">
                   {project.title}
                 </h1>
                 {getCompanyName(project.company) && (
-                  <p className="text-lg text-primary/80 mt-2">
+                  <p className="text-base md:text-lg text-primary/80 mt-2">
                     {getCompanyName(project.company)}
                   </p>
                 )}
               </div>
 
               <p
-                className="text-foreground/90 leading-relaxed text-lg"
+                className="text-foreground/90 leading-relaxed text-sm md:text-base lg:text-lg"
                 dangerouslySetInnerHTML={{ __html: project.longDescription }}
               ></p>
 
@@ -97,12 +97,12 @@ export function ProjectModal({
               {project.responsabilities &&
                 project.responsabilities.length > 0 && (
                   <div className="space-y-3">
-                    <h2 className="text-2xl font-semibold text-foreground">
+                    <h2 className="text-xl md:text-2xl font-semibold text-foreground">
                       {t("projects.responsibilities")}
                     </h2>
                     <ul className="list-disc list-inside space-y-2">
                       {project.responsabilities.map((responsibility, index) => (
-                        <li key={index} className="text-foreground/80 text-lg">
+                        <li key={index} className="text-foreground/80 text-sm md:text-base">
                           {responsibility}
                         </li>
                       ))}
@@ -113,12 +113,12 @@ export function ProjectModal({
               {/* Achievements */}
               {project.achievements && project.achievements.length > 0 && (
                 <div className="space-y-3">
-                  <h2 className="text-2xl font-semibold text-foreground">
+                  <h2 className="text-xl md:text-2xl font-semibold text-foreground">
                     {t("projects.achievements")}
                   </h2>
                   <ul className="list-disc list-inside space-y-2">
                     {project.achievements.map((achievement, index) => (
-                      <li key={index} className="text-foreground/80 text-lg">
+                      <li key={index} className="text-foreground/80 text-sm md:text-base">
                         {achievement}
                       </li>
                     ))}
@@ -129,7 +129,7 @@ export function ProjectModal({
               {/* Image Gallery */}
               {project.images && project.images.length > 0 && (
                 <div className="space-y-4">
-                  <h2 className="text-2xl font-semibold text-foreground">
+                  <h2 className="text-xl md:text-2xl font-semibold text-foreground">
                     {t("projects.screenshots", "Project Screenshots")}
                   </h2>
                   <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
@@ -166,7 +166,7 @@ export function ProjectModal({
               )}
 
               <div className="space-y-3">
-                <h2 className="text-2xl font-semibold text-foreground">
+                <h2 className="text-xl md:text-2xl font-semibold text-foreground">
                   {t("projects.technologies")}
                 </h2>
                 <div className="flex flex-wrap gap-3">
@@ -175,7 +175,7 @@ export function ProjectModal({
                     return (
                       <div
                         key={skillSlug}
-                        className="px-4 py-2 rounded-lg bg-primary/10 text-primary border border-primary/30 flex items-center gap-2"
+                        className="px-3 py-1.5 md:px-4 md:py-2 rounded-lg bg-primary/10 text-primary border border-primary/30 flex items-center gap-2 text-sm md:text-base"
                       >
                         <span className="font-medium">
                           {skill?.name || skillSlug}
@@ -190,7 +190,7 @@ export function ProjectModal({
                 {project.githubUrl && (
                   <a
                     href={project.githubUrl}
-                    className="px-6 py-3 border border-primary text-primary rounded-lg hover:bg-primary/10 transition-colors duration-200"
+                    className="px-4 py-2 md:px-6 md:py-3 text-sm md:text-base border border-primary text-primary rounded-lg hover:bg-primary/10 transition-colors duration-200"
                     target="_blank"
                     rel="noopener noreferrer"
                   >
@@ -200,7 +200,7 @@ export function ProjectModal({
                 {project.liveUrl && (
                   <a
                     href={project.liveUrl}
-                    className="px-6 py-3 bg-primary text-primary-content rounded-lg hover:bg-primary/90 transition-colors duration-200"
+                    className="px-4 py-2 md:px-6 md:py-3 text-sm md:text-base bg-primary text-primary-content rounded-lg hover:bg-primary/90 transition-colors duration-200"
                     target="_blank"
                     rel="noopener noreferrer"
                   >
