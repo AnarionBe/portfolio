@@ -4,6 +4,7 @@ import { Card } from "./card";
 
 interface Project {
   title: string;
+  company?: string;
   shortDescription: string;
   longDescription: string;
   skills: string[];
@@ -22,13 +23,19 @@ interface Skill {
   icon: string;
 }
 
+interface Experience {
+  slug?: string;
+  company: string;
+}
+
 interface ProjectModalProps {
   project: Project | null;
   allSkills: Skill[];
+  experiences: Experience[];
   onClose: () => void;
 }
 
-export function ProjectModal({ project, allSkills, onClose }: ProjectModalProps) {
+export function ProjectModal({ project, allSkills, experiences, onClose }: ProjectModalProps) {
   const { t } = useTranslation();
   const [fullscreenImage, setFullscreenImage] = useState<string | null>(null);
 
@@ -36,6 +43,12 @@ export function ProjectModal({ project, allSkills, onClose }: ProjectModalProps)
 
   const getSkillDetails = (skillSlug: string) => {
     return allSkills.find((skill) => skill.slug === skillSlug);
+  };
+
+  const getCompanyName = (companySlug?: string) => {
+    if (!companySlug) return null;
+    const experience = experiences.find((exp) => exp.slug === companySlug);
+    return experience?.company;
   };
 
   return (
@@ -59,9 +72,16 @@ export function ProjectModal({ project, allSkills, onClose }: ProjectModalProps)
 
           <Card image={project.image} imageAlt={project.title}>
             <div className="space-y-6">
-              <h1 className="text-4xl md:text-5xl font-bold text-foreground">
-                {project.title}
-              </h1>
+              <div>
+                <h1 className="text-4xl md:text-5xl font-bold text-foreground">
+                  {project.title}
+                </h1>
+                {getCompanyName(project.company) && (
+                  <p className="text-lg text-primary/80 mt-2">
+                    {getCompanyName(project.company)}
+                  </p>
+                )}
+              </div>
 
               <p
                 className="text-foreground/90 leading-relaxed text-lg"

@@ -6,6 +6,7 @@ import { useInView } from "../hooks/use-in-view";
 
 interface Project {
   title: string;
+  company?: string;
   shortDescription: string;
   longDescription: string;
   skills: string[];
@@ -15,13 +16,19 @@ interface Project {
   liveUrl?: string;
 }
 
+interface Experience {
+  slug?: string;
+  company: string;
+}
+
 interface ProjectsProps {
   data: Project[];
+  experiences: Experience[];
   selectedProject?: Project | null;
   onProjectSelect?: (project: Project) => void;
 }
 
-export function Projects({ data, onProjectSelect }: ProjectsProps) {
+export function Projects({ data, experiences, onProjectSelect }: ProjectsProps) {
   const { t } = useTranslation();
   const { ref, isInView } = useInView({ threshold: 0.2 });
   const scrollContainerRef = useRef<HTMLDivElement>(null);
@@ -31,6 +38,12 @@ export function Projects({ data, onProjectSelect }: ProjectsProps) {
       scrollContainerRef.current.scrollTop = 0;
     }
   }, [isInView]);
+
+  const getCompanyName = (companySlug?: string) => {
+    if (!companySlug) return null;
+    const experience = experiences.find((exp) => exp.slug === companySlug);
+    return experience?.company;
+  };
 
   return (
     <section
@@ -71,9 +84,16 @@ export function Projects({ data, onProjectSelect }: ProjectsProps) {
                   className="h-full"
                 >
                   <div className="flex flex-col h-full">
-                    <h3 className="text-xl font-semibold text-foreground">
-                      {project.title}
-                    </h3>
+                    <div>
+                      <h3 className="text-xl font-semibold text-foreground">
+                        {project.title}
+                      </h3>
+                      {getCompanyName(project.company) && (
+                        <p className="text-sm text-primary/70 mt-1">
+                          {getCompanyName(project.company)}
+                        </p>
+                      )}
+                    </div>
 
                     <p className="text-foreground/80 text-sm mt-4 flex-1">
                       {project.shortDescription}

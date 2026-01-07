@@ -50,6 +50,7 @@ function App() {
         />
         <Projects
           data={portfolioData.projects}
+          experiences={portfolioData.experience}
           selectedProject={selectedProject}
           onProjectSelect={handleProjectClick}
         />
@@ -65,6 +66,7 @@ function App() {
       <ProjectModal
         project={selectedProject}
         allSkills={portfolioData.skills}
+        experiences={portfolioData.experience}
         onClose={handleCloseModal}
       />
 

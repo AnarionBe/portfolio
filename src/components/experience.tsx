@@ -5,17 +5,20 @@ import { TypingAnimation } from "./typing-animation";
 import { useInView } from "../hooks/use-in-view";
 
 interface Experience {
+  slug?: string;
   company: string;
   position: string;
   period: string;
   location: string;
-  shortDescription: string;
+  shortDescription?: string;
   description: string[];
   technologies: string[];
 }
 
 interface Project {
+  slug?: string;
   title: string;
+  company?: string;
   shortDescription: string;
   longDescription: string;
   skills: string[];
@@ -63,15 +66,28 @@ export function Experience({
   };
 
   const getProjectsForExperience = (experience: Experience) => {
-    // Find projects that use any of the technologies from this experience
+    // Find projects that belong to this company
+    if (experience.slug) {
+      return allProjects.filter((project) => project.company === experience.slug);
+    }
+    // Fallback: match by company name if no slug
     return allProjects.filter((project) =>
-      project.skills.some((skillSlug) =>
-        experience.technologies.some(
-          (tech) => tech.toLowerCase() === skillSlug.toLowerCase() ||
-                    tech.toLowerCase().replace(/\s+/g, '') === skillSlug.toLowerCase().replace(/_/g, '')
-        )
-      )
+      project.company?.toLowerCase() === experience.company.toLowerCase()
     );
+  };
+
+  const getAllTechnologies = (experience: Experience) => {
+    // Get all unique skill slugs from experience technologies and related projects
+    const experienceTechs = (experience.technologies || []).map(tech =>
+      // Normalize to slug format (lowercase with underscores)
+      tech.toLowerCase().replace(/\s+/g, '_').replace(/\./g, '_')
+    );
+    const projects = getProjectsForExperience(experience);
+    const projectSkills = projects.flatMap((project) => project.skills || []);
+
+    // Merge and deduplicate using Set
+    const allTechs = [...new Set([...experienceTechs, ...projectSkills])];
+    return allTechs;
   };
 
   return (
@@ -221,7 +237,7 @@ export function Experience({
                         Technologies Used
                       </h3>
                       <div className="flex flex-wrap gap-2">
-                        {selectedExperience.technologies.map((techSlug) => (
+                        {getAllTechnologies(selectedExperience).map((techSlug) => (
                           <span
                             key={techSlug}
                             className="text-sm bg-neutral/50 text-primary px-3 py-1.5 rounded-lg border border-neutral/30"

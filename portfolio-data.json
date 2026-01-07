@@ -475,60 +475,55 @@
   ],
   "experience": [
     {
-      "company": "FixPilot",
-      "position": "Lead Fullstack Developer",
-      "period": "01/2025 - 07/2025",
-      "location": "Brussels, Belgium",
-      "shortDescription": "The tool leverages artificial intelligence to streamline communications, manage work orders, and handle invoices, significantly reducing manual effort and increasing efficiency.",
+      "slug": "metal_galaxy",
+      "company": "Metal Galaxy",
+      "position": "Founder",
+      "period": "07/2025 - now",
+      "location": "Liege, Belgium",
       "description": [
         "Made the whole development and DevOps from scratch.",
         "Key features include automated responses to providers, real-time status tracking of work orders, and seamless invoice management."
       ],
-      "technologies": [
-        "NextJs",
-        "AdonisJs",
-        "TailwindCss",
-        "Vue.js",
-        "Ruby On Rails"
-      ]
+      "technologies": []
     },
     {
+      "slug": "fix_pilot",
+      "company": "FixPilot",
+      "position": "Lead Fullstack Developer",
+      "period": "01/2025 - 07/2025",
+      "location": "Brussels, Belgium",
+      "description": [
+        "Made the whole development and DevOps from scratch.",
+        "Key features include automated responses to providers, real-time status tracking of work orders, and seamless invoice management."
+      ],
+      "technologies": []
+    },
+    {
+      "slug": "flowchase",
       "company": "Flowchase",
       "position": "Lead Fullstack Developer",
       "period": "11/2023 - 12/2024",
       "location": "Brussels, Belgium",
-      "shortDescription": "Developed and stabilized a React Native application, enhancing performance and user experience. Designed and implemented a web application for English language training using React and Node.js.",
       "description": [],
-      "technologies": [
-        "NodeJs",
-        "React",
-        "React Native"
-      ]
+      "technologies": []
     },
     {
+      "slug": "infinity_mobile",
       "company": "Infinity Mobile",
       "position": "Web & Mobile Developer",
       "period": "2019 - 2023",
       "location": "",
-      "shortDescription": "Maintained and optimized a legacy React Native application. Led the maintenance and enhancement of the Shopitag platform, leveraging Vue.js and Laravel. Developed an NFT/POAP wallet using Vue.js. Enhanced user experience on the Sayl Resto platform through targeted improvements and updates using Vue.js.",
       "description": [],
-      "technologies": [
-        "Laravel",
-        "Vue.js",
-        "React Native"
-      ]
+      "technologies": []
     },
     {
-      "company": "Mango 3D",
+      "slug": "mango_3d",
+      "company": "Mango3D",
       "position": "Junior Software Developer (Intern)",
       "period": "",
       "location": "",
-      "shortDescription": "Implemented a robust recurring payment system using Node.js. Developed a Time-lapse feature for printers using GoLang. Conducted research and development to optimize image display time on Raspberry Pi using C. Designed and created a connection portal for printers, facilitating efficient and reliable connectivity.",
       "description": [],
-      "technologies": [
-        "Golang",
-        "NodeJs"
-      ]
+      "technologies": []
     }
   ]
 }
