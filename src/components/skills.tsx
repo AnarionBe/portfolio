@@ -91,6 +91,28 @@ export function Skills({
     return projects.filter((project) => project.skills.includes(skillSlug));
   };
 
+  const getLevelOrder = (level: string) => {
+    const lvl = level.toLowerCase().split(".")[2];
+    switch (lvl) {
+      case "advanced":
+        return 1;
+      case "intermediate":
+        return 2;
+      case "beginner":
+        return 3;
+      default:
+        return 4;
+    }
+  };
+
+  const sortByLevel = <T extends { level: string }>(items: T[]): T[] => {
+    return [...items].sort((a, b) => getLevelOrder(a.level) - getLevelOrder(b.level));
+  };
+
+  const sortedData = sortByLevel(data);
+  const sortedTools = sortByLevel(tools);
+  const sortedLanguages = sortByLevel(languages);
+
   return (
     <>
       <section
@@ -123,7 +145,7 @@ export function Skills({
                 {t("skills.technical")}
               </h3>
               <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6">
-                {data.map((skill) => (
+                {sortedData.map((skill) => (
                   <div
                     key={skill.name}
                     onClick={() => setSelectedSkill(skill)}
@@ -156,7 +178,7 @@ export function Skills({
                 {t("skills.tools")}
               </h3>
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                {tools.map((tool) => (
+                {sortedTools.map((tool) => (
                   <Card key={tool.name}>
                     <div className="flex items-center gap-4">
                       {tool.icon && (
@@ -184,7 +206,7 @@ export function Skills({
                 {t("skills.languages")}
               </h3>
               <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-6">
-                {languages.map((language) => (
+                {sortedLanguages.map((language) => (
                   <Card key={language.name} className="flex flex-col space-y-1 md:space-y-2">
                     <h4 className="text-sm md:text-base font-semibold text-foreground">
                       {t(language.name)}
