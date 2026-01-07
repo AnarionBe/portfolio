@@ -59,14 +59,19 @@ function App() {
 
   // Hide browser UI on mobile on page load
   useEffect(() => {
-    // Scroll down slightly to hide the browser UI on mobile
-    window.scrollTo(0, 1);
+    // Delay to ensure DOM is fully loaded
+    const timer = setTimeout(() => {
+      // Scroll down slightly to hide the browser UI on mobile
+      const scrollContainer = scrollContainerRef.current;
+      if (scrollContainer) {
+        scrollContainer.scrollTo(0, 1);
+        // Force a reflow
+        scrollContainer.scrollTop = 1;
+      }
+      window.scrollTo(0, 1);
+    }, 100);
 
-    // Also try on the scroll container
-    const scrollContainer = scrollContainerRef.current;
-    if (scrollContainer) {
-      scrollContainer.scrollTo(0, 1);
-    }
+    return () => clearTimeout(timer);
   }, []);
 
   useEffect(() => {
