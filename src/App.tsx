@@ -12,6 +12,15 @@ import { usePortfolioData } from "./hooks/use-portfolio-data";
 // import { MusicPlayer } from "./components/music-player";
 // import portfolioDataMain from "../portfolio-data.json";
 
+// Type definition for Visual Viewport API
+interface VisualViewportAPI {
+  height: number;
+  width: number;
+  offsetTop: number;
+  addEventListener: (type: string, listener: () => void) => void;
+  removeEventListener: (type: string, listener: () => void) => void;
+}
+
 interface Project {
   title: string;
   shortDescription: string;
@@ -29,7 +38,70 @@ function App() {
   const portfolioData = usePortfolioData();
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
   const [currentSection, setCurrentSection] = useState("home");
+  const [viewportHeight, setViewportHeight] = useState('100dvh');
   const scrollContainerRef = useRef<HTMLDivElement>(null);
+
+  // Detect and fix mobile viewport issues
+  useEffect(() => {
+    const updateViewportHeight = () => {
+      const isMobile = window.innerWidth < 768;
+      
+      if (isMobile) {
+        // On mobile, detect if browser UI is affecting viewport
+        const visualViewport = (window as unknown as { visualViewport?: VisualViewportAPI }).visualViewport;
+        if (visualViewport) {
+          // Use Visual Viewport API if available (most reliable)
+          setViewportHeight(`${visualViewport.height}px`);
+        } else {
+          // Fallback: test if 100vh is accurate
+          const testElement = document.createElement('div');
+          testElement.style.cssText = 'position:fixed; top:0; left:0; width:100%; height:100vh; pointer-events:none;';
+          document.body.appendChild(testElement);
+          
+          setTimeout(() => {
+            const actualHeight = testElement.offsetHeight;
+            const windowHeight = window.innerHeight;
+            
+            // If there's a significant difference, browser UI is interfering
+            if (Math.abs(actualHeight - windowHeight) > 50) {
+              setViewportHeight(`${window.innerHeight}px`);
+            } else {
+              setViewportHeight('100dvh');
+            }
+            
+            document.body.removeChild(testElement);
+          }, 100);
+        }
+      } else {
+        // On desktop, use 100dvh
+        setViewportHeight('100dvh');
+      }
+    };
+
+    updateViewportHeight();
+    
+    // Listen for viewport changes (browser UI appearance/disappearance)
+    const handleViewportChange = () => {
+      setTimeout(updateViewportHeight, 100);
+    };
+
+    window.addEventListener('resize', handleViewportChange);
+    window.addEventListener('orientationchange', handleViewportChange);
+    
+    // Listen for Visual Viewport API changes
+    const visualViewport = (window as unknown as { visualViewport?: VisualViewportAPI }).visualViewport;
+    if (visualViewport) {
+      visualViewport.addEventListener('resize', handleViewportChange);
+    }
+
+    return () => {
+      window.removeEventListener('resize', handleViewportChange);
+      window.removeEventListener('orientationchange', handleViewportChange);
+      if (visualViewport) {
+        visualViewport.removeEventListener('resize', handleViewportChange);
+      }
+    };
+  }, []);
 
   const sections = ["home", "skills", "projects", "experience", "passions"];
 
@@ -117,7 +189,7 @@ function App() {
       <div
         ref={scrollContainerRef}
         className="h-full overflow-y-scroll snap-y snap-proximity bg-background text-foreground"
-        style={{ height: '100dvh' }}
+        style={{ height: viewportHeight }}
       >
         <NavBar />
         <Hero data={portfolioData.hero} />
