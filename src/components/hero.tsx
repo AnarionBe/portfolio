@@ -34,7 +34,7 @@ export function Hero({ data }: HeroProps) {
     setIsPdfModalOpen(true);
   };
 
-  const handleLanguageSelect = (language: 'en' | 'fr') => {
+  const handleLanguageSelect = (language: "en" | "fr") => {
     setIsPdfLoading(true);
     setIsPdfModalOpen(false);
     setTimeout(() => {
@@ -72,7 +72,9 @@ export function Hero({ data }: HeroProps) {
       }
     };
 
-    container.addEventListener("touchstart", handleTouchStart, { passive: true });
+    container.addEventListener("touchstart", handleTouchStart, {
+      passive: true,
+    });
     container.addEventListener("touchmove", handleTouchMove, { passive: true });
 
     return () => {
@@ -86,7 +88,10 @@ export function Hero({ data }: HeroProps) {
       id="home"
       className="h-screen snap-start flex flex-col px-6 py-24 pb-24 md:pb-24 md:justify-center md:py-0"
     >
-      <div ref={containerRef} className="max-w-6xl w-full mx-auto overflow-y-auto md:overflow-visible">
+      <div
+        ref={containerRef}
+        className="max-w-6xl w-full mx-auto overflow-y-auto md:overflow-visible"
+      >
         <div className="flex flex-col lg:flex-row items-center gap-12">
           {/* Left: Profile Image */}
           <div className="shrink-0">
@@ -159,13 +164,13 @@ export function Hero({ data }: HeroProps) {
               </a>
             </div>
 
-{/* Social Links */}
-            <div className="flex gap-3 md:gap-4">
+            {/* Social Links */}
+            <div className="flex flex-col md:flex-row gap-3 md:gap-4">
               <a
                 href={data.socialLinks.github}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center gap-1.5 md:gap-2 px-4 py-2 md:px-6 md:py-3 text-sm md:text-base border border-primary text-primary rounded-lg hover:bg-primary/10 transition-colors duration-200"
+                className="flex justify-center items-center gap-1.5 md:gap-2 px-4 py-2 md:px-6 md:py-3 text-sm md:text-base border border-primary text-primary rounded-lg hover:bg-primary/10 transition-colors duration-200"
               >
                 <svg
                   className="w-4 h-4 md:w-5 md:h-5"
@@ -180,7 +185,7 @@ export function Hero({ data }: HeroProps) {
                 href={data.socialLinks.linkedin}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center gap-1.5 md:gap-2 px-4 py-2 md:px-6 md:py-3 text-sm md:text-base border border-primary text-primary rounded-lg hover:bg-primary/10 transition-colors duration-200"
+                className="flex justify-center items-center gap-1.5 md:gap-2 px-4 py-2 md:px-6 md:py-3 text-sm md:text-base border border-primary text-primary rounded-lg hover:bg-primary/10 transition-colors duration-200"
               >
                 <svg
                   className="w-4 h-4 md:w-5 md:h-5"
@@ -193,7 +198,7 @@ export function Hero({ data }: HeroProps) {
               </a>
               <button
                 onClick={handleDownloadClick}
-                className="flex items-center gap-1.5 md:gap-2 px-4 py-2 md:px-6 md:py-3 text-sm md:text-base border border-primary text-primary rounded-lg hover:bg-primary/10 transition-colors duration-200"
+                className="flex justify-center items-center gap-1.5 md:gap-2 px-4 py-2 md:px-6 md:py-3 text-sm md:text-base border border-primary text-primary rounded-lg hover:bg-primary/10 transition-colors duration-200"
                 title="Download CV as PDF"
               >
                 <svg
@@ -235,13 +240,13 @@ export function Hero({ data }: HeroProps) {
           />
         </svg>
       </a>
-      
-      <PdfLanguageModal 
+
+      <PdfLanguageModal
         isOpen={isPdfModalOpen}
         onClose={() => setIsPdfModalOpen(false)}
         onLanguageSelect={handleLanguageSelect}
       />
-      
+
       <PdfExportLoading isVisible={isPdfLoading} />
     </section>
   );
