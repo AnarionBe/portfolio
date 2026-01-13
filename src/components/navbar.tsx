@@ -1,8 +1,9 @@
 import { useState, useEffect, useRef } from "react";
 import { useTranslation } from "react-i18next";
 import { LanguageToggle } from "./language-toggle";
-// import { exportPortfolioAsPDF } from "../utils/pdf-export";
-// import { usePortfolioData } from "../hooks/use-portfolio-data";
+import { exportPortfolioAsPDFWithLanguage } from "../utils/pdf-export";
+import { PdfLanguageModal } from "./pdf-language-modal";
+import { PdfExportLoading } from "./pdf-export-loading";
 
 const navItems = [
   { labelKey: "nav.home", href: "#home", id: "home" },
@@ -17,12 +18,21 @@ export function NavBar() {
   const [activeSection, setActiveSection] = useState("home");
   const [underlineStyle, setUnderlineStyle] = useState({ left: 0, width: 0 });
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [isPdfModalOpen, setIsPdfModalOpen] = useState(false);
+  const [isPdfLoading, setIsPdfLoading] = useState(false);
   const navRefs = useRef<{ [key: string]: HTMLAnchorElement | null }>({});
-  // const portfolioData = usePortfolioData();
 
-  // const handleExportPDF = () => {
-  //   exportPortfolioAsPDF(portfolioData);
-  // };
+  const handleExportPdfClick = () => {
+    setIsPdfModalOpen(true);
+  };
+
+  const handleLanguageSelect = (language: 'en' | 'fr') => {
+    setIsPdfLoading(true);
+    setTimeout(() => {
+      exportPortfolioAsPDFWithLanguage(language);
+      setIsPdfLoading(false);
+    }, 100);
+  };
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -119,9 +129,9 @@ export function NavBar() {
                 }}
               />
             </ul>
-            {/* PDF Export - Disabled for now */}
-            {/* <button
-              onClick={handleExportPDF}
+            {/* PDF Export */}
+            <button
+              onClick={handleExportPdfClick}
               className="px-4 py-2 text-sm border border-primary text-primary rounded-lg hover:bg-primary/10 transition-colors duration-200 flex items-center gap-2"
               title="Export as PDF CV"
             >
@@ -139,7 +149,7 @@ export function NavBar() {
                 />
               </svg>
               PDF CV
-            </button> */}
+            </button>
             <LanguageToggle />
           </div>
 
@@ -189,11 +199,11 @@ export function NavBar() {
                   </a>
                 </li>
               ))}
-              {/* PDF Export - Disabled for now */}
-              {/* <li>
+              {/* PDF Export */}
+              <li>
                 <button
                   onClick={() => {
-                    handleExportPDF();
+                    handleExportPdfClick();
                     setIsMobileMenuOpen(false);
                   }}
                   className="w-full py-2 px-3 text-sm border border-primary text-primary rounded-lg hover:bg-primary/10 transition-colors duration-200 flex items-center justify-center gap-2"
@@ -213,11 +223,19 @@ export function NavBar() {
                   </svg>
                   Export PDF CV
                 </button>
-              </li> */}
+              </li>
             </ul>
           </div>
         )}
       </div>
+      
+      <PdfLanguageModal 
+        isOpen={isPdfModalOpen}
+        onClose={() => setIsPdfModalOpen(false)}
+        onLanguageSelect={handleLanguageSelect}
+      />
+      
+      <PdfExportLoading isVisible={isPdfLoading} />
     </nav>
   );
 }
