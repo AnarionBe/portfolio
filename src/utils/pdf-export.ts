@@ -1,4 +1,9 @@
 import { jsPDF } from "jspdf";
+import portfolioDataMain from "../../portfolio-data.json";
+import portfolioDataEn from "../data/portfolio-en.json";
+import portfolioDataFr from "../data/portfolio-fr.json";
+import translationsEn from "../locales/en.json";
+import translationsFr from "../locales/fr.json";
 
 interface PortfolioData {
   hero: {
@@ -30,21 +35,75 @@ interface PortfolioData {
     shortDescription: string;
     skills: string[];
   }>;
+  languages: Array<{
+    name: string;
+    level: string;
+  }>;
 }
 
-export function exportPortfolioAsPDF(data: PortfolioData) {
+// Translation helper functions
+const getTranslation = (language: 'en' | 'fr', key: string): string => {
+  const translations = language === 'fr' ? translationsFr : translationsEn;
+  const keys = key.split('.');
+  let result: unknown = translations;
+  
+  for (const k of keys) {
+    if (result && typeof result === 'object' && k in result) {
+      result = (result as Record<string, unknown>)[k];
+    } else {
+      return key;
+    }
+  }
+  
+  return typeof result === 'string' ? result : key;
+};
+
+// Helper function to get skill name from slug
+const getSkillName = (slug: string): string => {
+  const skill = portfolioDataMain.skills.find(s => s.slug === slug);
+  return skill ? skill.name : slug;
+};
+
+// Helper function to get company name from slug
+const getCompanyName = (slug: string): string => {
+  const experience = portfolioDataMain.experience.find(e => e.slug === slug);
+  return experience ? experience.company : slug;
+};
+
+// Helper function to get language-specific data
+const getLanguageData = (language: 'en' | 'fr'): PortfolioData => {
+  const langData = language === 'fr' ? portfolioDataFr : portfolioDataEn;
+  return {
+    ...portfolioDataMain,
+    hero: langData.hero,
+    projects: langData.projects,
+    experience: langData.experience,
+    skills: portfolioDataMain.skills,
+    languages: portfolioDataMain.languages,
+  };
+};
+
+export function exportPortfolioAsPDFWithLanguage(language: 'en' | 'fr') {
+  const data = getLanguageData(language);
+  const t = (key: string) => getTranslation(language, key);
   const doc = new jsPDF();
   const pageWidth = doc.internal.pageSize.getWidth();
   const margin = 20;
   const contentWidth = pageWidth - 2 * margin;
   let yPosition = margin;
 
+  // Portfolio color scheme
+  const primaryColor: [number, number, number] = [0, 102, 204]; // Cyan/blue equivalent
+  const secondaryColor: [number, number, number] = [0, 51, 102];
+  const textColor: [number, number, number] = [0, 0, 0];
+  const mutedColor: [number, number, number] = [60, 60, 60];
+
   // Helper function to add text with word wrap
   const addText = (
     text: string,
     fontSize: number = 10,
     isBold: boolean = false,
-    color: [number, number, number] = [0, 0, 0]
+    color: [number, number, number] = textColor
   ) => {
     doc.setFontSize(fontSize);
     doc.setFont("helvetica", isBold ? "bold" : "normal");
@@ -65,9 +124,9 @@ export function exportPortfolioAsPDF(data: PortfolioData) {
 
   const addSectionTitle = (title: string) => {
     yPosition += 5;
-    addText(title, 14, true, [0, 102, 204]); // Blue color
+    addText(title, 14, true, primaryColor);
     // Add underline
-    doc.setDrawColor(0, 102, 204);
+    doc.setDrawColor(primaryColor[0], primaryColor[1], primaryColor[2]);
     doc.setLineWidth(0.5);
     doc.line(margin, yPosition - 2, pageWidth - margin, yPosition - 2);
     yPosition += 3;
@@ -80,19 +139,19 @@ export function exportPortfolioAsPDF(data: PortfolioData) {
   // Header - Name and Title
   doc.setFontSize(24);
   doc.setFont("helvetica", "bold");
-  doc.setTextColor(0, 51, 102);
+  doc.setTextColor(secondaryColor[0], secondaryColor[1], secondaryColor[2]);
   doc.text(data.hero.name, pageWidth / 2, yPosition, { align: "center" });
   yPosition += 10;
 
   doc.setFontSize(14);
   doc.setFont("helvetica", "normal");
-  doc.setTextColor(0, 102, 204);
+  doc.setTextColor(primaryColor[0], primaryColor[1], primaryColor[2]);
   doc.text(data.hero.title, pageWidth / 2, yPosition, { align: "center" });
   yPosition += 8;
 
   // Contact Information
   doc.setFontSize(10);
-  doc.setTextColor(60, 60, 60);
+  doc.setTextColor(mutedColor[0], mutedColor[1], mutedColor[2]);
   const contactInfo = `${data.hero.email} | ${data.hero.phone}`;
   doc.text(contactInfo, pageWidth / 2, yPosition, { align: "center" });
   yPosition += 5;
@@ -104,14 +163,14 @@ export function exportPortfolioAsPDF(data: PortfolioData) {
 
   // Summary/Description
   if (data.hero.description) {
-    addSectionTitle("PROFESSIONAL SUMMARY");
+    addSectionTitle(language === 'fr' ? "RÉSUMÉ PROFESSIONNEL" : "PROFESSIONAL SUMMARY");
     addText(data.hero.description, 10);
     addSpace();
   }
 
   // Experience
   if (data.experience && data.experience.length > 0) {
-    addSectionTitle("PROFESSIONAL EXPERIENCE");
+    addSectionTitle(language === 'fr' ? "EXPÉRIENCE PROFESSIONNELLE" : "PROFESSIONAL EXPERIENCE");
 
     data.experience.forEach((exp, index) => {
       // Company and Position
@@ -120,22 +179,23 @@ export function exportPortfolioAsPDF(data: PortfolioData) {
       // Period and Location
       doc.setFontSize(10);
       doc.setFont("helvetica", "italic");
-      doc.setTextColor(80, 80, 80);
+      doc.setTextColor(mutedColor[0], mutedColor[1], mutedColor[2]);
       doc.text(`${exp.period} | ${exp.location}`, margin, yPosition);
       yPosition += 5;
 
       // Responsibilities/Descriptions
       exp.description.forEach((desc) => {
         doc.setFont("helvetica", "normal");
-        doc.setTextColor(0, 0, 0);
+        doc.setTextColor(textColor[0], textColor[1], textColor[2]);
         addText(`• ${desc}`, 10);
       });
 
       // Technologies
       if (exp.technologies && exp.technologies.length > 0) {
-        const techText = `Technologies: ${exp.technologies.join(", ")}`;
+        const techNames = exp.technologies.map(tech => getSkillName(tech));
+        const techText = `${t("experience.technologies")}: ${techNames.join(", ")}`;
         doc.setFont("helvetica", "italic");
-        doc.setTextColor(60, 60, 60);
+        doc.setTextColor(mutedColor[0], mutedColor[1], mutedColor[2]);
         addText(techText, 9);
       }
 
@@ -148,7 +208,7 @@ export function exportPortfolioAsPDF(data: PortfolioData) {
 
   // Projects
   if (data.projects && data.projects.length > 0) {
-    addSectionTitle("KEY PROJECTS");
+    addSectionTitle(language === 'fr' ? "PROJETS CLÉS" : "KEY PROJECTS");
 
     data.projects.slice(0, 5).forEach((project, index) => {
       // Project Title
@@ -157,8 +217,9 @@ export function exportPortfolioAsPDF(data: PortfolioData) {
       // Company (if available)
       if (project.company) {
         doc.setFont("helvetica", "italic");
-        doc.setTextColor(80, 80, 80);
-        addText(project.company, 9);
+        doc.setTextColor(mutedColor[0], mutedColor[1], mutedColor[2]);
+        const companyName = getCompanyName(project.company);
+        addText(companyName, 9);
       }
 
       // Description
@@ -166,9 +227,10 @@ export function exportPortfolioAsPDF(data: PortfolioData) {
 
       // Technologies
       if (project.skills && project.skills.length > 0) {
-        const skillsText = `Technologies: ${project.skills.slice(0, 8).join(", ")}`;
+        const skillNames = project.skills.slice(0, 8).map(skill => getSkillName(skill));
+        const skillsText = `${t("projects.technologies")}: ${skillNames.join(", ")}`;
         doc.setFont("helvetica", "italic");
-        doc.setTextColor(60, 60, 60);
+        doc.setTextColor(mutedColor[0], mutedColor[1], mutedColor[2]);
         addText(skillsText, 9);
       }
 
@@ -181,7 +243,7 @@ export function exportPortfolioAsPDF(data: PortfolioData) {
 
   // Skills
   if (data.skills && data.skills.length > 0) {
-    addSectionTitle("TECHNICAL SKILLS");
+    addSectionTitle(t("skills.technical"));
 
     // Group skills by level
     const advanced = data.skills.filter(s => s.level.toLowerCase().includes("advanced"));
@@ -189,19 +251,29 @@ export function exportPortfolioAsPDF(data: PortfolioData) {
     const beginner = data.skills.filter(s => s.level.toLowerCase().includes("beginner"));
 
     if (advanced.length > 0) {
-      const advancedText = `Advanced: ${advanced.map(s => s.name).join(", ")}`;
+      const advancedText = `${t("skills.levels.advanced")}: ${advanced.map(s => s.name).join(", ")}`;
       addText(advancedText, 10);
     }
 
     if (intermediate.length > 0) {
-      const intermediateText = `Intermediate: ${intermediate.map(s => s.name).join(", ")}`;
+      const intermediateText = `${t("skills.levels.intermediate")}: ${intermediate.map(s => s.name).join(", ")}`;
       addText(intermediateText, 10);
     }
 
     if (beginner.length > 0) {
-      const beginnerText = `Beginner: ${beginner.map(s => s.name).join(", ")}`;
+      const beginnerText = `${t("skills.levels.beginner")}: ${beginner.map(s => s.name).join(", ")}`;
       addText(beginnerText, 10);
     }
+  }
+
+  // Languages
+  if (data.languages && data.languages.length > 0) {
+    addSectionTitle(t("skills.languages"));
+    data.languages.forEach((lang) => {
+      const translatedLang = t(lang.name);
+      const translatedLevel = t(lang.level);
+      addText(`${translatedLang}: ${translatedLevel}`, 10);
+    });
   }
 
   // Footer with generation date
@@ -218,7 +290,8 @@ export function exportPortfolioAsPDF(data: PortfolioData) {
     );
   }
 
-  // Save the PDF
-  const fileName = `${data.hero.name.replace(/\s+/g, "_")}_CV.pdf`;
+  // Save the PDF with language-aware filename
+  const languageSuffix = language.toUpperCase();
+  const fileName = `${data.hero.name.replace(/\s+/g, "_")}_CV_${languageSuffix}.pdf`;
   doc.save(fileName);
 }
