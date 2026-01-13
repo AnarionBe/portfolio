@@ -9,7 +9,8 @@
   "hero": {
     "greeting": "Bonjour, je m'appelle",
     "viewWork": "Voir Mon Travail",
-    "experienceBtn": "Expérience"
+    "experienceBtn": "Expérience",
+    "downloadCV": "Télécharger CV"
   },
   "skills": {
     "title": "Compétences",

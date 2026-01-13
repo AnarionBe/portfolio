@@ -9,7 +9,8 @@
   "hero": {
     "greeting": "Hi, my name is",
     "viewWork": "View My Work",
-    "experienceBtn": "Experience"
+    "experienceBtn": "Experience",
+    "downloadCV": "Download CV"
   },
   "skills": {
     "title": "Skills",
