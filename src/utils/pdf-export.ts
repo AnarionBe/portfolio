@@ -15,6 +15,7 @@ interface PortfolioData {
     socialLinks: {
       github: string;
       linkedin: string;
+      portfolio: string;
     };
   };
   skills: Array<{
@@ -157,8 +158,11 @@ export function exportPortfolioAsPDFWithLanguage(language: 'en' | 'fr') {
   yPosition += 5;
 
   // Social Links
-  const socialLinks = `GitHub: ${data.hero.socialLinks.github} | LinkedIn: ${data.hero.socialLinks.linkedin}`;
-  doc.text(socialLinks, pageWidth / 2, yPosition, { align: "center" });
+  const socialLinksTop = `GitHub: ${data.hero.socialLinks.github} | LinkedIn: ${data.hero.socialLinks.linkedin}`;
+  doc.text(socialLinksTop, pageWidth / 2, yPosition, { align: "center" });
+  yPosition += 5;
+  const socialLinksBottom = `Portfolio: ${data.hero.socialLinks.portfolio}`;
+  doc.text(socialLinksBottom, pageWidth / 2, yPosition, { align: "center" });
   yPosition += 10;
 
   // Summary/Description
