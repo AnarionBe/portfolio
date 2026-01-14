@@ -60,11 +60,11 @@ export function ProjectModal({
     <>
       {/* Main Modal */}
       <div
-        className="fixed inset-0 bg-background/80 backdrop-blur-sm z-50 flex items-center justify-center p-6"
+        className="fixed inset-0 bg-background/80 backdrop-blur-sm z-50 flex items-center justify-center p-6 min-h-screen"
         onClick={onClose}
       >
         <div
-          className="max-w-5xl w-full max-h-[90vh] overflow-y-auto relative"
+          className="max-w-5xl w-full max-h-[90vh] overflow-y-auto relative m-auto"
           onClick={(e) => e.stopPropagation()}
         >
           {/* Close button */}
@@ -216,7 +216,7 @@ export function ProjectModal({
       {/* Fullscreen Image Modal */}
       {fullscreenImage && (
         <div
-          className="fixed inset-0 bg-background/95 backdrop-blur-md z-60 flex items-center justify-center p-6"
+          className="fixed inset-0 bg-background/95 backdrop-blur-md z-60 flex items-center justify-center p-6 min-h-screen"
           onClick={() => setFullscreenImage(null)}
         >
           <button

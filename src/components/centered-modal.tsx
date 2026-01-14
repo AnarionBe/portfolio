@@ -30,8 +30,8 @@ export function CenteredModal({ isOpen, onClose, children }: ModalProps) {
   if (!isOpen) return null;
 
   return (
-    <div className="fixed inset-0 bg-black/60 flex items-center justify-center z-50 p-4">
-      <div className="bg-background border border-primary/30 rounded-xl shadow-2xl max-w-lg w-full max-h-[90vh] overflow-y-auto animate-in fade-in-0 zoom-in-95 duration-200">
+    <div className="fixed inset-0 bg-black/60 flex items-center justify-center z-50 p-4 min-h-screen">
+      <div className="bg-background border border-primary/30 rounded-xl shadow-2xl max-w-lg w-full max-h-[90vh] overflow-y-auto animate-in fade-in-0 zoom-in-95 duration-200 m-auto relative">
         {children}
       </div>
     </div>

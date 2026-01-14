@@ -14,8 +14,8 @@ export function PdfLanguageModal({ isOpen, onClose, onLanguageSelect }: PdfLangu
   };
 
   return (
-    <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50 p-4">
-      <div className="bg-background border border-primary/30 rounded-lg shadow-xl max-w-md w-full p-6">
+    <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50 p-4 min-h-screen">
+      <div className="bg-background border border-primary/30 rounded-lg shadow-xl max-w-md w-full p-6 m-auto relative">
         <h2 className="text-xl font-semibold text-foreground mb-4">
           Choose CV Language
         </h2>
