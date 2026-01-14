@@ -10,7 +10,8 @@
     "greeting": "Hi, my name is",
     "viewWork": "View My Work",
     "experienceBtn": "Experience",
-    "downloadCV": "Download CV"
+    "downloadCV": "Download CV",
+    "scrollDown": "Scroll Down"
   },
   "skills": {
     "title": "Skills",

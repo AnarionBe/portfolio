@@ -1,4 +1,5 @@
 import { useState, useEffect, useRef } from "react";
+import { useTranslation } from "react-i18next";
 import { NavBar } from "./components/navbar";
 import { Hero } from "./components/hero";
 import { Skills } from "./components/skills";
@@ -35,70 +36,76 @@ interface Project {
 }
 
 function App() {
+  const { t } = useTranslation();
   const portfolioData = usePortfolioData();
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
   const [currentSection, setCurrentSection] = useState("home");
-  const [viewportHeight, setViewportHeight] = useState('100dvh');
+  const [viewportHeight, setViewportHeight] = useState("100dvh");
   const scrollContainerRef = useRef<HTMLDivElement>(null);
 
   // Detect and fix mobile viewport issues
   useEffect(() => {
     const updateViewportHeight = () => {
       const isMobile = window.innerWidth < 768;
-      
+
       if (isMobile) {
         // On mobile, detect if browser UI is affecting viewport
-        const visualViewport = (window as unknown as { visualViewport?: VisualViewportAPI }).visualViewport;
+        const visualViewport = (
+          window as unknown as { visualViewport?: VisualViewportAPI }
+        ).visualViewport;
         if (visualViewport) {
           // Use Visual Viewport API if available (most reliable)
           setViewportHeight(`${visualViewport.height}px`);
         } else {
           // Fallback: test if 100vh is accurate
-          const testElement = document.createElement('div');
-          testElement.style.cssText = 'position:fixed; top:0; left:0; width:100%; height:100vh; pointer-events:none;';
+          const testElement = document.createElement("div");
+          testElement.style.cssText =
+            "position:fixed; top:0; left:0; width:100%; height:100vh; pointer-events:none;";
           document.body.appendChild(testElement);
-          
+
           setTimeout(() => {
             const actualHeight = testElement.offsetHeight;
             const windowHeight = window.innerHeight;
-            
+
             // If there's a significant difference, browser UI is interfering
             if (Math.abs(actualHeight - windowHeight) > 50) {
               setViewportHeight(`${window.innerHeight}px`);
             } else {
-              setViewportHeight('100dvh');
+              setViewportHeight("100dvh");
             }
-            
+
             document.body.removeChild(testElement);
           }, 100);
         }
       } else {
         // On desktop, use 100dvh
-        setViewportHeight('100dvh');
+        setViewportHeight("100dvh");
       }
     };
 
     updateViewportHeight();
-    
+
     // Listen for viewport changes (browser UI appearance/disappearance)
     const handleViewportChange = () => {
       setTimeout(updateViewportHeight, 100);
     };
 
-    window.addEventListener('resize', handleViewportChange);
-    window.addEventListener('orientationchange', handleViewportChange);
-    
+    window.addEventListener("resize", handleViewportChange);
+    window.addEventListener("orientationchange", handleViewportChange);
+
     // Listen for Visual Viewport API changes
-    const visualViewport = (window as unknown as { visualViewport?: VisualViewportAPI }).visualViewport;
+    const visualViewport = (
+      window as unknown as { visualViewport?: VisualViewportAPI }
+    ).visualViewport;
     if (visualViewport) {
-      visualViewport.addEventListener('resize', handleViewportChange);
+      visualViewport.addEventListener("resize", handleViewportChange);
     }
 
     return () => {
-      window.removeEventListener('resize', handleViewportChange);
-      window.removeEventListener('orientationchange', handleViewportChange);
+      window.removeEventListener("resize", handleViewportChange);
+      window.removeEventListener("orientationchange", handleViewportChange);
       if (visualViewport) {
-        visualViewport.removeEventListener('resize', handleViewportChange);
+        visualViewport.removeEventListener("resize", handleViewportChange);
       }
     };
   }, []);
@@ -128,23 +135,6 @@ function App() {
       targetSection.scrollIntoView({ behavior: "smooth" });
     }
   };
-
-  // Hide browser UI on mobile on page load
-  useEffect(() => {
-    // Delay to ensure DOM is fully loaded
-    const timer = setTimeout(() => {
-      // Scroll down slightly to hide the browser UI on mobile
-      const scrollContainer = scrollContainerRef.current;
-      if (scrollContainer) {
-        scrollContainer.scrollTo(0, 1);
-        // Force a reflow
-        scrollContainer.scrollTop = 1;
-      }
-      window.scrollTo(0, 1);
-    }, 100);
-
-    return () => clearTimeout(timer);
-  }, []);
 
   useEffect(() => {
     const scrollContainer = scrollContainerRef.current;
@@ -235,6 +225,29 @@ function App() {
         sections={sections}
         onNavigate={handleNavigate}
       />
+
+      {/* Scroll down arrow - only show on hero section on desktop */}
+      {currentSection === "home" && (
+        <a
+          href="#skills"
+          className="hidden md:flex fixed bottom-8 left-1/2 -translate-x-1/2 flex-col items-center gap-1 md:gap-2 text-primary/70 hover:text-primary transition-colors duration-200 animate-bounce z-20"
+        >
+          <span className="text-xs md:text-sm">{t("hero.scrollDown", "Scroll Down")}</span>
+          <svg
+            className="w-5 h-5 md:w-6 md:h-6"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth={2}
+              d="M19 14l-7 7m0 0l-7-7m7 7V3"
+            />
+          </svg>
+        </a>
+      )}
 
       {/* <MusicPlayer playlistId={portfolioDataMain.music.youtubePlaylistId} /> */}
     </>

@@ -23,7 +23,6 @@ interface HeroProps {
 
 export function Hero({ data }: HeroProps) {
   const { t } = useTranslation();
-  console.log(data.profileImage);
   const containerRef = useRef<HTMLDivElement>(null);
   const touchStartY = useRef<number>(0);
   const touchEndY = useRef<number>(0);
@@ -220,26 +219,6 @@ export function Hero({ data }: HeroProps) {
           </div>
         </div>
       </div>
-
-      <a
-        href="#skills"
-        className="hidden md:flex absolute bottom-8 left-1/2 -translate-x-1/2 flex-col items-center gap-1 md:gap-2 text-primary/70 hover:text-primary transition-colors duration-200 animate-bounce"
-      >
-        <span className="text-xs md:text-sm">Scroll Down</span>
-        <svg
-          className="w-5 h-5 md:w-6 md:h-6"
-          fill="none"
-          stroke="currentColor"
-          viewBox="0 0 24 24"
-        >
-          <path
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            strokeWidth={2}
-            d="M19 14l-7 7m0 0l-7-7m7 7V3"
-          />
-        </svg>
-      </a>
 
       <PdfLanguageModal
         isOpen={isPdfModalOpen}

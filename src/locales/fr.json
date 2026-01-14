@@ -10,7 +10,8 @@
     "greeting": "Bonjour, je m'appelle",
     "viewWork": "Voir Mon Travail",
     "experienceBtn": "Expérience",
-    "downloadCV": "Télécharger CV"
+    "downloadCV": "Télécharger CV",
+    "scrollDown": "Défiler"
   },
   "skills": {
     "title": "Compétences",
