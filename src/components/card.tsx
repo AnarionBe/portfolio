@@ -23,11 +23,11 @@ export function Card({
     >
       {/* Image section if provided */}
       {image && (
-        <div className="relative w-full h-48 overflow-hidden shrink-0">
+        <div className="relative w-full h-48 overflow-hidden shrink-0 flex items-center justify-center bg-secondary/60">
           <img
             src={image}
             alt={imageAlt}
-            className="w-full h-full object-cover"
+            className="w-full h-full object-contain"
           />
           {/* Gradient overlay on image */}
           <div className="absolute inset-0 bg-linear-to-b from-transparent to-secondary/60" />
