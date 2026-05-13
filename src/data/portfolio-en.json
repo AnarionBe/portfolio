@@ -75,10 +75,10 @@
         "Infrastructure and DevOps"
       ],
       "achievements": [],
-      "image": "https://images.unsplash.com/photo-1506091403742-e3aa39518db5?q=80&w=2340&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      "image": "/images/metal_galaxy_logo.png",
       "images": [],
       "githubUrl": "",
-      "liveUrl": "https://metal-galaxy.net",
+      "liveUrl": "https://beta.metal-galaxy.net",
       "skills": [
         "react",
         "tailwind_css",
@@ -338,8 +338,8 @@
         "Led complete product vision, design, and full-stack development from concept to launch, building key features including a community-driven encyclopedia, comprehensive live show agenda, and social networking capabilities to foster connections within the metal community."
       ],
       "technologies": [],
-      "logo": "",
-      "website": "https://metal-galaxy.net/"
+      "logo": "/images/metal_galaxy_logo.png",
+      "website": "https://beta.metal-galaxy.net/"
     },
     {
       "slug": "fix_pilot",
