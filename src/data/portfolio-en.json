@@ -83,7 +83,8 @@
         "react",
         "tailwind_css",
         "nest_js",
-        "mongo_db"
+        "mongo_db",
+        "claude_code"
       ]
     },
     {

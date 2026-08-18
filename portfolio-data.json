@@ -164,6 +164,12 @@
       "name": "MongoDB",
       "level": "skills.levels.intermediate",
       "icon": "SiMongodb"
+    },
+    {
+      "slug": "claude_code",
+      "name": "Claude Code",
+      "level": "skills.levels.advanced",
+      "icon": "SiClaude"
     }
   ],
   "tools": [

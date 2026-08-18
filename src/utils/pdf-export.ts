@@ -158,11 +158,9 @@ export function exportPortfolioAsPDFWithLanguage(language: 'en' | 'fr') {
   yPosition += 5;
 
   // Social Links
-  const socialLinksTop = `GitHub: ${data.hero.socialLinks.github} | LinkedIn: ${data.hero.socialLinks.linkedin}`;
-  doc.text(socialLinksTop, pageWidth / 2, yPosition, { align: "center" });
+  doc.text(`GitHub: ${data.hero.socialLinks.github}`, pageWidth / 2, yPosition, { align: "center" });
   yPosition += 5;
-  const socialLinksBottom = `Portfolio: ${data.hero.socialLinks.portfolio}`;
-  doc.text(socialLinksBottom, pageWidth / 2, yPosition, { align: "center" });
+  doc.text(`LinkedIn: ${data.hero.socialLinks.linkedin}`, pageWidth / 2, yPosition, { align: "center" });
   yPosition += 10;
 
   // Summary/Description
